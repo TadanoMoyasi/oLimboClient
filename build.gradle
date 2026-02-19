@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.essential.gg/repository/maven-public/" }
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "1.0"
+group= "me.TadanoMoyasi.oLimboClient"
+archivesBaseName = "oLimboClient"
+
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+minecraft {
+    version = "1.8.9-11.15.1.2318-1.8.9"
+    runDir = "run"
+    replace "@VERSION@", project.version
+    mappings = "stable_20"
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.essential.gg/repository/maven-public/" }
+}
+
+dependencies {
+    compile 'net.java.dev.jna:jna:5.13.0'
+    compile 'net.java.dev.jna:jna-platform:5.13.0'
+    provided files("libs/Essential (forge_1.8.9).jar")
+}
+
+processResources
+{
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
