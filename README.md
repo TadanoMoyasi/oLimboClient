@@ -9,6 +9,13 @@
 
 ---
 
+## ⚠️ Dependencies ⚠️
+本Modを動作させるには、以下のModが**必ず**必要です。
+* **[Essential](https://essential.gg/download)**
+  - 設定画面（Vigilance）の動作に必要です。
+
+---
+
 ## 🌟 Features
 
 * **スキルCT表示** 自分のスキルのクールダウンを表示。
