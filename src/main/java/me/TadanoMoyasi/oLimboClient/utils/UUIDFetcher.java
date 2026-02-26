@@ -12,7 +12,7 @@ import com.google.gson.JsonParser;
 
 public class UUIDFetcher {
 
-    public static UUID getUUIDFromName(String name) {
+    public static PlayerData getPlayerDataName(String name) {
         try {
             URL url = new URI("https://api.mojang.com/users/profiles/minecraft/" + name).toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -27,9 +27,11 @@ public class UUIDFetcher {
             reader.close();
 
             JsonObject json = new JsonParser().parse(response.toString()).getAsJsonObject();
+            String correctName = json.get("name").getAsString();
             String id = json.get("id").getAsString();
+            UUID uuid = formatUUID(id);
 
-            return formatUUID(id);
+            return new PlayerData(uuid, correctName);
 
         } catch (Exception e) {
             e.printStackTrace();

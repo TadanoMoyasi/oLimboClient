@@ -3,6 +3,8 @@ package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.CTSkill;
+
 public class SkillCoolTimeHandler {	
 	private static final List<CTSkill> CTSkills = new ArrayList<>();
 

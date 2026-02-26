@@ -2,8 +2,8 @@ package me.TadanoMoyasi.oLimboClient.hud.features;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
-import me.TadanoMoyasi.oLimboClient.features.impl.skills.CTSkill;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillCoolTimeHandler;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.CTSkill;
 import me.TadanoMoyasi.oLimboClient.hud.core.BaseHUD;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDConfigScreen;
 import net.minecraft.client.renderer.GlStateManager;

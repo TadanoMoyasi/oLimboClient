@@ -2,9 +2,9 @@ package me.TadanoMoyasi.oLimboClient.hud.features;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
-import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillManager;
-import me.TadanoMoyasi.oLimboClient.features.impl.skills.TimedSkill;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillHandler.Skill;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.TimedSkill;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillManager;
 import me.TadanoMoyasi.oLimboClient.hud.core.BaseHUD;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDConfigScreen;
 import net.minecraft.client.renderer.GlStateManager;
@@ -44,7 +44,7 @@ public class SkillCastTimeHUD extends BaseHUD {
 		if (!ModCoreData.isInTheLow) return;
 		
 		if (mc.thePlayer == null) return;
-		String currentSkillStr = SkillManager.getCurrentSkill(mc.thePlayer, SkillManager.SkillType.PASSIVE);
+		String currentSkillStr = SkillManager.getCurrentSkill(SkillManager.SkillType.PASSIVE);
 		if (currentSkillStr == null) return;
 		Skill currentSkill = Skill.getSkillFromName(currentSkillStr);
 		if (currentSkill == null) return;

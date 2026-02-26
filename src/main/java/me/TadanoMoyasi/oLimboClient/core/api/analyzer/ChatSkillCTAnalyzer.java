@@ -15,18 +15,17 @@ import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillHandler;
 
 public class ChatSkillCTAnalyzer{
   public static boolean uniqueSkills(SkillCoolTime sc) {
-	  System.out.println(sc.type);
-	  if (sc.name.equals("開放")) {
+	  if ("開放".equals(sc.name)) {
 	      ModCoreData.kaihouUsed = true;
 	      SkillCoolTimeHandler.startCT("開放タイマー", 30);
 	      return true;
-	    } else if (sc.name.equals("覚醒")) {
+	    } else if ("覚醒".equals(sc.name)) {
 	      ModCoreData.kaihouUsed = false;
 	      return false;
-	    } else if (sc.name.equals("ステッドショック") && sc.cooltime.doubleValue() > 60.0D) {
+	    } else if ("ステッドショック".equals(sc.name) && sc.cooltime.doubleValue() > 60.0D) {
 	      SkillCoolTimeHandler.startCT(sc.name, 30);
 	      return true;
-	    } else if (sc.name.equals("メテオストライク") || sc.name.equals("マジックボール") || sc.name.equals("ライトニングボルト")) {
+	    } else if ("メテオストライク".equals(sc.name) || "マジックボール".equals(sc.name) || "ライトニングボルト".equals(sc.name)) {
 	    	SkillHandler.resetEISHOU();
 	    	return false;
 	    } else if (ExecutionSkill.Skill.contains(sc.name) && "NORMAL_SKILL".equals(sc.type)) {
@@ -48,5 +47,3 @@ public class ChatSkillCTAnalyzer{
     }
   }
 }
-
-

@@ -2,6 +2,7 @@ package me.TadanoMoyasi.oLimboClient.hud.core;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.renderer.GlStateManager;
 
 public abstract class BaseHUD {
 	
@@ -40,7 +41,15 @@ public abstract class BaseHUD {
 	
 	public void renderEditor() {
 		render();
-		drawOutline();
+
+		GlStateManager.pushMatrix();
+		
+	    GlStateManager.translate(x, y, 0);
+	    GlStateManager.scale(scale, scale, 1);
+	    
+	    drawOutline();
+	    
+	    GlStateManager.popMatrix();
 	}
 	
 	public boolean isHovered(int mouseX, int mouseY) {
@@ -48,15 +57,15 @@ public abstract class BaseHUD {
 	}
 	
 	private void drawOutline() {
-		
+		//nazeka sirankedo byouga dekin kara ittan akirameru kotonisuru. maa nakutemo komaransi kigamuitara naosu#気が向いたら直す
 		int borderColor = 0xFFFFFF;
 		int backgroundColor = 0x55000000;
 		
-		Gui.drawRect(x, y, x + width, y + height, backgroundColor);
-		
-		Gui.drawRect(x, y, x + width, y + 1, borderColor); //ue
-		Gui.drawRect(x, y + height - 1, x + width, y + height, borderColor); //sita
-		Gui.drawRect(x, y, x + 1, y + height, borderColor); //hida
-		Gui.drawRect(x + width - 1, y, x + width, y + height, borderColor); //migi
+		Gui.drawRect(0, 0, width, height, backgroundColor);
+	    
+	    Gui.drawRect(0, 0, width, 1, borderColor); // ue
+	    Gui.drawRect(0, height - 1, width, height, borderColor); // sita
+	    Gui.drawRect(0, 0, 1, height, borderColor); // hida
+	    Gui.drawRect(width - 1, 0, width, height, borderColor); // migi
 	}
 }

@@ -11,6 +11,8 @@ import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.hud.features.EquippedSkillHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.KaihouHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.OthersActiveTimeHUD;
+import me.TadanoMoyasi.oLimboClient.hud.features.PresetHUD;
+import me.TadanoMoyasi.oLimboClient.hud.features.PriestHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.SkillCastTimeHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.SkillCoolTimeHUD;
 import net.minecraft.client.Minecraft;
@@ -29,6 +31,8 @@ public class HUDManager {
 		register(new EquippedSkillHUD());
 		register(new KaihouHUD());
 		register(new SkillCoolTimeHUD());
+		register(new PresetHUD());
+		register(new PriestHUD());
 		MinecraftForge.EVENT_BUS.register(new HUDManager());
 		
 		Minecraft.getMinecraft().addScheduledTask(() -> {
@@ -47,6 +51,14 @@ public class HUDManager {
 	public static void bringToFront(BaseHUD hud) {
 	    huds.remove(hud);
 	    huds.add(hud);
+	}
+	
+	public static void resetPosition() {
+		for (BaseHUD hud : HUDManager.getHuds()) {
+	    	hud.x = 10;
+	    	hud.y = 10;
+	    	hud.scale = 1;
+	    }
 	}
 	
 	public static void savePositions() {

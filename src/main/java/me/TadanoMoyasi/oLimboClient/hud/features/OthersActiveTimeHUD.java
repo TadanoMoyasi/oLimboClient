@@ -22,7 +22,7 @@ public class OthersActiveTimeHUD extends BaseHUD {
 	    int baseHeight = mc.fontRendererObj.FONT_HEIGHT;
 
 	    GlStateManager.pushMatrix();
-	    
+
 	    GlStateManager.translate(getX(), getY(), 0);
 	    GlStateManager.scale(getScale(), getScale(), 1);
 
@@ -55,9 +55,18 @@ public class OthersActiveTimeHUD extends BaseHUD {
 
 		        String playerName = "Unknown";
 		        EntityPlayer player = mc.theWorld.getPlayerEntityByUUID(active.getPlayerId());
-
-		        if (player != null) {
+		        
+		        if (playerName.equals("Unknown")) {
+		        	if (!active.getMCID().equals("")) {
+			        	playerName = active.getMCID();
+		        	}
+		        }
+		        
+		        if (player != null && playerName.equals("Unknown")) {
 		            playerName = player.getName();
+		            if (!active.getMCID().equals(playerName)) {
+		            	active.setMCID(playerName);
+		            }
 		        }
 
 		        String text = playerName + " - " + active.getSkill().getDisplayName() + ": " + String.format("%.2f", seconds) + "s";

@@ -21,30 +21,19 @@ public class TheLowUtil {
 		showInChat("§9=================================================");
 		showInChat("§ka§r§b§lWelcome to oLimboClient!§r§ka§r");
 	    showInChat("§b§lThe current mod version is §f§o"+ oLimboClientMod.MOD_VERSION);
-	    showInChat("§3/tc to open config!");
-	    showInChat("§3/tc help to show help!");
+	    showInChat("§3/lc to open config!");
+	    showInChat("§3/lc help to show help!");
 	    showInChat("§3if you find any bugs, please notify me!");
 	    showInChat("§3discord: TadanoMoyasi");
 	    showInChat("§9=================================================");
 		oLimboClientMod.config.firstTime = false;
 	}
 	
-	private static void showInChat(Object obj) {
+	public static void showInChat(Object obj) {
 	    if (obj == null) {
 	      (Minecraft.getMinecraft()).thePlayer.addChatComponentMessage((IChatComponent)new ChatComponentText("null"));
 	    } else {
 	      (Minecraft.getMinecraft()).thePlayer.addChatComponentMessage((IChatComponent)new ChatComponentText(obj.toString()));
 	    } 
-	  }
-	
-	public static void sendDungeonAPIChat() {
-	    (Minecraft.getMinecraft()).thePlayer.sendChatMessage("/thelow_api dungeon");
-	  }
-	  public static void sendPlayerAPIChat() {
-	    (Minecraft.getMinecraft()).thePlayer.sendChatMessage("/thelow_api player");
-	  }
-	  
-	  public static void sendAPISubscribeChat() {
-	    (Minecraft.getMinecraft()).thePlayer.sendChatMessage("/thelow_api subscribe SKILL_COOLTIME");
 	  }
 }

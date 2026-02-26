@@ -10,10 +10,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.Codex;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.MagicStoneManager;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.NBTParsing;
+import me.TadanoMoyasi.oLimboClient.utils.JobChanger;
+import me.TadanoMoyasi.oLimboClient.utils.OthersJobManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 
 public class ExecutionSkill {
@@ -21,7 +26,8 @@ public class ExecutionSkill {
 	
 	public enum Skill {
 		  KAKUSEI("覚醒", 400),
-		  HYAKKA_RYOURAN("百火繚乱", 200),
+		  HYAKKA_RYOURAN("百火繚乱", 240), //batasi
+		  HYAKKA_RYOURAN2("百火繚乱", 200), //si-ka-
 		  YAKUSAI_KOURIN("厄災降臨", 300),
 		  CHAOS_BLIZZARD("カオスブリザード", 120),
 		  MEGUMI_NO_IZUMI("恵みの泉", 400),
@@ -62,6 +68,7 @@ public class ExecutionSkill {
 		  private final String displayName;
 		  
 		  private final int activeTime;
+		  
 
 		  Skill(String displayName, int activeTime) {
 		        this.displayName = displayName;
@@ -89,17 +96,17 @@ public class ExecutionSkill {
 		    }
 
 		    public static boolean contains (String name) {
-		    	for (Skill skill : Skill.values()) {
-		    		if (skill.displayName.equals(name)) {
-		    			return true;
-		    		}
-		    	}
-		    	return false;
+		    	return BY_NAME.containsKey(name);
 		    }
 	 }
 	
+	private static final Pattern SKILL_PATTERN = Pattern.compile("\\[武器スキル\\] (.+)が(.+)を発動");
 	private static boolean isTenkaMusouActive = false;
 	private static final List<ActiveSkill> activeSkills = new ArrayList<>();
+	private static final double CODEX_BASE_COOLTIME = 60.0; //pa-ku no hangen komi(pa-kuha torenainore)
+	private static final int CODEX_BASE_ACTIVETIME_TICK = 400;
+	private static final double SPRING_BASE_COOLTIME = 65.0; // pa-kuno hangen + nazono purino kimoi ataino CTgenshou <- koitu nani majide wakewakaran
+	private static final int SPRING_BASE_ACTIVETIME_TICK = 600;
 	
 	public static void activate(UUID playerId, Skill skill) {
 		if (playerId == null || skill == null) return;
@@ -152,17 +159,27 @@ public class ExecutionSkill {
     
     public static void onChat(String msg) {
     	if (!oLimboClientMod.config.othersSkillActiveTime) return;
-    	Pattern pattern = Pattern.compile("\\[武器スキル\\] (.+)が(.+)を発動");
-    	Matcher matcher = pattern.matcher(msg);
+    	Matcher matcher = SKILL_PATTERN.matcher(msg);
     	
     	if (matcher.find()) {
     		String matchedPlayer = matcher.group(1);
     		String matchedSkill = matcher.group(2);
     		
-    		EntityPlayer player = Minecraft.getMinecraft().theWorld.getPlayerEntityByName(matchedPlayer);
+    		EntityPlayer player = mc.theWorld.getPlayerEntityByName(matchedPlayer);
     		if (player == null) return;
     		UUID uuid = player.getUniqueID();
     		Skill skill = getCurrentSkillEnum(mc.thePlayer, matchedSkill);
+    		if (skill == Skill.HYAKKA_RYOURAN) {
+    			if (player == mc.thePlayer) {
+    				if (!"バタフライシーカー".equals(JobChanger.getCurrentJob())) {
+        				skill = Skill.HYAKKA_RYOURAN2;
+        			} 
+    			} else {
+    				if (!"バタフライシーカー".equals(OthersJobManager.getJob(matchedPlayer))) {
+    					skill = Skill.HYAKKA_RYOURAN2;
+    				}
+    			}
+    		}
     		activate(uuid, skill);
     		
     		if ("天下無双".equals(matchedSkill)) {
@@ -170,7 +187,12 @@ public class ExecutionSkill {
     		}
     		
     		if ("封魔録・神託の加護".equals(matchedSkill)) {
-    			onCodex(uuid);
+    			onCodex(uuid, player.getName());
+    			onPriestSkills(uuid, matchedPlayer, matchedSkill);
+    		}
+    		
+    		if ("恵みの泉".equals(matchedSkill)) {
+    			onPriestSkills(uuid, matchedPlayer, matchedSkill);
     		}
     	}
     }
@@ -187,12 +209,10 @@ public class ExecutionSkill {
     
     public static void isTenkaEnable() {
     	isTenkaMusouActive = true;
-    	return;
     }
     
     public static void isTenkaDisable() {
     	isTenkaMusouActive = false;
-    	return;
     }
     
     public static void onPlaySound(PlaySoundEvent event) {
@@ -210,68 +230,135 @@ public class ExecutionSkill {
     	        EntityPlayer player = mc.theWorld.getPlayerEntityByUUID(uuid);
     	        if (player == null) continue;
 
-    	        double distance = player.getDistance(event.sound.getXPosF(), event.sound.getYPosF(), event.sound.getZPosF());
+    	        double distSq = player.getDistanceSq(event.sound.getXPosF(), event.sound.getYPosF(), event.sound.getZPosF());
+    	        //double distance = player.getDistance(event.sound.getXPosF(), event.sound.getYPosF(), event.sound.getZPosF());
 
-    	        if (distance < 3.3) {
+    	        if (distSq < 10.89) { //distance 3.3
     	        	active.addTime(6);
     	        }
     	    }
     	}
     }
     
-    private static void onCodex(UUID uuid) {
-    	EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-    	
-    	PotionEffect effect = null;
-    	int ticks = -1;
-    	
-    	if (CodexCache.contains(uuid)) {
-    		int tick = CodexCache.get(uuid);
-    		ticks = tick;
-    	}
-    	
-    	if (player.isPotionActive(Potion.damageBoost) && ticks == -1) {
-    		PotionEffect e = player.getActivePotionEffect(Potion.damageBoost);
-    		if (e.getAmplifier() == 2) {
-    			if (e.getDuration() >200 && e.getDuration() < 600) {
-    				effect = e;
-    			}
+    private static void onPriestSkills(UUID uuid, String mcid, String skill) {
+    	if (uuid == null) return;
+    	EntityPlayer targetPlayer = mc.theWorld.getPlayerEntityByUUID(uuid);
+    	if (targetPlayer == null) return;
+    	ItemStack heldItem = targetPlayer.getHeldItem();
+        if (heldItem == null || !heldItem.hasTagCompound()) return;
+        NBTTagCompound nbt = heldItem.getTagCompound();
+        if (!nbt.hasKey("thelow_item_id")) return; 
+    	if ("封魔録・神託の加護".equals(skill)) {
+    		String slot;
+    		double damage;
+    		int activeTicks;
+    		if (!nbt.getString("thelow_item_id").equals("CoA")) {
+    			if (!CodexCache.contains(uuid)) return;
+    			Codex codex = CodexCache.get(uuid);
+    			slot = codex.slot;
+    			activeTicks = codex.ticks;
+    		} else {
+    			slot = NBTParsing.getPlayerSlot(uuid);
+        		damage = NBTParsing.getPlayerWeaponDamage(uuid);
+        		activeTicks = CodexCache.calculateCodexTime(damage);
     		}
+    		int cooltimeTicks = (int) (MagicStoneManager.calclateCooltimeReduction(CODEX_BASE_COOLTIME, slot) * 20) + CODEX_BASE_ACTIVETIME_TICK;
+    		int calclatedCoolTimeTicks = cooltimeTicks - activeTicks;
+    		PriestManager.addPriest(mcid, activeTicks, calclatedCoolTimeTicks, "Codex");
+    	} else if ("恵みの泉".equals(skill)) {
+    		if (!nbt.getString("thelow_item_id").equals("mainH(223)弓")) return;
+    		String slot = NBTParsing.getPlayerSlot(uuid);
+    		int activeTicks = 400;
+    		int cooltimeTicks = (int) (MagicStoneManager.calclateCooltimeReduction(SPRING_BASE_COOLTIME, slot) * 20) + SPRING_BASE_ACTIVETIME_TICK;
+    		int calclatedCoolTimeTicks = cooltimeTicks - activeTicks;
+    		PriestManager.addPriest(mcid, activeTicks, calclatedCoolTimeTicks, "泉");
     	}
+    }
+    
+    private static void onCodex(UUID uuid, String mcid) {
+    	if (uuid == null) return;
     	
-    	if (effect == null && player.isPotionActive(Potion.resistance) && ticks == -1) {
-    		PotionEffect e = player.getActivePotionEffect(Potion.resistance);
-    		if (e.getAmplifier() == 1) {
-    			if (e.getDuration() > 200 && e.getDuration() < 600) {
-    				effect = e;
-    			}
-    		}
-    	}
-    	
-    	if (effect == null && player.isPotionActive(Potion.regeneration) && ticks == -1) {
-    		PotionEffect e = player.getActivePotionEffect(Potion.regeneration);
-    		if (e.getAmplifier() == 2) {
-    			if (e.getDuration() > 200 && e.getDuration() < 600) {
-    				effect = e;
-    			}
-    		}
-    	}
-    	
+    	double damage;
+    	String slot = "";
+    	EntityPlayer targetPlayer = mc.theWorld.getPlayerEntityByUUID(uuid);
+        if (targetPlayer == null) {
+        	damage = CodexCache.get(uuid).ticks;
+        } else {
+        	ItemStack heldItem = targetPlayer.getHeldItem();
+            if (heldItem == null || !heldItem.hasTagCompound()) return;
+            NBTTagCompound nbt = heldItem.getTagCompound();
+            if (!nbt.hasKey("thelow_item_id") || !nbt.getString("thelow_item_id").equals("CoA")) return; 
+            damage = NBTParsing.getPlayerWeaponDamage(uuid);
+            slot = NBTParsing.getPlayerSlot(uuid);
+        }
+        
+    	if (damage == 0.0) return;
     	for (ActiveSkill active : ExecutionSkill.getActiveSkills()) {
     	    if (active.getSkill() == Skill.FUUMAROKU_SINTAKU_NO_KAGO) {
-    	    	if (ticks != -1) {
+    	    	if (damage != 0) {
+    	    		int ticks = CodexCache.calculateCodexTime(damage);
     	    		active.setDurationTicks(ticks);
-    	    		CodexCache.updateIfDifferent(uuid, ticks);
-    	    		return;
-    	    	}
-    	    	if (effect != null && ticks == -1) {
-    	    		ticks = effect.getDuration();
-    	    		active.setDurationTicks(ticks);
-    	    		if (!CodexCache.contains(uuid)) {
-        	    		CodexCache.put(uuid, ticks);
+    	    		if (CodexCache.contains(uuid)) {
+    	    			CodexCache.updateIfDifferent(uuid, ticks);
+        	    	} else {
+        	    		CodexCache.put(uuid, ticks, mcid, slot);
         	    	}
+    	    		return;
     	    	}
     	    }
     	}
     }
+    
+    /*古のコデ2居ると動かないやつ。別の方法を思いついたので必要なくなりました。
+	 * PotionEffect effect = null;
+	int ticks = -1;
+	
+	if (CodexCache.contains(uuid)) {
+		int tick = CodexCache.get(uuid);
+		ticks = tick;
+	}
+	
+	if (player.isPotionActive(Potion.damageBoost) && ticks == -1) {
+		PotionEffect e = player.getActivePotionEffect(Potion.damageBoost);
+		if (e.getAmplifier() == 2) {
+			if (e.getDuration() >200 && e.getDuration() < 600) {
+				effect = e;
+			}
+		}
+	}
+	
+	if (effect == null && player.isPotionActive(Potion.resistance) && ticks == -1) {
+		PotionEffect e = player.getActivePotionEffect(Potion.resistance);
+		if (e.getAmplifier() == 1) {
+			if (e.getDuration() > 200 && e.getDuration() < 600) {
+				effect = e;
+			}
+		}
+	}
+	
+	if (effect == null && player.isPotionActive(Potion.regeneration) && ticks == -1) {
+		PotionEffect e = player.getActivePotionEffect(Potion.regeneration);
+		if (e.getAmplifier() == 2) {
+			if (e.getDuration() > 200 && e.getDuration() < 600) {
+				effect = e;
+			}
+		}
+	}
+	
+	for (ActiveSkill active : ExecutionSkill.getActiveSkills()) {
+	    if (active.getSkill() == Skill.FUUMAROKU_SINTAKU_NO_KAGO) {
+	    	if (ticks != -1) {
+	    		active.setDurationTicks(ticks);
+	    		CodexCache.updateIfDifferent(uuid, ticks);
+	    		return;
+	    	}
+	    	if (effect != null && ticks == -1) {
+	    		ticks = effect.getDuration();
+	    		active.setDurationTicks(ticks);
+	    		if (!CodexCache.contains(uuid)) {
+    	    		CodexCache.put(uuid, ticks);
+    	    	}
+	    	}
+	    }
+	}*/
 }

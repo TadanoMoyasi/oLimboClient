@@ -1,17 +1,16 @@
 package me.TadanoMoyasi.oLimboClient.core.api;
 
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
-import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIHide;
 import me.TadanoMoyasi.oLimboClient.features.impl.misc.ChatMentionReminder;
 import me.TadanoMoyasi.oLimboClient.features.impl.misc.TellReminder;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill;
+import me.TadanoMoyasi.oLimboClient.utils.JobChanger;
 import me.TadanoMoyasi.oLimboClient.utils.TheLowUtil;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ChatListener {
-	
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onChat(ClientChatReceivedEvent event) {
 		if (event.message == null) return;
@@ -23,10 +22,12 @@ public class ChatListener {
 			ModCoreData.kaihouUsed = false;
 		}
 		if (formatted.equals("§r§a正常にプレイヤーデータをロードしました。§r")) {
-			TheLowUtil.sendAPISubscribeChat();
+			APISender.sendAPISubscribeChat();
+			APISender.start(300);
 		}
 		if (unformatted.contains("Welcome to the EXR-NETWORK")) {
 			TheLowUtil.setIsInTheLow(false);
+			APISender.end();
 			ModCoreData.kaihouUsed = false;
 		}
 		if (unformatted.matches("\\[武器スキル\\]\\s(?<name>.+)が(?<skill>.+)を発動")) {
@@ -35,18 +36,25 @@ public class ChatListener {
 		if (unformatted.contains("からささやかれました：") || unformatted.contains("whispers to you:")) {
 			TellReminder.tellSound();
 		}
-		if (unformatted.matches("(\\[.+\\]\\s)?.+(\\s\\[.+\\])?\\s:\\s(?<message>.+)")) {
+		if (unformatted.contains(":")) {
 			ChatMentionReminder.mentionSound(unformatted);
 		}
-		
-		if (unformatted.startsWith("$api")) {
+		if (unformatted.matches("職業「(.+)」を選択しました。")) {
+			JobChanger.onChangeJob(unformatted);
+		}
+		/*if (unformatted.startsWith("$api")) {
 			String[] split = unformatted.split(" ", 2);
 			if (split.length == 2) {
 				APIListener.distribute(split[1]);
 			}
-			if (DebugAPIHide.getAPIHide()) {
-				event.setCanceled(true);
-			}
+		}*/
+	}
+	
+	@SubscribeEvent(priority = EventPriority.LOWEST)
+	public void onAPIChat(ClientChatReceivedEvent event) {
+		String unformatted = event.message.getUnformattedText();
+		if (unformatted.startsWith("$api")) {
+			event.setCanceled(true);
 		}
 	}
 }

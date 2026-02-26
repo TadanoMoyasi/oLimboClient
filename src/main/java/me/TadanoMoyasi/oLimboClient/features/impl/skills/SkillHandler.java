@@ -242,14 +242,10 @@ public class SkillHandler {
     skillMap.put("n_skill_21", "騎士の喚き声");
   }
   
-  private static String passive;
-  
   public static String getPassiveCondition() {
+	  if (mc.thePlayer.getHeldItem() == null) return null;
 	  if (mc.thePlayer == null) return null;
-	    if (passive == null) {
-	        passive = SkillManager.getCurrentSkill(mc.thePlayer, SkillType.PASSIVE);
-	    }
-	    return passive != null ? passive : "";
+	  return SkillManager.getCurrentSkill(SkillType.PASSIVE);
 	}
   
   public enum Skill {
@@ -310,6 +306,7 @@ public class SkillHandler {
   }
   
   public static String getPassive(NBTTagCompound nbt) {
+	if (nbt == null)  return null;
     if (nbt.hasKey("thelow_item_weapon_skill_set_id")) {
       String skillid = nbt.getString("thelow_item_weapon_skill_set_id");
       return skillid;
@@ -342,19 +339,9 @@ public class SkillHandler {
 	  String skillName = getPassiveCondition();
 	  if (skillName == null) return;
 	  
-	  switch (skillName) {
-	  case "闇の解放":
-		  SkillManager.activate(Skill.YAMI_KAIHOU);
-		  break;
-	  case "エース":
-		  SkillManager.activate(Skill.ACE);
-		  break;
-	  case "詠唱":
-		  SkillManager.activate(Skill.EISYOU);
-		  break;
-	  case"封魔録・守護者の決意":
-		  SkillManager.activate(Skill.KETSUI);
-		  break;
+	  Skill skill = Skill.getSkillFromName(skillName);
+	  if (skill != null) {
+		  SkillManager.activate(skill);
 	  }
   }
   
@@ -362,16 +349,19 @@ public class SkillHandler {
   
   public static void onAttackEntity(AttackEntityEvent event) {
     if (event.entityPlayer != mc.thePlayer) return;
+	  if (mc.thePlayer.getHeldItem() == null) return;
+    
     String skillName = getPassiveCondition();
-    if (skillName == null && !skillName.equals("闇の解放") && !skillName.equals("エース")) return;
-    SkillManager.deactivate(Skill.YAMI_KAIHOU);
-    SkillManager.deactivate(Skill.ACE);
+    if (skillName == null) return;
+    if (skillName.equals("闇の解放") || skillName.equals("エース")) {
+    	SkillManager.deactivate(Skill.YAMI_KAIHOU);
+        SkillManager.deactivate(Skill.ACE);
+    }
   }
   
   public static void attackCheckOnClientTick() {
 	  if (mc.thePlayer == null || mc.theWorld == null)  return;  
     KeyBinding attackKey = mc.gameSettings.keyBindAttack;
-    
     if (attackKey.isKeyDown() && !AttackKeyDown) {
       AttackKeyDown = true;
       onAttackKeyPressed();
@@ -404,13 +394,11 @@ public class SkillHandler {
   // 厳密に言うと攻撃を出してもそれが敵に当たらなかったら解除されませんが、どちらも遠距離攻撃なせいで
   //当たったかどうか検知する方法が思いつかなかったので、殴ったらのままになっています。#思いついたら直す
   private static void onAttackKeyPressed() {
-	  if (!"詠唱".equals(getPassiveCondition()) && !"封魔録・守護者の決意".equals(getPassiveCondition())) return;
     SkillManager.deactivate(Skill.EISYOU);
     SkillManager.deactivate(Skill.KETSUI);
   }
   
   public static void resetEISHOU() {
-	  if (!"詠唱".equals(getPassiveCondition())) return;
 	  SkillManager.deactivate(Skill.EISYOU);
   }
 

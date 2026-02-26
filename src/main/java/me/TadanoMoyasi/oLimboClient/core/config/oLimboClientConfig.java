@@ -96,6 +96,15 @@ public class oLimboClientConfig extends Vigilant {
 	
 	@Property(
 			type = PropertyType.SWITCH,
+			name = "プリーストのスキルが使えるかどうかを表示します。",
+			description = "プリーストが泉やCodex等のスキルを使えるかどうかを表示します。",
+			category = "Features",
+			subcategory = "Priest"
+			)
+	public boolean priestHUD = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
 			name = "つけているスキルを表示",
 			description = "その武器が現在つけているスキルを表示します。スキルを付けていないとunselectedになります。",
 			category = "Features",
@@ -111,6 +120,15 @@ public class oLimboClientConfig extends Vigilant {
 			subcategory = "Quality of Life"
 			)
 	public boolean kaihouDisplay = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
+			name = "プリセットHUD表示",
+			description = "プリセットHUDを表示します。",
+			category = "Features",
+			subcategory = "Quality of Life"
+			)
+	public boolean presetHUD = true;
 	
 	@Property(
 			type = PropertyType.SWITCH,
@@ -150,7 +168,7 @@ public class oLimboClientConfig extends Vigilant {
 	public String HUD_ALL_POSITIONS = "";
 
 	public oLimboClientConfig() {
-		super(new File("config/olimboclient/config.toml"), "oLimboClient Config");
+		super(new File("config/olimboclient/config.toml"), "§lo§b§lLimbo§r§lClient Config");
 		
 		initialize();
 	 }

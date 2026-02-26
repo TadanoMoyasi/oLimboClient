@@ -3,9 +3,11 @@ package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 import java.util.UUID;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill.Skill;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.TimedSkill;
 
 public class ActiveSkill {
 	private final UUID playerId;
+	private String mcid;
 	private final Skill skill;
 	private final TimedSkill timer;
 	private int ritsumaiWindow = 0;
@@ -15,6 +17,7 @@ public class ActiveSkill {
 		
 	public ActiveSkill(UUID playerId, Skill skill) {
 		this.playerId = playerId;
+		this.mcid = "";
 		this.skill = skill;
 		this.timer  = new TimedSkill(skill.getActiveTime());
 		this.timer.start();
@@ -26,6 +29,14 @@ public class ActiveSkill {
 	
 	public UUID getPlayerId() {
         return playerId;
+	}
+	
+	public String getMCID() {
+		return mcid;
+	}
+	
+	public void setMCID(String id) {
+		mcid = id;
 	}
 
     public Skill getSkill() {

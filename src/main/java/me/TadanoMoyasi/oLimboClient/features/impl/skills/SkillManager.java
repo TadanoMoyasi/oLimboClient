@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillHandler.Skill;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.TimedSkill;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -52,11 +52,10 @@ public class SkillManager {
 		
 		ItemStack current = mc.thePlayer.getHeldItem();
 		
-		if (!ItemStack.areItemStacksEqual(current, lastHeldItem)) {
+		if (!isSameWeapon(current, lastHeldItem)) {
 			for (TimedSkill skill : skills.values()) {
 				skill.stop();
 			}
-			
 			lastHeldItem = current == null ? null : current.copy();
 		}
 		
@@ -64,37 +63,42 @@ public class SkillManager {
 			skill.tick();
 		}
 	}
+	
+	private static boolean isSameWeapon(ItemStack s1, ItemStack s2) {
+		if (s1 == s2) return true;
+		if (s1 == null || s2 == null) return false;
+		String id1 = SkillHandler.getPassive(s1.getTagCompound());
+		String id2 = SkillHandler.getPassive(s2.getTagCompound());
+		return id1 != null && id1.equals(id2);
+	}
 
 	public enum SkillType {
 		PASSIVE, NORMAL, SPECIAL
 	}
 
-	public static String getCurrentSkill(EntityPlayer player, SkillType type) {
-		if (mc.thePlayer == null || mc.theWorld == null)
-			return null;
-		ItemStack stack = player.getHeldItem();
-		if (stack == null || !stack.hasTagCompound())
-			return null;
+	public static String getCurrentSkill(SkillType type) {
+		if (mc.thePlayer == null || mc.theWorld == null) return null;
+		 if (mc.thePlayer.getHeldItem() == null) return null;
+		ItemStack stack = mc.thePlayer.getHeldItem();
+		if (stack == null || !stack.hasTagCompound()) return null;
 		NBTTagCompound nbt = stack.getTagCompound();
+		if (nbt == null) return null;
 
 		switch (type) {
 		case PASSIVE:
 			return SkillHandler.getPassiveSkillName(SkillHandler.getPassive(nbt));
-
 		case NORMAL:
 			return SkillHandler.getName(SkillHandler.getNormal(nbt));
-
 		case SPECIAL:
 			return SkillHandler.getName(SkillHandler.getSpecial(nbt));
-
 		default:
 			return null;
 		}
 	}
 	
-	public static Skill getCurrentSkillEnum(EntityPlayer player, SkillType type) {
+	public static Skill getCurrentSkillEnum(SkillType type) {
 		if (mc.thePlayer == null || mc.theWorld == null) return null;
-		String name = getCurrentSkill(player, SkillType.PASSIVE);
+		String name = getCurrentSkill(SkillType.PASSIVE);
 		
 		return Skill.getSkillFromName(name);
 	}

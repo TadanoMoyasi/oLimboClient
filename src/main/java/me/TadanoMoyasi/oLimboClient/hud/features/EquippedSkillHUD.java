@@ -48,8 +48,8 @@ public class EquippedSkillHUD extends BaseHUD {
 		if (!oLimboClientMod.config.equippedSkill || !oLimboClientMod.config.enableToggle) return;
 		if (!ModCoreData.isInTheLow) return;
 		
-		String specialSkill = SkillManager.getCurrentSkill(mc.thePlayer, SkillType.SPECIAL);
-		String normalSkill  = SkillManager.getCurrentSkill(mc.thePlayer, SkillType.NORMAL);
+		String specialSkill = SkillManager.getCurrentSkill(SkillType.SPECIAL);
+		String normalSkill  = SkillManager.getCurrentSkill(SkillType.NORMAL);
 		
 		if (specialSkill == null && normalSkill == null) return;
 		

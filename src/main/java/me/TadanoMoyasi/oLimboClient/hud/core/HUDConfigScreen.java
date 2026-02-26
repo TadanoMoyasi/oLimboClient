@@ -4,7 +4,10 @@ import java.io.IOException;
 
 import org.lwjgl.input.Mouse;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.GlStateManager;
 
 public class HUDConfigScreen extends GuiScreen {
 	
@@ -76,6 +79,19 @@ public class HUDConfigScreen extends GuiScreen {
 	                break;
 	            }
 	        }
+	    } else if (mouseButton == 1) {
+	    	for (int i = HUDManager.getHuds().size() - 1; i >= 0; i--) {
+	    		BaseHUD hud = HUDManager.getHuds().get(i);
+	    		
+	    		if (hud.isHovered(mouseX, mouseY)) {
+	    			hud.setX(10);
+	    			hud.setY(10);
+	    			hud.setScale(1.0f);
+	    			
+	    			HUDManager.savePositions();
+	    			break;
+	    		}
+	    	}
 	    }
 	}
 	
@@ -100,6 +116,31 @@ public class HUDConfigScreen extends GuiScreen {
 	        draggingHUD.setX(mouseX - dragOffsetX);
 	        draggingHUD.setY(mouseY - dragOffsetY);
 	    }
+	    
+	    Minecraft mc = Minecraft.getMinecraft();
+	    ScaledResolution sr = new ScaledResolution(mc);
+
+	    int centerX = sr.getScaledWidth() / 2;
+	    int centerY = sr.getScaledHeight() / 2;
+	    
+	    String text = "Drag to Move";
+	    String text2 = "Scroll to Change Scale";
+	    String text3 = "RightClick to ResetHUD";
+	    
+	    int textWidth1 = mc.fontRendererObj.getStringWidth(text);
+	    int textWidth2 = mc.fontRendererObj.getStringWidth(text2);
+	    int textWidth3 = mc.fontRendererObj.getStringWidth(text3);
+	    
+	    GlStateManager.pushMatrix();
+	    
+	    GlStateManager.translate(centerX, centerY, 0);
+	    GlStateManager.scale(1, 1, 1);
+
+	    mc.fontRendererObj.drawStringWithShadow(text, -textWidth1 / 2, -15, 0xFFFFFF);
+	    mc.fontRendererObj.drawStringWithShadow(text2,  -textWidth2 / 2, -5, 0xFFFFFF);
+	    mc.fontRendererObj.drawStringWithShadow(text3,  -textWidth3 / 2,  5, 0xFFFFFF);
+
+	    GlStateManager.popMatrix();
 
 	    super.drawScreen(mouseX, mouseY, partialTicks);
 	}
