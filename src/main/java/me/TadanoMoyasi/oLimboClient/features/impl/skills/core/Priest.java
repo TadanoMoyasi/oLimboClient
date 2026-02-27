@@ -28,9 +28,9 @@ public class Priest {
 	public void tick() {
 		if (durationTimer != null) {
 			durationTimer.tick();
-			if (durationTimer.isFinished() && !cooldownTimer.isActive() && !cooldownTimer.isFinished()) {
-				cooldownTimer.start();
-			}
+			if (durationTimer.isFinished() && cooldownTimer != null && !cooldownTimer.isActive() && !cooldownTimer.isFinished()) {
+	            cooldownTimer.start();
+	        }
 		}
 		if (cooldownTimer != null && cooldownTimer.isActive()) {
         	cooldownTimer.tick();

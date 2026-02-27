@@ -14,15 +14,15 @@ public class CTSkill {
     	return skill;
     }
 	
-	public void tick() {
+	public synchronized void tick() {
     	timer.tick();
     }
 	
-	public boolean isExpired() {
+	public synchronized boolean isExpired() {
         return !timer.isActive();
     }
 	
-	public float getTimerAsSecond( ) {
+	public synchronized float getTimerAsSecond( ) {
     	return timer.getTimerAsSeconds();
     }
 }

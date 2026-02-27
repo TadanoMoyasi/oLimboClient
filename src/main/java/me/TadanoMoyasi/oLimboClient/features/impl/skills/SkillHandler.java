@@ -322,11 +322,10 @@ public class SkillHandler {
   public static String getPassiveSkillName(String str) {
 	  String skillName = skillMap.get(str);
     if (skillName == null) return null; 
-    Skill skill = Skill.getSkillFromName(skillName);
-    
+    /*Skill skill = Skill.getSkillFromName(skillName);
     if (skill != null) {
         SkillManager.activate(skill);
-    }
+    }*/
     
     return skillName;
   }

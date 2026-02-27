@@ -1,12 +1,12 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.CTSkill;
 
 public class SkillCoolTimeHandler {	
-	private static final List<CTSkill> CTSkills = new ArrayList<>();
+	private static final List<CTSkill> CTSkills = new CopyOnWriteArrayList<>();
 
 	public static void activate(String skill, int tick) {
 		if (tick == -1 || skill == null) return;

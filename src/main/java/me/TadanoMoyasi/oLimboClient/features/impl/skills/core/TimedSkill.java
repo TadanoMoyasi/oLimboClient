@@ -12,7 +12,7 @@ public class TimedSkill {
         this.duration = duration;
     }
 
-    public void start() {
+    public synchronized void start() {
     	if (finished) return;
         if (timer == -1) {
             timer = 0;
@@ -21,13 +21,13 @@ public class TimedSkill {
         }
     }
     
-    public void setDurationTicks(int ticks) {
+    public synchronized void setDurationTicks(int ticks) {
         this.duration = ticks;
         this.timer = 0;
         this.finished = false;
     }
 
-    public void addTime(int extra) {
+    public synchronized void addTime(int extra) {
         if (timer != -1) {
             duration += extra;
         }
@@ -42,7 +42,7 @@ public class TimedSkill {
     	return finished;
     }
 
-    public void tick() {
+    public synchronized void tick() {
         if (timer >= 0) {
             timer++;
             if (timer >= duration) {
@@ -60,7 +60,7 @@ public class TimedSkill {
         return timer;
     }
     
-    public float getTimerAsSeconds() {
+    public synchronized float getTimerAsSeconds() {
     	return Math.max(0, (duration - timer) / 20f);
     }
 }

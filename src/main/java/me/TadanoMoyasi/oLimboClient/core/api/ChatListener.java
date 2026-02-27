@@ -30,8 +30,8 @@ public class ChatListener {
 			APISender.end();
 			ModCoreData.kaihouUsed = false;
 		}
-		if (unformatted.matches("\\[武器スキル\\]\\s(?<name>.+)が(?<skill>.+)を発動")) {
-			ExecutionSkill.onChat(unformatted);
+		if (unformatted.contains("[武器スキル]") && unformatted.contains("を発動")) {
+		    ExecutionSkill.onChat(unformatted);
 		}
 		if (unformatted.contains("からささやかれました：") || unformatted.contains("whispers to you:")) {
 			TellReminder.tellSound();

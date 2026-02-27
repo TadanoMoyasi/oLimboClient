@@ -18,5 +18,3 @@ public class ChatPlayerAnalyzer {
     OthersJobManager.onAPIReceived((Player_Status)playerData.response);
   }
 }
-
-

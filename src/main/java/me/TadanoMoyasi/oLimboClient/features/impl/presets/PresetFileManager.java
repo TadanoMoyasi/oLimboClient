@@ -22,7 +22,7 @@ public class PresetFileManager {
 	private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	private static final File file = new File("config/olimboclient/preset.json");
 	
-	public static void saveAll(Map<String, Preset> map) {
+	public synchronized static void saveAll(Map<String, Preset> map) {
 		if (!file.getParentFile().exists()) {
 	        file.getParentFile().mkdirs();
 	    }
@@ -38,7 +38,7 @@ public class PresetFileManager {
         }
     }
 	
-	public static Map<String, Preset> loadAll() {
+	public synchronized static Map<String, Preset> loadAll() {
         if (!file.exists()) return new HashMap<>();
         
         try (InputStreamReader reader = new InputStreamReader(

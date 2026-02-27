@@ -96,7 +96,7 @@ public class oLimboClientConfig extends Vigilant {
 	
 	@Property(
 			type = PropertyType.SWITCH,
-			name = "プリーストのスキルが使えるかどうかを表示します。",
+			name = "プリーストのスキルが使えるかを表示",
 			description = "プリーストが泉やCodex等のスキルを使えるかどうかを表示します。",
 			category = "Features",
 			subcategory = "Priest"

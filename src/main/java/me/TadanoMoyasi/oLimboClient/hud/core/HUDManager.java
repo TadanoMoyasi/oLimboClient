@@ -1,7 +1,7 @@
 package me.TadanoMoyasi.oLimboClient.hud.core;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class HUDManager {
 
-	private static final List<BaseHUD> huds = new ArrayList<>();
+	private static final List<BaseHUD> huds = new CopyOnWriteArrayList<>();
 	
 	public static void init() {
 		register(new SkillCastTimeHUD());

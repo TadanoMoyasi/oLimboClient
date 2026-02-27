@@ -5,9 +5,9 @@ import java.util.regex.Pattern;
 
 public class JobChanger {
 	private static String currentJob = "";
+	private static Pattern pattern = Pattern.compile("職業「(.+)」を選択しました。");
 	
 	public static void onChangeJob(String msg) {
-		Pattern pattern = Pattern.compile("職業「(.+)」を選択しました。");
 		Matcher matcher = pattern.matcher(msg);
 		if (matcher.find()) {
 			currentJob = matcher.group(1);

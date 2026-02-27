@@ -7,13 +7,20 @@ import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 public class NetworkInhibitor {
 	@SubscribeEvent
 	public void onClientConnected(FMLNetworkEvent.ClientConnectedToServerEvent event) {
-		try {
-			ChannelPipeline pipeline = event.manager.channel().pipeline();
-			if (pipeline.get("oLimboClient_API_Listener") == null) {
-				pipeline.addBefore("packet_handler", "oLimboClient_API_Listener", new PacketHandler());
-			}
-		} catch (Exception e) {
-			System.err.println("[Limbo]APIパケットハンドラーの挿入に失敗しました: " + e.getMessage());
-		}
+		ChannelPipeline pipeline = event.manager.channel().pipeline();
+		
+		event.manager.channel().eventLoop().submit(() -> {
+	        try {
+	            if (pipeline.get("oLimboClient_API_Listener") == null) {
+	                if (pipeline.get("packet_handler") != null) {
+	                    pipeline.addBefore("packet_handler", "oLimboClient_API_Listener", new PacketHandler());
+	                } else {
+	                    pipeline.addLast("oLimboClient_API_Listener", new PacketHandler());
+	                }
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    });
 	}
 }

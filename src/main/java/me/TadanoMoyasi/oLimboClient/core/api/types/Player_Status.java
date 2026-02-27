@@ -22,7 +22,7 @@ public class Player_Status {
   public String jobName;
   
   public static class SubStatus {
-    public int leve;
+    public int level;
     
     public int exp;
     
@@ -39,5 +39,3 @@ public class Player_Status {
     public String clanRank;
   }
 }
-
-

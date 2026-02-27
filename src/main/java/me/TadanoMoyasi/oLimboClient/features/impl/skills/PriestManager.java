@@ -1,15 +1,14 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.Priest;
 import net.minecraft.client.Minecraft;
 
 public class PriestManager {
 	private static final Minecraft mc = Minecraft.getMinecraft();
-	private static List<Priest> Priests = new ArrayList<>();
+	private static List<Priest> Priests = new CopyOnWriteArrayList<>();
 	private static final long EXPIRE_TIME = 10 * 60 * 1000;
 	private static final long CHECK_CT = 60_000L; //1min
 	private static long checkedTime= System.currentTimeMillis();
@@ -56,16 +55,11 @@ public class PriestManager {
 	
 	private static void cleanupExpiredPriests() {
 		if ((System.currentTimeMillis() - checkedTime) < CHECK_CT) return;
-		long currentTime = System.currentTimeMillis();
-		Iterator<Priest> iterator = Priests.iterator();
-		
-		while (iterator.hasNext()) {
-			Priest priest = iterator.next();
-			if (currentTime - priest.lastUpdateTime > EXPIRE_TIME) {
-				iterator.remove();
-			}
-		}
-		checkedTime = currentTime;
+	    long currentTime = System.currentTimeMillis();
+
+	    Priests.removeIf(priest -> currentTime - priest.lastUpdateTime > EXPIRE_TIME);
+
+	    checkedTime = currentTime;
 	}
 	
 	public static void clearPriests() {

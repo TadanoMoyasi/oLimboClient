@@ -8,9 +8,7 @@ public class APISender {
 	private static final Minecraft mc = Minecraft.getMinecraft();
 	
 	private static int ticks = -1;
-	
-	private static boolean APITick = false;
-	
+		
 	public static void sendPlayerAPIChat() {
 		 mc.thePlayer.sendChatMessage("/thelow_api player");
 	  }
@@ -20,12 +18,10 @@ public class APISender {
 	  }
 	  
 	  public static void start(int tick) {
-		  APITick = true;
 		  setTicks(tick);
 	  }
 	  
 	  public static void end() {
-		  APITick = false;
 		  setTicks(-1);
 	  }
 	  
@@ -37,7 +33,7 @@ public class APISender {
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		if (event.phase != TickEvent.Phase.END) return;
 		if (mc.thePlayer == null) return;
-		if (APITick && ticks >= 0) {
+		if (ticks > 0) {
 			ticks--;
 		} else {
 			ticks = 3600; 

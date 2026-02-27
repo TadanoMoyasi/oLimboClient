@@ -45,7 +45,6 @@ public abstract class BaseHUD {
 		GlStateManager.pushMatrix();
 		
 	    GlStateManager.translate(x, y, 0);
-	    GlStateManager.scale(scale, scale, 1);
 	    
 	    drawOutline();
 	    

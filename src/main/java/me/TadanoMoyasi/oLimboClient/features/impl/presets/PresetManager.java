@@ -26,6 +26,14 @@ public class PresetManager {
 	    }
 	}
 	
+	public static void onTick() {
+		if (PresetManager.isPresetActive()) {
+		    if (PresetManager.hasAllItems(PresetManager.getActivePreset())) {
+		        PresetManager.resetActivePreset();
+		    }
+		}
+	}
+	
 	public static boolean isPresetActive() {
 		if (activePreset == null) return false;
 		return true;
@@ -123,17 +131,14 @@ public class PresetManager {
 	public static boolean hasAllItems(Preset preset) {
 	    EntityPlayer player = mc.thePlayer;
 	    if (player == null || preset == null) return false;
-
 	    for (Preset.ItemRequirement req : preset.items) {
 	        boolean found = false;
-	        
 	        for (ItemStack stack : player.inventory.mainInventory) {
 	            if (stack != null && isSameItem(stack, req)) {
 	                found = true;
 	                break;
 	            }
 	        }
-	        
 	        if (!found) {
 	            for (ItemStack armor : player.inventory.armorInventory) {
 	                if (armor != null && isSameItem(armor, req)) {
@@ -142,36 +147,35 @@ public class PresetManager {
 	                }
 	            }
 	        }
-	        
 	        if (!found) return false;
 	    }
-	    
 	    return true; 
 	}
 	
 	public static boolean isItemInInventory(Preset.ItemRequirement req) {
 		EntityPlayer player = mc.thePlayer;
 		if (player == null || req == null) return false;
-		
 		for (ItemStack stack : player.inventory.mainInventory) {
 	        if (stack != null && isSameItem(stack, req)) return true;
 	    }
-
 	    for (ItemStack armor : player.inventory.armorInventory) {
 	        if (armor != null && isSameItem(armor, req)) return true;
 	    }
-
 	    return false;
 	}
 	
 	private static boolean isSameItem(ItemStack stack, Preset.ItemRequirement req) {
-		if (stack == null || stack.getItem() == null) return false;
+	    if (stack == null || stack.getItem() == null) return false;
+	    
 	    String stackId = Item.itemRegistry.getNameForObject(stack.getItem()).toString();
 	    if (!stackId.equals(req.id)) return false;
 	    
 	    String currentName = net.minecraft.util.EnumChatFormatting.getTextWithoutFormattingCodes(stack.getDisplayName());
 	    String requiredName = net.minecraft.util.EnumChatFormatting.getTextWithoutFormattingCodes(req.displayName);
 	    
-	    return currentName.equals(requiredName);
+	    String cleanCurrent = currentName.replaceAll(" \\+\\d+$", "").trim();
+	    String cleanRequired = requiredName.replaceAll(" \\+\\d+$", "").trim();
+	    
+	    return cleanCurrent.equals(cleanRequired);
 	}
 }

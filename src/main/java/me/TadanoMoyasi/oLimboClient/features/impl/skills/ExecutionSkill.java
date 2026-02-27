@@ -1,11 +1,10 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -102,7 +101,7 @@ public class ExecutionSkill {
 	
 	private static final Pattern SKILL_PATTERN = Pattern.compile("\\[武器スキル\\] (.+)が(.+)を発動");
 	private static boolean isTenkaMusouActive = false;
-	private static final List<ActiveSkill> activeSkills = new ArrayList<>();
+	private static final List<ActiveSkill> activeSkills = new CopyOnWriteArrayList<>();
 	private static final double CODEX_BASE_COOLTIME = 60.0; //pa-ku no hangen komi(pa-kuha torenainore)
 	private static final int CODEX_BASE_ACTIVETIME_TICK = 400;
 	private static final double SPRING_BASE_COOLTIME = 65.0; // pa-kuno hangen + nazono purino kimoi ataino CTgenshou <- koitu nani majide wakewakaran
@@ -118,23 +117,11 @@ public class ExecutionSkill {
     }
 	
 	public static void onClientTick() {
-        Iterator<ActiveSkill> iterator = activeSkills.iterator();
-
-        while (iterator.hasNext()) {
-            ActiveSkill active = iterator.next();
-            active.tick();
-
-            if (active.isExpired()) {
-            	if (active.getSkill() == Skill.RYU_NO_ISSEN) {
-            		IssenReminder.issenEnd();
-            	}
-                iterator.remove();
-            } else {
-            	if (active.getSkill() == Skill.RYU_NO_ISSEN) {
-            		IssenReminder.issenActive(active);
-            	}
-            }
-        }
+		for (ActiveSkill active : activeSkills) {
+	        active.tick();
+	    }
+		
+	    activeSkills.removeIf(ActiveSkill::isExpired);
     }
     
     public static Skill getCurrentSkillEnum(EntityPlayer player, String skill) {
@@ -158,6 +145,7 @@ public class ExecutionSkill {
     }
     
     public static void onChat(String msg) {
+    	if (mc.thePlayer == null || mc.theWorld == null) return;
     	if (!oLimboClientMod.config.othersSkillActiveTime) return;
     	Matcher matcher = SKILL_PATTERN.matcher(msg);
     	
@@ -218,7 +206,9 @@ public class ExecutionSkill {
     public static void onPlaySound(PlaySoundEvent event) {
     	if (!"random.orb".equals(event.name) || event.sound.getPitch() < 0.5) return;
     	if (!isTenkaMusouActive) return;
-    	for (ActiveSkill active : ExecutionSkill.getActiveSkills()) {
+    	if (mc.theWorld == null) return;
+    	for (ActiveSkill active : getActiveSkills()) {
+    		if (active == null || active.isExpired()) continue;
     	    if (active.getSkill() == Skill.TENKA_MUSOU) {
     	    	if (!active.canExtendFromRitsumai()) {
     	    		if (active.canStartRitsumai()) {
@@ -233,7 +223,7 @@ public class ExecutionSkill {
     	        double distSq = player.getDistanceSq(event.sound.getXPosF(), event.sound.getYPosF(), event.sound.getZPosF());
     	        //double distance = player.getDistance(event.sound.getXPosF(), event.sound.getYPosF(), event.sound.getZPosF());
 
-    	        if (distSq < 10.89) { //distance 3.3
+    	        if (distSq < (3.3 * 3.3)) { //distance < 3.3
     	        	active.addTime(6);
     	        }
     	    }

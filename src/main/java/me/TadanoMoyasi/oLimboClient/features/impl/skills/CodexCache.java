@@ -52,9 +52,11 @@ public class CodexCache {
     public static void put(UUID uuid, int tick, String mcid, String slot) {
     	if (skillCache.containsKey(uuid)) {
             Codex codex = skillCache.get(uuid);
-            if (tick != 0) codex.ticks = tick;
-            if (!mcid.equals("")) codex.mcid = mcid;
-            if (!slot.equals("")) codex.slot = slot;
+            synchronized (codex) {
+                if (tick != 0) codex.ticks = tick;
+                if (!mcid.equals("")) codex.mcid = mcid;
+                if (!slot.equals("")) codex.slot = slot;
+            }
         } else {
             Codex newCodex = new Codex(mcid, tick, slot);
             skillCache.put(uuid, newCodex);
@@ -91,11 +93,14 @@ public class CodexCache {
     
     public static void updateIfDifferent(UUID uuid, int newTick) {
     	Codex currentCodex = skillCache.get(uuid);
+    	if (currentCodex == null) return;
         int currentTick = skillCache.get(uuid).ticks;
 
-        if (currentTick != newTick) {
-        	currentCodex.ticks = newTick;
-            saveToFile();
+        synchronized (currentCodex) {
+            if (currentCodex.ticks != newTick) {
+                currentCodex.ticks = newTick;
+                new Thread(CodexCache::saveToFile).start(); 
+            }
         }
     }
 	
@@ -105,9 +110,14 @@ public class CodexCache {
 	        file.getParentFile().mkdirs();
 
 	        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+	        
+	        Map<UUID, Codex> copy;
+	        synchronized (skillCache) {
+	            copy = new java.util.HashMap<>(skillCache);
+	        }
 
 	        try (FileWriter writer = new FileWriter(file)) {
-	            gson.toJson(skillCache, writer);
+	            gson.toJson(copy, writer);//ここでskillCacheが変わるとマイクラが吹き飛ぶのでそれ対策のcopy
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();

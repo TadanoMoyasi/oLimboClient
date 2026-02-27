@@ -4,15 +4,20 @@ import java.util.UUID;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class NBTParsing {
 	public static double getPlayerWeaponDamage(UUID uuid) {
+		if (Minecraft.getMinecraft().theWorld == null) return 0.0; 
         EntityPlayer player = Minecraft.getMinecraft().theWorld.getPlayerEntityByUUID(uuid);
         if (player != null && player.getHeldItem() != null) {
-            NBTTagCompound nbt = player.getHeldItem().getTagCompound();
-            if (nbt != null && nbt.hasKey("thelow_item_damage")) {
-                return nbt.getDouble("thelow_item_damage");
+            ItemStack stack = player.getHeldItem();
+            if (stack.hasTagCompound()) {
+                NBTTagCompound nbt = stack.getTagCompound();
+                if (nbt != null && nbt.hasKey("thelow_item_damage")) {
+                    return nbt.getDouble("thelow_item_damage");
+                }
             }
         }
         return 0.0;

@@ -11,5 +11,3 @@ public class DungeonData {
   
   public String difficulty;
 }
-
-

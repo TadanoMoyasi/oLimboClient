@@ -30,6 +30,7 @@ public class TheLowUtil {
 	}
 	
 	public static void showInChat(Object obj) {
+		if (Minecraft.getMinecraft().thePlayer == null) return;
 	    if (obj == null) {
 	      (Minecraft.getMinecraft()).thePlayer.addChatComponentMessage((IChatComponent)new ChatComponentText("null"));
 	    } else {

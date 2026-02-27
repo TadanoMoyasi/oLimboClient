@@ -1,5 +1,6 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills.core;
 
+import me.TadanoMoyasi.oLimboClient.features.impl.presets.PresetManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.CodexCache;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.PriestManager;
@@ -30,6 +31,7 @@ public class SkillEvents {
 		ExecutionSkill.onClientTick();
 		CodexCache.onTick();
 		PriestManager.onTick();
+		PresetManager.onTick();
 	}
 	
 	@SubscribeEvent

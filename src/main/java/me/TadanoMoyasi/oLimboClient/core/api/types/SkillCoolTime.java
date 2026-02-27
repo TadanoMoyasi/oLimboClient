@@ -7,5 +7,3 @@ public class SkillCoolTime {
   
   public String type;
 }
-
-

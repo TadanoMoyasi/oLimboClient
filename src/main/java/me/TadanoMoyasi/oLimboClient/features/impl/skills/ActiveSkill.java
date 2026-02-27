@@ -23,7 +23,7 @@ public class ActiveSkill {
 		this.timer.start();
 	}
 	
-	public void setDurationTicks(int ticks) {
+	public synchronized void setDurationTicks(int ticks) {
 		timer.setDurationTicks(ticks);
 	}
 	
@@ -57,7 +57,7 @@ public class ActiveSkill {
     	return ritsumaiWindow > 0;
     }
     
-    public void tick() {
+    public synchronized void tick() {
     	timer.tick();
         
         if (ritsumaiWindow > 0) {
@@ -78,7 +78,7 @@ public class ActiveSkill {
         return timer.getTimer();
     }
     
-    public void addTime(int extra) {
+    public synchronized void addTime(int extra) {
         timer.addTime(extra);
     }
     
