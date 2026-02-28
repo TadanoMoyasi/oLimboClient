@@ -110,7 +110,7 @@ public class oLimboClientCommand extends CommandBase {
 			}
 			if ("reset".equals(args[1])) {
 				PriestManager.clearPriests();
-				send(sender, ModCoreData.prefix + "プリセットをリセットしました。");
+				send(sender, ModCoreData.prefix + "プリーストをリセットしました。");
 			}
 		}
 			break;
