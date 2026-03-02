@@ -178,7 +178,7 @@ public class SkillHandler {
     skillMap.put("60wsikll54_1", "勝者の制約");
     skillMap.put("60wskill54_2", "crash");
     skillMap.put("60wskill54_3", "Impaction");
-    skillMap.put("64wskill18", "龍の一閃");
+    skillMap.put("64wskill18-2", "龍の一閃");
     skillMap.put("64wskill75", "龍の福音");
     skillMap.put("64wskill105", "覇王の鉄槌");
     skillMap.put("64", "威風堂々");
