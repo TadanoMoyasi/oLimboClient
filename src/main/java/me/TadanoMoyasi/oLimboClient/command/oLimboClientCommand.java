@@ -200,7 +200,7 @@ public class oLimboClientCommand extends CommandBase {
 	@Override
     public List<String> addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos) {
         if (args.length == 1) {
-            return getListOfStringsMatchingLastWord(args, "config", "hud", "priest", "codex", "preset", "help");
+            return getListOfStringsMatchingLastWord(args, "config", "hud", "priest", "codex", "preset", "help", "resendapi");
         }
         if (args.length == 2) {
         	if (args[0].equalsIgnoreCase("codex") || args[0].equalsIgnoreCase("code")) {

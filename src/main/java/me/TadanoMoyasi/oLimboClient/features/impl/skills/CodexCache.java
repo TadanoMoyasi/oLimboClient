@@ -74,7 +74,8 @@ public class CodexCache {
     	    System.out.println("[Limbo]Fetched UUID: " + uuid.toString());
 	        int ticks = calculateCodexTime(value);
 	        put(uuid, ticks, mcid, "");
-	        sendChatMessage(ModCoreData.prefix + "UUID:§8" + uuid + "時間: " + ticks * 20  + "§r登録完了");
+	        String timeStr = String.format("%.2f", ticks / 20.0f);
+	        sendChatMessage(ModCoreData.prefix + "UUID:§8" + uuid + "時間: " + timeStr  + "§r登録完了");
 	        saveToFile();
     	}).start();
     }
@@ -94,7 +95,6 @@ public class CodexCache {
     public static void updateIfDifferent(UUID uuid, int newTick) {
     	Codex currentCodex = skillCache.get(uuid);
     	if (currentCodex == null) return;
-        int currentTick = skillCache.get(uuid).ticks;
 
         synchronized (currentCodex) {
             if (currentCodex.ticks != newTick) {
