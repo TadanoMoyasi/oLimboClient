@@ -18,14 +18,13 @@ public class QueueTask {
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		if (event.phase != TickEvent.Phase.END) return;
 		Iterator<DelayedTask> it = tasks.iterator();
-		while ( it.hasNext()) {
-			DelayedTask task = it.next();
+		for (DelayedTask task : tasks) {
 			task.delay--;
 			if (task.delay <= 0) {
 				task.action.run();
-				it.remove();
 			}
 		}
+		tasks.removeIf(task -> task.delay <= 0);
 	}
 	
 	private static class DelayedTask {

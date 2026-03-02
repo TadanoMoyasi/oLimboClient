@@ -119,6 +119,13 @@ public class ExecutionSkill {
 	public static void onClientTick() {
 		for (ActiveSkill active : activeSkills) {
 	        active.tick();
+	        if (active.getSkill() == Skill.RYU_NO_ISSEN) {
+	        	if (active.isExpired()) {
+		        	IssenReminder.issenEnd();
+		        } else {
+	        		IssenReminder.issenActive(active);
+		        }
+        	}
 	    }
 		
 	    activeSkills.removeIf(ActiveSkill::isExpired);
