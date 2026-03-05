@@ -165,7 +165,7 @@ public class ExecutionSkill {
     		UUID uuid = player.getUniqueID();
     		Skill skill = getCurrentSkillEnum(mc.thePlayer, matchedSkill);
     		if (skill == Skill.HYAKKA_RYOURAN) {
-    			if (player == mc.thePlayer) {
+    			if (player.getName().equals(mc.thePlayer.getName())) {
     				if (!"バタフライシーカー".equals(JobChanger.getCurrentJob())) {
         				skill = Skill.HYAKKA_RYOURAN2;
         			} 
