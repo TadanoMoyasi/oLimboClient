@@ -113,6 +113,12 @@ public class ExecutionSkill {
 	
 	public static synchronized void activate(UUID playerId, Skill skill) {
 		if (playerId == null || skill == null) return;
+		for (ActiveSkill active : activeSkills) {
+			if (active.getPlayerId().equals(playerId) && active.getSkill() == skill) {
+				activeSkills.remove(active);
+				break;
+			}
+		}
 	    activeSkills.add(new ActiveSkill(playerId, skill));
 	}
 	
@@ -222,8 +228,12 @@ public class ExecutionSkill {
     
     public static synchronized void onPlaySound(PlaySoundEvent event) {
     	if (!"random.orb".equals(event.name) || event.sound.getPitch() < 0.5) return;
-    	if (!isTenkaMusouActive) return;
-    	if (mc.theWorld == null) return;
+    	if (!isTenkaMusouActive || mc.theWorld == null) return;
+    	
+    	float soundX = event.sound.getXPosF();
+        float soundY = event.sound.getYPosF();
+        float soundZ = event.sound.getZPosF();
+        
     	for (ActiveSkill active : getActiveSkills()) {
     		if (active == null || active.isExpired()) continue;
     	    if (active.getSkill() == Skill.TENKA_MUSOU) {
@@ -232,15 +242,14 @@ public class ExecutionSkill {
     	    		    active.startRitsumaiWindow();
     	    		}
     	    	}
-    	    	if (!active.canExtendFromRitsumai()) return;
-    	        UUID uuid = active.getPlayerId();
-    	        EntityPlayer player = mc.theWorld.getPlayerEntityByUUID(uuid);
+    	    	if (!active.canExtendFromRitsumai()) continue;
+    	    	EntityPlayer player = mc.theWorld.getPlayerEntityByUUID(active.getPlayerId());
     	        if (player == null) continue;
 
-    	        double distSq = player.getDistanceSq(event.sound.getXPosF(), event.sound.getYPosF(), event.sound.getZPosF());
+    	        double distSq = player.getDistanceSq(soundX, soundY, soundZ);
     	        //double distance = player.getDistance(event.sound.getXPosF(), event.sound.getYPosF(), event.sound.getZPosF());
-
-    	        if (distSq < (3.3 * 3.3)) { //distance < 3.3
+    	        //ヤケクソで感知範囲を馬鹿みたいに広げたら率舞の感知安定しました。っぱ広くてなんぼよ
+    	        if (distSq < 100.0) { //distance < 3.3
     	        	active.addTime(6);
     	        }
     	    }
