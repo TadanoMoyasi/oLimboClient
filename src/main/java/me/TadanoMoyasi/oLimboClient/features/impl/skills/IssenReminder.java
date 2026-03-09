@@ -1,7 +1,7 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
-import me.TadanoMoyasi.oLimboClient.utils.QueueTask;
+import me.TadanoMoyasi.oLimboClient.utils.Scheduler;
 import net.minecraft.client.Minecraft;
 
 public class IssenReminder {
@@ -14,9 +14,9 @@ public class IssenReminder {
 		if (sec <= remind) {
 			if (reminded) return; 
 			mc.thePlayer.playSound("random.orb", 1.0F, 0.8F);
-			QueueTask.addTask(5, () -> {
+			Scheduler.setTimeout(() -> {
 				mc.thePlayer.playSound("random.orb", 1.0F, 0.8F);
-			});
+			}, 5);
 			reminded = true;
 		}
 	}

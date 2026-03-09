@@ -1,16 +1,20 @@
 package me.TadanoMoyasi.oLimboClient.core.api;
 
+import me.TadanoMoyasi.oLimboClient.utils.Scheduler;
+import me.TadanoMoyasi.oLimboClient.utils.Scheduler.ScheduledTask;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class APISender {
 	private static final Minecraft mc = Minecraft.getMinecraft();
-	
-	private static int ticks = -1;
-		
+	private static ScheduledTask task;
+			
 	public static void sendPlayerAPIChat() {
+		if (mc.thePlayer == null) {
+			task = Scheduler.setTimeout(APISender::sendPlayerAPIChat, 3600);
+			 return;
+		}
 		 mc.thePlayer.sendChatMessage("/thelow_api player");
+		 task = Scheduler.setTimeout(APISender::sendPlayerAPIChat, 3600);
 	  }
 	  
 	  public static void sendAPISubscribeChat() {
@@ -18,26 +22,10 @@ public class APISender {
 	  }
 	  
 	  public static void start(int tick) {
-		  setTicks(tick);
+			 task = Scheduler.setTimeout(APISender::sendPlayerAPIChat, tick);
 	  }
 	  
 	  public static void end() {
-		  setTicks(-1);
+		  task.cancel();
 	  }
-	  
-	  public static void setTicks(int tick) {
-		  ticks = tick;
-	  }
-	
-	@SubscribeEvent
-	public void onClientTick(TickEvent.ClientTickEvent event) {
-		if (event.phase != TickEvent.Phase.END) return;
-		if (mc.thePlayer == null) return;
-		if (ticks > 0) {
-			ticks--;
-		} else {
-			ticks = 3600; 
-			sendPlayerAPIChat();
-		}
-	}
 }

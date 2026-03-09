@@ -1,36 +1,44 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.CTSkill;
 
 public class SkillCoolTimeHandler {	
-	private static final List<CTSkill> CTSkills = new CopyOnWriteArrayList<>();
+	private static final List<CTSkill> CTSkills = new ArrayList<>();
 
-	public static void activate(String skill, int tick) {
+	public static synchronized void activate(String skill, int tick) {
 		if (tick == -1 || skill == null) return;
 		CTSkills.add(new CTSkill(skill, tick));
 	}
 	
-	public static void startCT(String skill, double seconds) {
+	public static synchronized void startCT(String skill, double seconds) {
 		int ticks = (int) Math.floor(seconds * 20);
-		CTSkills.removeIf(s -> s.getSkill().equals(skill)); 
-	    CTSkills.add(new CTSkill(skill, (int)ticks));
+		CTSkills.removeIf(s -> s.getSkill().equals(skill));
+		CTSkills.add(new CTSkill(skill, (int)ticks));
 	}
 	
-	public static void onClientTick() {
-        for (CTSkill skill : CTSkills) {
-            skill.tick();
+	public static synchronized void onClientTick() {
+		Iterator<CTSkill> it = CTSkills.iterator();
+		while (it.hasNext()) {
+            CTSkill skill = it.next();
+            skill.tick(); 
+            if (skill.isExpired()) {
+                it.remove();
+            }
         }
-        CTSkills.removeIf(CTSkill::isExpired);
     }
 	
 	public static List<CTSkill> getCoolTimeSkills() {
         return CTSkills;
     }
 
-	public static boolean isActive(String skillName) {
-        return CTSkills.stream().anyMatch(s -> s.getSkill().equals(skillName));
+	public static synchronized boolean isActive(String skillName) {
+		for (CTSkill s : CTSkills) {
+            if (s.getSkill().equals(skillName)) return true;
+        }
+        return false;
     }
 }

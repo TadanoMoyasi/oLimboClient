@@ -1,7 +1,7 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillHandler.Skill;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.TimedSkill;
@@ -14,7 +14,7 @@ public class SkillManager {
 	
 	private static ItemStack lastHeldItem = null;
 
-	private static final Map<Skill, TimedSkill> skills = new ConcurrentHashMap<>();
+	private static final Map<Skill, TimedSkill> skills = new HashMap<>();
 
 	static {
 		skills.put(Skill.ACE, new TimedSkill(120)); //6
