@@ -11,13 +11,14 @@ public class APISender {
 	public static void sendPlayerAPIChat() {
 		if (mc.thePlayer == null) {
 			task = Scheduler.setTimeout(APISender::sendPlayerAPIChat, 3600);
-			 return;
+			return;
 		}
 		 mc.thePlayer.sendChatMessage("/thelow_api player");
 		 task = Scheduler.setTimeout(APISender::sendPlayerAPIChat, 3600);
 	  }
 	  
 	  public static void sendAPISubscribeChat() {
+		  if (mc.thePlayer == null) return;
 		  mc.thePlayer.sendChatMessage("/thelow_api subscribe SKILL_COOLTIME");
 	  }
 	  
@@ -26,6 +27,9 @@ public class APISender {
 	  }
 	  
 	  public static void end() {
-		  task.cancel();
+		  if (task != null) {
+			  task.cancel();
+			  task = null;
+		  }
 	  }
 }
