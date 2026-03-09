@@ -36,7 +36,7 @@ public class PriestHUD extends BaseHUD{
 	    	);
 	    
 	    width = (int) (baseWidth * scale);
-	    height = (int) ((baseHeight * 2 + 2) * scale);
+	    height = (int) ((baseHeight * 3 + 4) * scale);
 	}
 	
 	@Override

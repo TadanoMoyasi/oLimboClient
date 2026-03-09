@@ -29,7 +29,7 @@ public class JerezStackHUD extends BaseHUD {
 	    int baseWidth = mc.fontRendererObj.getStringWidth(text);
 	    
 	    width = (int) (baseWidth * scale);
-	    height = (int) ((baseHeight * 2 + 2) * scale);
+	    height = (int) (baseHeight * scale);
 	}
 	
 	@Override

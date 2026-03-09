@@ -21,6 +21,7 @@ public class JerezStack {
 			stack = 0;
 		}
 		ticks = now + EXPIRE_TICK;
+		if (stack == 5) return;
 		stack++;
 	}
 	
