@@ -1,12 +1,14 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.mojang.authlib.GameProfile;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.Codex;
@@ -15,6 +17,7 @@ import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.NBTParsing;
 import me.TadanoMoyasi.oLimboClient.utils.JobChanger;
 import me.TadanoMoyasi.oLimboClient.utils.OthersJobManager;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -101,13 +104,13 @@ public class ExecutionSkill {
 	
 	private static final Pattern SKILL_PATTERN = Pattern.compile("\\[武器スキル\\] (.+)が(.+)を発動");
 	private static boolean isTenkaMusouActive = false;
-	private static final List<ActiveSkill> activeSkills = new CopyOnWriteArrayList<>();
+	private static final List<ActiveSkill> activeSkills = new ArrayList<>();
 	private static final double CODEX_BASE_COOLTIME = 60.0; //pa-ku no hangen komi(pa-kuha torenainore)
 	private static final int CODEX_BASE_ACTIVETIME_TICK = 400;
-	private static final double SPRING_BASE_COOLTIME = 65.0; // pa-kuno hangen + nazono purino kimoi ataino CTgenshou <- koitu nani majide wakewakaran
+	private static final double SPRING_BASE_COOLTIME = 65.0; // pa-kuno hangen + nazono purino kimoi ataino CTgenshou(90s) <- koitu nani majide wakewakaran
 	private static final int SPRING_BASE_ACTIVETIME_TICK = 600;
 	
-	public static void activate(UUID playerId, Skill skill) {
+	public static synchronized void activate(UUID playerId, Skill skill) {
 		if (playerId == null || skill == null) return;
 	    activeSkills.add(new ActiveSkill(playerId, skill));
 	}
@@ -116,7 +119,7 @@ public class ExecutionSkill {
         return activeSkills;
     }
 	
-	public static void onClientTick() {
+	public static synchronized void onClientTick() {
 		for (ActiveSkill active : activeSkills) {
 	        active.tick();
 	        if (active.getSkill() == Skill.RYU_NO_ISSEN) {
@@ -131,13 +134,13 @@ public class ExecutionSkill {
 	    activeSkills.removeIf(ActiveSkill::isExpired);
     }
     
-    public static Skill getCurrentSkillEnum(EntityPlayer player, String skill) {
+    public static Skill getCurrentSkillEnum(String skill) {
 		if (mc.thePlayer == null || mc.theWorld == null) return null;
 		return Skill.getSkillFromName(skill);
 	}
     
-    public static boolean isSkillActive(Skill skill) {
-    	for ( ActiveSkill active : activeSkills) {
+    public static synchronized boolean isSkillActive(Skill skill) {
+    	for (ActiveSkill active : activeSkills) {
     		if (active.getSkill() == skill) {
     			return true;
     		}
@@ -147,7 +150,7 @@ public class ExecutionSkill {
     
     public static boolean isSkillActiveByName(String skillname) {
     	Skill skill = Skill.getSkillFromName(skillname);
-    	if ( skill == null) return false;
+    	if (skill == null) return false;
     	return isSkillActive(skill);
     }
     
@@ -160,12 +163,14 @@ public class ExecutionSkill {
     		String matchedPlayer = matcher.group(1);
     		String matchedSkill = matcher.group(2);
     		
-    		EntityPlayer player = mc.theWorld.getPlayerEntityByName(matchedPlayer);
-    		if (player == null) return;
-    		UUID uuid = player.getUniqueID();
-    		Skill skill = getCurrentSkillEnum(mc.thePlayer, matchedSkill);
+    		NetworkPlayerInfo info = mc.getNetHandler().getPlayerInfo(matchedPlayer);
+    		//EntityPlayer player = mc.theWorld.getPlayerEntityByName(matchedPlayer);
+    		if (info == null) return;
+    		GameProfile profile = info.getGameProfile();
+    		UUID uuid = info.getGameProfile().getId();
+    		Skill skill = getCurrentSkillEnum(matchedSkill);
     		if (skill == Skill.HYAKKA_RYOURAN) {
-    			if (player.getName().equals(mc.thePlayer.getName())) {
+    			if (profile.getName().equals(mc.thePlayer.getName())) {
     				if (!"バタフライシーカー".equals(JobChanger.getCurrentJob())) {
         				skill = Skill.HYAKKA_RYOURAN2;
         			} 
@@ -182,12 +187,16 @@ public class ExecutionSkill {
     		}
     		
     		if ("封魔録・神託の加護".equals(matchedSkill)) {
-    			onCodex(uuid, player.getName());
+    			onCodex(uuid, profile.getName());
     			onPriestSkills(uuid, matchedPlayer, matchedSkill);
     		}
     		
     		if ("恵みの泉".equals(matchedSkill)) {
     			onPriestSkills(uuid, matchedPlayer, matchedSkill);
+    		}
+    		
+    		if ("ラータイブ：メギド".equals(matchedSkill)) {
+    			JerezStack.clearStack();
     		}
     	}
     }
@@ -198,7 +207,7 @@ public class ExecutionSkill {
     	EntityPlayer player = mc.thePlayer;
     	if (player == null) return;
     	UUID uuid = mc.thePlayer.getUniqueID();
-    	Skill skill = getCurrentSkillEnum(mc.thePlayer, msg);
+    	Skill skill = getCurrentSkillEnum(msg);
     	activate(uuid, skill);
     }
     
@@ -210,7 +219,7 @@ public class ExecutionSkill {
     	isTenkaMusouActive = false;
     }
     
-    public static void onPlaySound(PlaySoundEvent event) {
+    public static synchronized void onPlaySound(PlaySoundEvent event) {
     	if (!"random.orb".equals(event.name) || event.sound.getPitch() < 0.5) return;
     	if (!isTenkaMusouActive) return;
     	if (mc.theWorld == null) return;
@@ -240,7 +249,25 @@ public class ExecutionSkill {
     private static void onPriestSkills(UUID uuid, String mcid, String skill) {
     	if (uuid == null) return;
     	EntityPlayer targetPlayer = mc.theWorld.getPlayerEntityByUUID(uuid);
-    	if (targetPlayer == null) return;
+    	if (targetPlayer == null) {
+    		if ("封魔録・神託の加護".equals(skill)) {
+        		int activeTicks = -1;
+        		int calclatedCoolTimeTicks = -1;
+        		if (CodexCache.contains(uuid)) {
+        			Codex codex = CodexCache.get(uuid);
+        			String slot = codex.slot;
+        			activeTicks = codex.ticks;
+        			int cooltimeTicks = (int) (MagicStoneManager.calclateCooltimeReduction(CODEX_BASE_COOLTIME, slot) * 20) + CODEX_BASE_ACTIVETIME_TICK;
+            		calclatedCoolTimeTicks = cooltimeTicks - activeTicks;
+            		PriestManager.addPriest(mcid, activeTicks, calclatedCoolTimeTicks, "Codex", true);
+        		} else {
+            		PriestManager.addPriest(mcid, activeTicks, calclatedCoolTimeTicks, "Codex", false);
+        		}
+        	} else if ("恵みの泉".equals(skill)) {
+        		PriestManager.addPriest(mcid, -1, -1, "泉", false);
+        	}
+    		return;
+    	}
     	ItemStack heldItem = targetPlayer.getHeldItem();
         if (heldItem == null || !heldItem.hasTagCompound()) return;
         NBTTagCompound nbt = heldItem.getTagCompound();
@@ -261,14 +288,14 @@ public class ExecutionSkill {
     		}
     		int cooltimeTicks = (int) (MagicStoneManager.calclateCooltimeReduction(CODEX_BASE_COOLTIME, slot) * 20) + CODEX_BASE_ACTIVETIME_TICK;
     		int calclatedCoolTimeTicks = cooltimeTicks - activeTicks;
-    		PriestManager.addPriest(mcid, activeTicks, calclatedCoolTimeTicks, "Codex");
+    		PriestManager.addPriest(mcid, activeTicks, calclatedCoolTimeTicks, "Codex", true);
     	} else if ("恵みの泉".equals(skill)) {
     		if (!nbt.getString("thelow_item_id").equals("mainH(223)弓")) return;
     		String slot = NBTParsing.getPlayerSlot(uuid);
     		int activeTicks = 400;
     		int cooltimeTicks = (int) (MagicStoneManager.calclateCooltimeReduction(SPRING_BASE_COOLTIME, slot) * 20) + SPRING_BASE_ACTIVETIME_TICK;
     		int calclatedCoolTimeTicks = cooltimeTicks - activeTicks;
-    		PriestManager.addPriest(mcid, activeTicks, calclatedCoolTimeTicks, "泉");
+    		PriestManager.addPriest(mcid, activeTicks, calclatedCoolTimeTicks, "泉", true);
     	}
     }
     

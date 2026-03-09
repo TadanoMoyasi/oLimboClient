@@ -105,6 +105,15 @@ public class oLimboClientConfig extends Vigilant {
 	
 	@Property(
 			type = PropertyType.SWITCH,
+			name = "ヘレスのスタック数を表示",
+			description = "ヘレスのスタック数を表示します。",
+			category = "Features",
+			subcategory = "Quality of Life"
+			)
+	public boolean jerezStackHUD = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
 			name = "つけているスキルを表示",
 			description = "その武器が現在つけているスキルを表示します。スキルを付けていないとunselectedになります。",
 			category = "Features",

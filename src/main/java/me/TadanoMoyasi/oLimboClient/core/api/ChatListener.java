@@ -2,6 +2,7 @@ package me.TadanoMoyasi.oLimboClient.core.api;
 
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
 import me.TadanoMoyasi.oLimboClient.features.impl.misc.ChatMentionReminder;
+import me.TadanoMoyasi.oLimboClient.features.impl.misc.MatatabiBridge;
 import me.TadanoMoyasi.oLimboClient.features.impl.misc.TellReminder;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill;
 import me.TadanoMoyasi.oLimboClient.utils.JobChanger;
@@ -41,6 +42,9 @@ public class ChatListener {
 		}
 		if (unformatted.matches("職業「(.+)」を選択しました。")) {
 			JobChanger.onChangeJob(unformatted);
+		}
+		if (unformatted.contains("m@")) {
+			MatatabiBridge.onMatatabiChat(unformatted);
 		}
 		/*if (unformatted.startsWith("$api")) {
 			String[] split = unformatted.split(" ", 2);

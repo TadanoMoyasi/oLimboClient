@@ -9,6 +9,7 @@ import me.TadanoMoyasi.oLimboClient.core.api.types.Response;
 import me.TadanoMoyasi.oLimboClient.core.api.types.SkillCoolTime;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.JerezStack;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillCoolTimeHandler;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillHandler;
 
@@ -21,17 +22,20 @@ public class ChatSkillCTAnalyzer{
 	      return true;
 	    } else if ("覚醒".equals(sc.name)) {
 	      ModCoreData.kaihouUsed = false;
-	      return false;
-	    } else if ("ステッドショック".equals(sc.name) && sc.cooltime.doubleValue() > 60.0D) {
+	    }
+	  if ("ステッドショック".equals(sc.name) && sc.cooltime.doubleValue() > 60.0D) {
 	      SkillCoolTimeHandler.startCT(sc.name, 30);
 	      return true;
-	    } else if ("メテオストライク".equals(sc.name) || "マジックボール".equals(sc.name) || "ライトニングボルト".equals(sc.name)) {
-	    	SkillHandler.resetEISHOU();
-	    	return false;
-	    } else if (ExecutionSkill.Skill.contains(sc.name) && "NORMAL_SKILL".equals(sc.type)) {
-	    	ExecutionSkill.onNormalSkillUse(sc.name);
-	    	return false;
 	    }
+	  if ("メテオストライク".equals(sc.name) || "マジックボール".equals(sc.name) || "ライトニングボルト".equals(sc.name)) {
+	    	SkillHandler.resetEISHOU();
+	    }
+	  if (ExecutionSkill.Skill.contains(sc.name) && "NORMAL_SKILL".equals(sc.type)) {
+	    	ExecutionSkill.onNormalSkillUse(sc.name);
+	    }
+	  if ("ラータイブ：ザイン".equals(sc.name) || "ラータイブ：アレフ".equals(sc.name)) {
+		  JerezStack.onUseSkill();
+	  }
 	  return false;
   }
   

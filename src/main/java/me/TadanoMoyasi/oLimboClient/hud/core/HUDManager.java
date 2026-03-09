@@ -9,6 +9,7 @@ import com.google.gson.JsonParser;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.hud.features.EquippedSkillHUD;
+import me.TadanoMoyasi.oLimboClient.hud.features.JerezStackHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.KaihouHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.OthersActiveTimeHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.PresetHUD;
@@ -33,6 +34,7 @@ public class HUDManager {
 		register(new SkillCoolTimeHUD());
 		register(new PresetHUD());
 		register(new PriestHUD());
+		register(new JerezStackHUD());
 		MinecraftForge.EVENT_BUS.register(new HUDManager());
 		
 		Minecraft.getMinecraft().addScheduledTask(() -> {

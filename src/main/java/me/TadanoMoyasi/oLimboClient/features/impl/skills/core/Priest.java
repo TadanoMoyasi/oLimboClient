@@ -3,6 +3,7 @@ package me.TadanoMoyasi.oLimboClient.features.impl.skills.core;
 public class Priest {
 	public String name;
 	public String skill;
+	public boolean isCorrect;
 	
 	public TimedSkill durationTimer;
     public TimedSkill cooldownTimer;

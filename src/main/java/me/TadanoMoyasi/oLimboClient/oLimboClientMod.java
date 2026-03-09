@@ -3,13 +3,14 @@ package me.TadanoMoyasi.oLimboClient;
 import com.google.gson.Gson;
 
 import me.TadanoMoyasi.oLimboClient.command.oLimboClientCommand;
+import me.TadanoMoyasi.oLimboClient.core.ClientClock;
 import me.TadanoMoyasi.oLimboClient.core.api.ChatListener;
 import me.TadanoMoyasi.oLimboClient.core.api.NetworkInhibitor;
 import me.TadanoMoyasi.oLimboClient.core.config.oLimboClientConfig;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIFixer;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.SkillEvents;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDManager;
-import me.TadanoMoyasi.oLimboClient.utils.QueueTask;
+import me.TadanoMoyasi.oLimboClient.utils.Scheduler;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -37,8 +38,9 @@ public class oLimboClientMod{
         ClientCommandHandler.instance.registerCommand(new oLimboClientCommand());
     	MinecraftForge.EVENT_BUS.register(new ChatListener());
     	MinecraftForge.EVENT_BUS.register(new SkillEvents());
-    	MinecraftForge.EVENT_BUS.register(new QueueTask());
     	MinecraftForge.EVENT_BUS.register(new DebugAPIFixer());
+    	MinecraftForge.EVENT_BUS.register(new ClientClock());
+    	MinecraftForge.EVENT_BUS.register(new Scheduler());
     	//MinecraftForge.EVENT_BUS.register(new DebugSoundPlayEvent());
     	//MinecraftForge.EVENT_BUS.register(new DebugAPImessage());
         HUDManager.init();

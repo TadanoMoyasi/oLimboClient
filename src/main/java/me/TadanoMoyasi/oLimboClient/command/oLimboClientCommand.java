@@ -11,6 +11,7 @@ import me.TadanoMoyasi.oLimboClient.core.api.APISender;
 import me.TadanoMoyasi.oLimboClient.core.config.oLimboClientConfig;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIHide;
+import me.TadanoMoyasi.oLimboClient.core.debug.DebugNBTTag;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugPlaySound;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugSoundPlayEvent;
 import me.TadanoMoyasi.oLimboClient.features.impl.presets.PresetManager;
@@ -296,7 +297,11 @@ public class oLimboClientCommand extends CommandBase {
 	
 	private void DebugCommands(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			send(sender, "sound boolean, api boolean, playsound string float, job string");
+			send(sender, "sound boolean"
+					+ "api boolean"
+					+ "playsound string float"
+					+ "job string"
+					+ "nbt string");
 			return;
 		}
 		String sub = args[1];
@@ -323,6 +328,12 @@ public class oLimboClientCommand extends CommandBase {
 			case "job": {
 				String dev = args[2];
 				send(sender, ModCoreData.prefix + OthersJobManager .getJob(dev));
+				break;
+			}
+			case "nbt": {
+				String dev = args[2];
+				DebugNBTTag.sendNBTTag(dev);
+				break;
 			}
 		}
 	}
