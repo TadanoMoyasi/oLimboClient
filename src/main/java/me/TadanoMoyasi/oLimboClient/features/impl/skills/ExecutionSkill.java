@@ -14,6 +14,7 @@ import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.Codex;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.MagicStoneManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.NBTParsing;
+import me.TadanoMoyasi.oLimboClient.utils.CorrectPlayerInfoFetcher;
 import me.TadanoMoyasi.oLimboClient.utils.JobChanger;
 import me.TadanoMoyasi.oLimboClient.utils.OthersJobManager;
 import net.minecraft.client.Minecraft;
@@ -163,7 +164,7 @@ public class ExecutionSkill {
     		String matchedPlayer = matcher.group(1);
     		String matchedSkill = matcher.group(2);
     		
-    		NetworkPlayerInfo info = mc.getNetHandler().getPlayerInfo(matchedPlayer);
+    		NetworkPlayerInfo info = CorrectPlayerInfoFetcher.getInfo(matchedPlayer);
     		//EntityPlayer player = mc.theWorld.getPlayerEntityByName(matchedPlayer);
     		if (info == null) return;
     		GameProfile profile = info.getGameProfile();

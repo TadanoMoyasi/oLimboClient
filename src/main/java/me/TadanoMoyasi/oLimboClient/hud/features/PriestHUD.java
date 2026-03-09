@@ -72,13 +72,15 @@ public class PriestHUD extends BaseHUD{
 	    renderY += lineHeight;
 		for (Priest priest : PriestManager.getPriests()) {
 			String text;
+			
+			String status = priest.isCorrect ? "" : "§7(?) ";
 
 			if (priest.isActive()) {
-				text = priest.name + ": §6" + priest.skill + " §a" + String.format("%.2f", priest.getDurationRemaining()) + "s";
+				text = priest.name + ": " + status + "§6" + priest.skill + " §a" + String.format("%.2f", priest.getDurationRemaining()) + "s";
 			} else if (priest.isCooldown()) {
-				text = priest.name + ": §cCT " + String.format("%.2f", priest.getCooldownRemaining()) + "s";
+				text = priest.name + ": " + status + "§cCT " + String.format("%.2f", priest.getCooldownRemaining()) + "s";
 			} else {
-				text = priest.name + ": §aReady!";
+				text = priest.name + ": " + status + "§aReady!";
 			}
 			
 			int baseWidth = mc.fontRendererObj.getStringWidth(text);

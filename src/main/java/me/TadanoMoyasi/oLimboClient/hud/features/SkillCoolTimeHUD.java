@@ -50,7 +50,7 @@ public class SkillCoolTimeHUD extends BaseHUD {
 		 for (CTSkill cooltime : SkillCoolTimeHandler.getCoolTimeSkills()) {
 		        float seconds = cooltime.getTimerAsSecond();
 
-		        String text = cooltime.getSkill() + String.format("%.2f", seconds) + "s";
+		        String text = cooltime.getSkill() + " " + String.format("%.2f", seconds) + "s";
 		        
 		        int baseWidth = mc.fontRendererObj.getStringWidth(text);
 			    

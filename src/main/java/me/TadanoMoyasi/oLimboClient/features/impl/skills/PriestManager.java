@@ -44,19 +44,20 @@ public class PriestManager {
 		} else {
 			if (Priests.size() < 2) {
 				Priest priest = new Priest(mcid);
+				Priests.add(priest);
 				add(priest, active, cooltime, skill, isCorrect);
 			} else {
 				if (Priests.size() >= 2) {
 					Priests.remove(0);
 				}
 				Priest priest = new Priest(mcid);
+				Priests.add(priest);
 				add(priest, active, cooltime, skill, isCorrect);
 			}
 		}
 	}
 	
 	private static void add(Priest priest, int active, int cooltime, String skill, boolean isCorrect) {
-		Priests.add(priest);
 		priest.skill = skill;
 		priest.isCorrect = isCorrect;
 		if (isCorrect) {
