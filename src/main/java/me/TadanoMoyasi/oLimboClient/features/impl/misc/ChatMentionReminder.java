@@ -8,6 +8,7 @@ public class ChatMentionReminder {
 	
 	public static void mentionSound(String msg) {
 		if (!oLimboClientMod.config.chatMentionReminder) return;
+		if (msg.startsWith("$api")) return;
 		String playerName = mc.thePlayer.getName();
         if (!msg.toLowerCase().contains(playerName.toLowerCase())) return;
         String[] parts = msg.split(":", 2);
