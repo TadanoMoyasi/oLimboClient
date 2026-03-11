@@ -14,6 +14,7 @@ import me.TadanoMoyasi.oLimboClient.hud.features.KaihouHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.OthersActiveTimeHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.PresetHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.PriestHUD;
+import me.TadanoMoyasi.oLimboClient.hud.features.RemainingArrowsHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.SkillCastTimeHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.SkillCoolTimeHUD;
 import net.minecraft.client.Minecraft;
@@ -35,6 +36,7 @@ public class HUDManager {
 		register(new PresetHUD());
 		register(new PriestHUD());
 		register(new JerezStackHUD());
+		register(new RemainingArrowsHUD());
 		MinecraftForge.EVENT_BUS.register(new HUDManager());
 		
 		Minecraft.getMinecraft().addScheduledTask(() -> {

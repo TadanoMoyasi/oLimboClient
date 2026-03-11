@@ -44,7 +44,7 @@ public class oLimboClientConfig extends Vigilant {
 	        name = "暇つぶし",
 	        description = "なんか暇そうですね。いいゲームありますよ",
 	        category = " General",
-	        subcategory = "General"
+	        subcategory = "Chill"
 	    )
 	public void openGodField() {
 		try {
@@ -173,6 +173,33 @@ public class oLimboClientConfig extends Vigilant {
 			subcategory = "Quality of Life"
 			)
 	public boolean kaihouDisplay = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
+			name = "矢の残量を表示",
+			description = "インベントリ内の矢の残り個数を表示します。",
+			category = "Features",
+			subcategory = "Quality of Life"
+			)
+	public boolean arrowHUD = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
+			name = "矢の残量を表示のテキストを削除",
+			description = "矢: 64 の 矢: の部分を消して数字のみにします。",
+			category = "Features",
+			subcategory = "Quality of Life"
+			)
+	public boolean arrowHUDText = false;
+	
+	@Property(
+			type = PropertyType.SWITCH,
+			name = "矢の残量表示を弓の時だけ表示",
+			description = "矢の残量表示を弓を持っている時のみにします。",
+			category = "Features",
+			subcategory = "Quality of Life"
+			)
+	public boolean arrowHUDOnlyHaveBow = false;
 	
 	@Property(
 			type = PropertyType.SWITCH,
