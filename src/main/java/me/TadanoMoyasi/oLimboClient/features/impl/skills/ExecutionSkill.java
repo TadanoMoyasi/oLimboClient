@@ -47,6 +47,9 @@ public class ExecutionSkill {
 		  FUUMAROKU_SINTAKU_NO_KAGO("封魔録・神託の加護", 400),
 		  RA_TAIBU_MEGIDO("ラータイブ：メギド", 400),//英語とかかと思って色々調べてたら元ネタを知りました。が、どう書くのかはわかりませんでした。仕方ないのでこの書き方です。
 		  SEIKISHIN_NO_UTAGOE("星輝神の歌声", 400),
+		  HIGI_SHUUEN_NO_ZAN("秘技：終焉の斬", 300),
+		  TADAN_NO_MAI("多段の舞", 400),
+		  KYOUDA_NO_MAI("強打の舞", 400),
 		  SIKI_KOUYOU("士気高揚", 600),
 		  ZYUHOU("咒砲", 60),
 		  SHUUTYU("集中", 200),

@@ -13,6 +13,7 @@ public class TheLowUtil {
 		ModCoreData.isInTheLow = isIn;
 		if (isIn) {
 			checkFirstLoad();
+			checkLastVersion();
 		}
 	}
 	
@@ -27,6 +28,12 @@ public class TheLowUtil {
 	    showInChat("§3discord: TadanoMoyasi");
 	    showInChat("§9=================================================");
 		oLimboClientMod.config.firstTime = false;
+	}
+	
+	private static void checkLastVersion() {
+		if (!oLimboClientMod.MOD_VERSION.equals(oLimboClientMod.config.lastVersion)) {
+			oLimboClientMod.config.lastVersion = oLimboClientMod.MOD_VERSION;
+		}
 	}
 	
 	public static void showInChat(Object obj) {

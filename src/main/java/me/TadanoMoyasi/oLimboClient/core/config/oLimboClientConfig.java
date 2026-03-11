@@ -1,6 +1,8 @@
 package me.TadanoMoyasi.oLimboClient.core.config;
 
+import java.awt.Desktop;
 import java.io.File;
+import java.net.URI;
 
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
@@ -21,12 +23,54 @@ public class oLimboClientConfig extends Vigilant {
 	    public boolean enableToggle = true;
 	
 	@Property(
+			type = PropertyType.BUTTON,
+	        name = "GitHub",
+	        description = "GitHubを開く",
+	        category = " General",
+	        subcategory = "General"
+	    )
+	public void openGitHub() {
+		try {
+			if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+				Desktop.getDesktop().browse(new URI("https://github.com/TadanoMoyasi/oLimboClient"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Property(
+			type = PropertyType.BUTTON,
+	        name = "暇つぶし",
+	        description = "なんか暇そうですね。いいゲームありますよ",
+	        category = " General",
+	        subcategory = "General"
+	    )
+	public void openGodField() {
+		try {
+			if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+				Desktop.getDesktop().browse(new URI("https://godfield.net"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Property(
 			type = PropertyType.SWITCH,
 	        name = "FirstTimeMessage",
 	        category = " General",
 	        hidden = true
 	    )
 	    public boolean firstTime = true;
+	
+	@Property(
+			type = PropertyType.TEXT,
+	        name = "LastVersion",
+	        category = " General",
+	        hidden = true
+	    )
+	    public String lastVersion = "";
 	
 	@Property(
 			type = PropertyType.SWITCH,

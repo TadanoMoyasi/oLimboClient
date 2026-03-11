@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class oLimboClientMod{
     public static final String MOD_ID = "olimboclient";
     public static final String MOD_NAME = "oLimboClient";
-    public static final String MOD_VERSION = "1.0";
+    public static final String MOD_VERSION = "1.1";
     
     public static Gson gson = new Gson();
     
