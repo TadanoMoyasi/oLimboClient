@@ -2,7 +2,6 @@ package me.TadanoMoyasi.oLimboClient.features.impl.skills.core;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.presets.PresetManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.CodexCache;
-import me.TadanoMoyasi.oLimboClient.features.impl.skills.CodexRangeDisplay;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.JerezStack;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.PriestManager;
@@ -11,7 +10,6 @@ import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillHandler;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillManager;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -57,11 +55,6 @@ public class SkillEvents {
 	public void onPlaySound(PlaySoundEvent event) {
 		ExecutionSkill.onPlaySound(event);
 	}
-	
-	@SubscribeEvent
-    public void onRenderWorld(RenderWorldLastEvent event) {
-		CodexRangeDisplay.onRenderWorld(event);
-    }
 	
 	@SubscribeEvent
 	public void onConnect(FMLNetworkEvent.ClientConnectedToServerEvent event) {

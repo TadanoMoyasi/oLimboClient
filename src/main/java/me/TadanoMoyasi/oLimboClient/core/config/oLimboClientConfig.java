@@ -44,7 +44,7 @@ public class oLimboClientConfig extends Vigilant {
 	        name = "暇つぶし",
 	        description = "なんか暇そうですね。いいゲームありますよ",
 	        category = " General",
-	        subcategory = "General"
+	        subcategory = "Chill"
 	    )
 	public void openGodField() {
 		try {
@@ -146,15 +146,6 @@ public class oLimboClientConfig extends Vigilant {
 			subcategory = "Priest"
 			)
 	public boolean priestHUD = true;
-	
-	@Property(
-			type = PropertyType.SWITCH,
-			name = "Codexの範囲を表示",
-			description = "Codexを持った際にCodexの範囲を表示します。",
-			category = "Features",
-			subcategory = "Priest"
-			)
-	public boolean codexRange = true;
 	
 	@Property(
 			type = PropertyType.SWITCH,

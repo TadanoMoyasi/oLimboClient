@@ -75,6 +75,7 @@ public class ExecutionSkill {
 		  
 		  private final int activeTime;
 		  
+
 		  Skill(String displayName, int activeTime) {
 		        this.displayName = displayName;
 		        this.activeTime = activeTime;
@@ -213,7 +214,8 @@ public class ExecutionSkill {
     public static void onNormalSkillUse(String msg) {
     	if (!oLimboClientMod.config.normalSkillActiveTime) return;
     	if (oLimboClientMod.config.onlyIssen && !"龍の一閃".equals(msg)) return;
-    	if (mc.thePlayer == null) return;
+    	EntityPlayer player = mc.thePlayer;
+    	if (player == null) return;
     	UUID uuid = mc.thePlayer.getUniqueID();
     	Skill skill = getCurrentSkillEnum(msg);
     	activate(uuid, skill);
