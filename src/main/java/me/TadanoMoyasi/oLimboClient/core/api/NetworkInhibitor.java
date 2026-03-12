@@ -7,6 +7,10 @@ import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 public class NetworkInhibitor {
 	@SubscribeEvent
 	public void onClientConnected(FMLNetworkEvent.ClientConnectedToServerEvent event) {
+		String serverAddress = event.manager.getRemoteAddress().toString().toLowerCase();
+		
+		if (!serverAddress.contains("eximradar")) return;
+		
 		ChannelPipeline pipeline = event.manager.channel().pipeline();
 		
 		event.manager.channel().eventLoop().submit(() -> {
