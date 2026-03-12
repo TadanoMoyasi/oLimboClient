@@ -92,6 +92,38 @@ public class oLimboClientConfig extends Vigilant {
 	public boolean skillCastTime = true;
 	
 	@Property(
+			type = PropertyType.BUTTON,
+			name = "スキル別詳細設定を開く",
+			description = "スキルごとの色を個別に設定します",
+			category = "Features",
+			subcategory = "ActiveTime"
+		)
+		public void openActiveSkillSettings() {
+			new Thread(() -> {
+				try {
+					Thread.sleep(100);
+					
+					Minecraft.getMinecraft().addScheduledTask(() -> {
+						Minecraft.getMinecraft().displayGuiScreen(ActiveSkillColorConfig.INSTANCE.gui());
+					});
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}).start();
+		}
+	
+	@Property(
+			type = PropertyType.SLIDER,
+			name = "終わりそうなタイミングで色を変える",
+			description = "実行時間が終わりそうなタイミングで色を赤に変えます。(31にしたらオフになります。)",
+			category = "Features",
+			subcategory = "ActiveTime",
+			min = 0,
+			max = 31
+			)
+	public int  acriveSkillEndColor = 5;
+	
+	@Property(
 			type = PropertyType.SWITCH,
 			name = "スキルの実行時間を表示",
 			description = "覚醒や百花等のスキルを誰かが使用した際、そのスキルが終わるまでの時間を表示します。",

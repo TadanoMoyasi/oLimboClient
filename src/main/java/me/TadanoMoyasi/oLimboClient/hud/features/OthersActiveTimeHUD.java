@@ -53,6 +53,8 @@ public class OthersActiveTimeHUD extends BaseHUD {
 		 for (ActiveSkill active : ExecutionSkill.getActiveSkills()) {
 		        float seconds = active.getTimerAsSecond();
 
+		        int displayColor = active.getSkill().getDisplayColor();
+		        
 		        String playerName = "Unknown";
 		        EntityPlayer player = mc.theWorld.getPlayerEntityByUUID(active.getPlayerId());
 		        
@@ -68,8 +70,15 @@ public class OthersActiveTimeHUD extends BaseHUD {
 		            	active.setMCID(playerName);
 		            }
 		        }
+		        
+		        String endColor = "";
+		        if (oLimboClientMod.config.acriveSkillEndColor != 31) {
+		        	if (seconds < oLimboClientMod.config.acriveSkillEndColor) {
+		        		endColor = "§c";
+		        	}
+		        }
 
-		        String text = playerName + " - " + active.getSkill().getDisplayName() + ": " + String.format("%.2f", seconds) + "s";
+		        String text = playerName + " - " + active.getSkill().getDisplayName() + ": " + endColor + String.format("%.2f", seconds) + "s";
 		        
 		        int baseWidth = mc.fontRendererObj.getStringWidth(text);
 			    
@@ -83,7 +92,7 @@ public class OthersActiveTimeHUD extends BaseHUD {
 			    
 			    GlStateManager.translate(-baseWidth / 2f, -baseHeight / 2f, 0);
 				
-				mc.fontRendererObj.drawStringWithShadow(text, 0, 0, 0xFFFFFF);
+				mc.fontRendererObj.drawStringWithShadow(text, 0, 0, displayColor);
 				
 				GlStateManager.popMatrix();
 				

@@ -1,5 +1,7 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills;
 
+import java.awt.Color;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.regex.Pattern;
 import com.mojang.authlib.GameProfile;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
+import me.TadanoMoyasi.oLimboClient.core.config.ActiveSkillColorConfig;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.Codex;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.MagicStoneManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.NBTParsing;
@@ -102,6 +105,23 @@ public class ExecutionSkill {
 
 		    public static boolean contains (String name) {
 		    	return BY_NAME.containsKey(name);
+		    }
+		    
+		    public int getDisplayColor() {
+		        try {
+		            String fieldName = this.name() + "_Color";
+		            
+		            Field field = ActiveSkillColorConfig.class.getField(fieldName);
+		            
+		            Color color = (Color) field.get(ActiveSkillColorConfig.INSTANCE);
+		            
+		            return color.getRGB();
+		        } catch (Exception e) {
+		            if (this == HYAKKA_RYOURAN2) {
+		            	return ActiveSkillColorConfig.INSTANCE.HYAKKA_RYOURAN_Color.getRGB();
+		            }
+		            return 0xFFFFFF;
+		        }
 		    }
 	 }
 	

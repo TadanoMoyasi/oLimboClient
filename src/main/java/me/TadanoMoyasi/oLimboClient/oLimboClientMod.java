@@ -6,6 +6,7 @@ import me.TadanoMoyasi.oLimboClient.command.oLimboClientCommand;
 import me.TadanoMoyasi.oLimboClient.core.ClientClock;
 import me.TadanoMoyasi.oLimboClient.core.api.ChatListener;
 import me.TadanoMoyasi.oLimboClient.core.api.NetworkInhibitor;
+import me.TadanoMoyasi.oLimboClient.core.config.ActiveSkillColorConfig;
 import me.TadanoMoyasi.oLimboClient.core.config.oLimboClientConfig;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIFixer;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.SkillEvents;
@@ -26,10 +27,12 @@ public class oLimboClientMod{
     public static Gson gson = new Gson();
     
     public static final oLimboClientConfig config = oLimboClientConfig.INSTANCE;
+    public static final ActiveSkillColorConfig activeSkillConfig = ActiveSkillColorConfig.INSTANCE;
     
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         config.preload();
+        activeSkillConfig.preload();
         MinecraftForge.EVENT_BUS.register(new NetworkInhibitor());
     }
     
