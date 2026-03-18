@@ -1,21 +1,31 @@
 package me.TadanoMoyasi.oLimboClient.core.api;
 
-import me.TadanoMoyasi.oLimboClient.utils.Scheduler;
-import me.TadanoMoyasi.oLimboClient.utils.Scheduler.ScheduledTask;
+import me.TadanoMoyasi.oLimboClient.core.ClientClock;
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class APISender {
 	private static final Minecraft mc = Minecraft.getMinecraft();
-	private static ScheduledTask task;
+	private static int nextTick = -1;
+	
+	@SubscribeEvent
+	public void onTick(TickEvent.ClientTickEvent e) {
+		if (e.phase != TickEvent.Phase.END) return;
+		if (nextTick == -1) return;
+		if (ClientClock.now() > nextTick) {
+			sendPlayerAPIChat();
+		}
+	}
 			
 	public static void sendPlayerAPIChat() {
 		if (mc.thePlayer == null) {
-			task = Scheduler.setTimeout(APISender::sendPlayerAPIChat, 3600);
+			nextTick = ClientClock.now() + 3600;
 			return;
 		}
 		 mc.thePlayer.sendChatMessage("/thelow_api player");
-		 task = Scheduler.setTimeout(APISender::sendPlayerAPIChat, 3600);
-	  }
+		 nextTick = ClientClock.now() + 3600;
+	}
 	  
 	  public static void sendAPISubscribeChat() {
 		  if (mc.thePlayer == null) return;
@@ -23,13 +33,10 @@ public class APISender {
 	  }
 	  
 	  public static void start(int tick) {
-			 task = Scheduler.setTimeout(APISender::sendPlayerAPIChat, tick);
+		  nextTick = ClientClock.now() + tick;
 	  }
 	  
 	  public static void end() {
-		  if (task != null) {
-			  task.cancel();
-			  task = null;
-		  }
+		  nextTick = -1;
 	  }
 }

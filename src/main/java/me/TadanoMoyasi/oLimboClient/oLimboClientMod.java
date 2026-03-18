@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import me.TadanoMoyasi.oLimboClient.command.oLimboClientCommand;
 import me.TadanoMoyasi.oLimboClient.core.ClientClock;
+import me.TadanoMoyasi.oLimboClient.core.api.APISender;
 import me.TadanoMoyasi.oLimboClient.core.api.ChatListener;
 import me.TadanoMoyasi.oLimboClient.core.api.NetworkInhibitor;
 import me.TadanoMoyasi.oLimboClient.core.config.ActiveSkillColorConfig;
@@ -42,6 +43,7 @@ public class oLimboClientMod{
     	MinecraftForge.EVENT_BUS.register(new ChatListener());
     	MinecraftForge.EVENT_BUS.register(new SkillEvents());
     	MinecraftForge.EVENT_BUS.register(new DebugAPIFixer());
+    	MinecraftForge.EVENT_BUS.register(new APISender());
     	MinecraftForge.EVENT_BUS.register(new ClientClock());
     	MinecraftForge.EVENT_BUS.register(new Scheduler());
     	//MinecraftForge.EVENT_BUS.register(new DebugSoundPlayEvent());
