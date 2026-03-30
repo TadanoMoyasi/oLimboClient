@@ -290,6 +290,15 @@ public class oLimboClientConfig extends Vigilant {
 	
 	@Property(
 			type = PropertyType.SWITCH,
+			name = "覇者の残骸使用中に撃った矢の数を表示",
+			description = "覇者の残骸使用中に撃った屋の数をチャットに表示します。",
+			category = "Miscellaneous",
+			subcategory = "Miscellaneous"
+			)
+	public boolean zangaiArrowCount = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
 			name = "チャットコマンド",
 			description = "チャットで名前を呼ばれた際に音を鳴らします",
 			category = "Miscellaneous",

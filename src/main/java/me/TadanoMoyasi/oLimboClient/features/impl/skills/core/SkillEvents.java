@@ -9,10 +9,12 @@ import me.TadanoMoyasi.oLimboClient.features.impl.skills.PriestManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillCoolTimeHandler;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillHandler;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillManager;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.ZangaiArrowCounter;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -36,6 +38,7 @@ public class SkillEvents {
 		PriestManager.onTick();
 		PresetManager.onTick();
 		JerezStack.onTick();
+		ZangaiArrowCounter.onTick();
 	}
 	
 	@SubscribeEvent
@@ -62,6 +65,12 @@ public class SkillEvents {
     public void onRenderWorld(RenderWorldLastEvent event) {
 		CodexRangeDisplay.onRenderWorld(event);
     }
+	
+	@SubscribeEvent
+	public void onEntitySpawn(EntityJoinWorldEvent event) {
+		ZangaiArrowCounter.onEntitySpawn(event);
+	}
+
 	
 	@SubscribeEvent
 	public void onConnect(FMLNetworkEvent.ClientConnectedToServerEvent event) {

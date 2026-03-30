@@ -5,6 +5,7 @@ import me.TadanoMoyasi.oLimboClient.features.impl.misc.ChatMentionReminder;
 import me.TadanoMoyasi.oLimboClient.features.impl.misc.MatatabiBridge;
 import me.TadanoMoyasi.oLimboClient.features.impl.misc.TellReminder;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.ZangaiArrowCounter;
 import me.TadanoMoyasi.oLimboClient.utils.JobChanger;
 import me.TadanoMoyasi.oLimboClient.utils.TheLowUtil;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
@@ -45,6 +46,9 @@ public class ChatListener {
 		}
 		if (unformatted.contains("m@")) {
 			MatatabiBridge.onMatatabiChat(unformatted);
+		}
+		if (unformatted.contains("へ古代の印を付けた")) {
+			ZangaiArrowCounter.onZangai();
 		}
 		/*if (unformatted.startsWith("$api")) {
 			String[] split = unformatted.split(" ", 2);
