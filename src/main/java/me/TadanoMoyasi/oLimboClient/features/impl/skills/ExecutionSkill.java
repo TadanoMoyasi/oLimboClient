@@ -204,7 +204,7 @@ public class ExecutionSkill {
         				skill = Skill.HYAKKA_RYOURAN2;
         			} 
     			} else {
-    				if (!"バタフライシーカー".equals(OthersJobManager.getJob(matchedPlayer))) {
+    				if (OthersJobManager.getJob(matchedPlayer) != null && !"バタフライシーカー".equals(OthersJobManager.getJob(matchedPlayer))) {
     					skill = Skill.HYAKKA_RYOURAN2;
     				}
     			}
@@ -304,6 +304,7 @@ public class ExecutionSkill {
         NBTTagCompound nbt = heldItem.getTagCompound();
         if (!nbt.hasKey("thelow_item_id")) return; 
     	if ("封魔録・神託の加護".equals(skill)) {
+    		if (nbt.getString("thelow_item_id").equals("GoT")) return;
     		String slot;
     		double damage;
     		int activeTicks;
