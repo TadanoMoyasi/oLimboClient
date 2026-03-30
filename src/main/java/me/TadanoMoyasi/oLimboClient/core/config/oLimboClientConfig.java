@@ -1,5 +1,6 @@
 package me.TadanoMoyasi.oLimboClient.core.config;
 
+import java.awt.Color;
 import java.awt.Desktop;
 import java.io.File;
 import java.net.URI;
@@ -189,6 +190,24 @@ public class oLimboClientConfig extends Vigilant {
 	public boolean codexRange = true;
 	
 	@Property(
+			type = PropertyType.COLOR,
+			name = "Codexの範囲の色を変更",
+			description = "Codexの範囲表示の色を変更します。",
+			category = "Features",
+			subcategory = "Priest"
+			)
+	public Color codexRangeColor = new Color(255, 0, 0);
+	
+	@Property(
+			type = PropertyType.SWITCH,
+			name = "ゲーミングCodexRange",
+			description = "1680万色に光る最高にゲーミングなCodexRangeをお届け！",
+			category = "Features",
+			subcategory = "Priest"
+			)
+	public boolean codexRangeChroma = false;
+	
+	@Property(
 			type = PropertyType.SWITCH,
 			name = "ヘレスのスタック数を表示",
 			description = "ヘレスのスタック数を表示します。",
@@ -268,6 +287,33 @@ public class oLimboClientConfig extends Vigilant {
 			subcategory = "Quality of Life"
 			)
 	public boolean chatMentionReminder = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
+			name = "チャットコマンド",
+			description = "チャットで名前を呼ばれた際に音を鳴らします",
+			category = "Miscellaneous",
+			subcategory = "Chat Command"
+			)
+	public boolean chatCommand = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
+			name = "全体チャットで反応させる",
+			description = "全体チャットでも反応するようにします。",
+			category = "Miscellaneous",
+			subcategory = "Chat Command"
+			)
+	public boolean chatCommandALL = false;
+	
+	@Property(
+			type = PropertyType.TEXT,
+			name = "prefix",
+			description = "!dice とかの!の部分を変えます。初期値は!です。",
+			category = "Miscellaneous",
+			subcategory = "Chat Command"
+			)
+	public String chatCommandPrefix = "!";
 	
 	@Property(
 			type = PropertyType.BUTTON,
