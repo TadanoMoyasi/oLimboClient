@@ -281,6 +281,15 @@ public class oLimboClientConfig extends Vigilant {
 	
 	@Property(
 			type = PropertyType.SWITCH,
+			name = "Direction",
+			description = "方角を表示します。",
+			category = "Miscellaneous",
+			subcategory = "Quality of Life"
+			)
+	public boolean Direction = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
 			name = "Tellリマインダー",
 			description = "tellが来た際に音を鳴らします。",
 			category = "Miscellaneous",

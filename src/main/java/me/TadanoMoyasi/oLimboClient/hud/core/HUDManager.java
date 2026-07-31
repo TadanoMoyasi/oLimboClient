@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
+import me.TadanoMoyasi.oLimboClient.hud.features.DirectionHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.EquippedSkillHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.JerezStackHUD;
 import me.TadanoMoyasi.oLimboClient.hud.features.KaihouHUD;
@@ -28,6 +29,7 @@ public class HUDManager {
 	private static final List<BaseHUD> huds = new CopyOnWriteArrayList<>();
 	
 	public static void init() {
+		register(new DirectionHUD());
 		register(new SkillCastTimeHUD());
 		register(new OthersActiveTimeHUD());
 		register(new EquippedSkillHUD());
