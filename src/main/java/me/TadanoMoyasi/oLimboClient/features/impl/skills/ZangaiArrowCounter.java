@@ -30,6 +30,7 @@ public class ZangaiArrowCounter {
 	private static int zangaiArrows = 0;
 	
 	public static void onZangai() {
+		if (!oLimboClientMod.config.zangaiArrowCount) return;
 		inZangai = true;
 		Scheduler.setTimeout(() -> {
 			inZangai = false;
@@ -50,6 +51,7 @@ public class ZangaiArrowCounter {
 	}
 	
 	public static void onTick() {
+		if (!oLimboClientMod.config.zangaiArrowCount) return;
 	    Minecraft mc = Minecraft.getMinecraft();
 	    if (mc.theWorld == null) {
 	        pending.clear();

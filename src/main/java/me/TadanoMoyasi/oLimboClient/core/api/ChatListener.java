@@ -32,6 +32,13 @@ public class ChatListener {
 			APISender.end();
 			ModCoreData.kaihouUsed = false;
 		}
+		if (unformatted.equals("Unknown command. Type \"/help\" for help.")) {
+			if (TheLowUtil.isInLobby()) {
+				TheLowUtil.setIsInTheLow(false);
+				APISender.end();
+				ModCoreData.kaihouUsed = false;
+			}
+		}
 		if (unformatted.contains("[武器スキル]") && unformatted.contains("を発動")) {
 		    ExecutionSkill.onChat(unformatted);
 		}
@@ -47,7 +54,7 @@ public class ChatListener {
 		if (unformatted.contains("m@")) {
 			MatatabiBridge.onMatatabiChat(unformatted);
 		}
-		if (unformatted.contains("へ古代の印を付けた")) {
+		if (unformatted.contains("へ古代の刻印を付けた")) {
 			ZangaiArrowCounter.onZangai();
 		}
 		/*if (unformatted.startsWith("$api")) {

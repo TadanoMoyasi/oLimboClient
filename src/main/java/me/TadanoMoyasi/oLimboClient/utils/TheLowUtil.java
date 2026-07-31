@@ -3,7 +3,10 @@ package me.TadanoMoyasi.oLimboClient.utils;
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
 import net.minecraft.client.Minecraft;
+import net.minecraft.scoreboard.ScoreObjective;
+import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
 public class TheLowUtil {
@@ -44,4 +47,16 @@ public class TheLowUtil {
 	      (Minecraft.getMinecraft()).thePlayer.addChatComponentMessage((IChatComponent)new ChatComponentText(obj.toString()));
 	    } 
 	  }
+	
+	public static boolean isInLobby() {
+		Minecraft mc = Minecraft.getMinecraft();
+		if (mc.theWorld == null) return false;
+		Scoreboard scoreboard = mc.theWorld.getScoreboard();
+		ScoreObjective sidebar = scoreboard.getObjectiveInDisplaySlot(1);
+		if (sidebar == null) return true;
+		String rawTitle = sidebar.getDisplayName();
+		String cleanTitle = EnumChatFormatting.getTextWithoutFormattingCodes(rawTitle);
+		if (cleanTitle.contains("The Low")) return false;
+		return true;
+	}
 }
