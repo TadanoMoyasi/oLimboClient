@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillManager.SkillType;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.Data.SkillData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.settings.KeyBinding;
@@ -16,10 +17,8 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 
 public class SkillHandler {
   private static final Minecraft mc = Minecraft.getMinecraft();
-  
-  private static Map<String, String> skillMap = new HashMap<>();
-  
-  static {
+    
+ /* static {
     skillMap.put("1", "華麗なる剣技");
     skillMap.put("1wskill2", "剣舞");
     skillMap.put("1wskill3", "パリィ");
@@ -246,7 +245,7 @@ public class SkillHandler {
     skillMap.put("n_skill_22", "羊飼いの一声");
     skillMap.put("n_skill_21", "騎士の喚き声");
   }
-  
+  */
   public static String getPassiveCondition() {
 	  if (mc.thePlayer.getHeldItem() == null) return null;
 	  if (mc.thePlayer == null) return null;
@@ -320,12 +319,12 @@ public class SkillHandler {
   }
   
   public static String getName(String str) {
-    String skillName = skillMap.getOrDefault(str, null);
+    String skillName = SkillData.getSkillName(str);
     return skillName;
   }
   
   public static String getPassiveSkillName(String str) {
-	  String skillName = skillMap.get(str);
+	  String skillName = SkillData.getSkillName(str);
     if (skillName == null) return null; 
     /*Skill skill = Skill.getSkillFromName(skillName);
     if (skill != null) {

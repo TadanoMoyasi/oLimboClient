@@ -1,5 +1,7 @@
 package me.TadanoMoyasi.oLimboClient;
 
+import java.io.File;
+
 import com.google.gson.Gson;
 
 import me.TadanoMoyasi.oLimboClient.command.oLimboClientCommand;
@@ -10,6 +12,7 @@ import me.TadanoMoyasi.oLimboClient.core.api.NetworkInhibitor;
 import me.TadanoMoyasi.oLimboClient.core.config.ActiveSkillColorConfig;
 import me.TadanoMoyasi.oLimboClient.core.config.oLimboClientConfig;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIFixer;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.Manager.SkillJsonManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.SkillEvents;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDManager;
 import me.TadanoMoyasi.oLimboClient.utils.Scheduler;
@@ -25,7 +28,7 @@ public class oLimboClientMod{
     public static final String MOD_NAME = "oLimboClient";
     public static final String MOD_VERSION = "1.1";
     
-    public static Gson gson = new Gson();
+    public static final Gson gson = new Gson();
     
     public static final oLimboClientConfig config = oLimboClientConfig.INSTANCE;
     public static final ActiveSkillColorConfig activeSkillConfig = ActiveSkillColorConfig.INSTANCE;
@@ -34,6 +37,8 @@ public class oLimboClientMod{
     public void preInit(FMLPreInitializationEvent event) {
         config.preload();
         activeSkillConfig.preload();
+        File configDir = new File(event.getModConfigurationDirectory(), "olimboclient");
+        SkillJsonManager.init(configDir);
         MinecraftForge.EVENT_BUS.register(new NetworkInhibitor());
     }
     

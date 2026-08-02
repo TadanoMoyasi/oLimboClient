@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class SkillManager {
 	private static final Minecraft mc = Minecraft.getMinecraft();
-	
+		
 	private static ItemStack lastHeldItem = null;
 
 	private static final Map<Skill, TimedSkill> skills = new HashMap<>();
