@@ -6,4 +6,6 @@ public class ModCoreData {
 	public static boolean isInTheLow = false;
 		
 	public static boolean kaihouUsed = false;
+	
+	public static boolean inDungeon = false;
 }

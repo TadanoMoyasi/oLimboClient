@@ -2,6 +2,7 @@ package me.TadanoMoyasi.oLimboClient.core.api;
 
 import com.google.gson.Gson;
 
+import me.TadanoMoyasi.oLimboClient.core.api.analyzer.ChatLocationAnalyzer;
 import me.TadanoMoyasi.oLimboClient.core.api.analyzer.ChatPlayerAnalyzer;
 import me.TadanoMoyasi.oLimboClient.core.api.analyzer.ChatSkillCTAnalyzer;
 import me.TadanoMoyasi.oLimboClient.core.api.types.Response;
@@ -21,6 +22,8 @@ public class APIListener {
                     ChatPlayerAnalyzer.analyzePlayer(text);
                 } else if ("skill_cooltime".equals(response.apiType)) {
                     ChatSkillCTAnalyzer.analyzeCT(text);
+                } else if ("location".equals(response.apiType)) {
+                	ChatLocationAnalyzer.analyzeLocation(text);
                 }
             } catch (Exception e) {
                 System.err.println("[Limbo] APIパースエラー: " + e.getMessage());

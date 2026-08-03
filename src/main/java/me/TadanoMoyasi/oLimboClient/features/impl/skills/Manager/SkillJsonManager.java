@@ -20,10 +20,6 @@ import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.Data.SkillData;
 
 public class SkillJsonManager {
-    /**
-     * Config フォルダから skills.json を読み込む（無ければ作成）
-     * @param configDir .minecraft/config/olimborclient などのディレクトリ
-     */
     public static void init(File configDir) {
         if (!configDir.exists()) {
             configDir.mkdirs();
@@ -56,9 +52,8 @@ public class SkillJsonManager {
             }
         } catch (com.google.gson.JsonSyntaxException e) {
             // JSONの構文エラー
-            System.err.println("[oLimboClient] skills.json の書き方が間違っています！ JSONの構文を確認してください。");
+            System.err.println("[oLimboClient] skills.json の書き方が間違っています。 JSONの構文を確認してください。");
             e.printStackTrace();
-            
         } catch (Exception e) {
             e.printStackTrace();
         }

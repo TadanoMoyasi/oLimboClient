@@ -12,10 +12,13 @@ import me.TadanoMoyasi.oLimboClient.core.api.NetworkInhibitor;
 import me.TadanoMoyasi.oLimboClient.core.config.ActiveSkillColorConfig;
 import me.TadanoMoyasi.oLimboClient.core.config.oLimboClientConfig;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIFixer;
+import me.TadanoMoyasi.oLimboClient.features.impl.misc.wiki.Wiki;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.Manager.SkillJsonManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.SkillEvents;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDManager;
+import me.TadanoMoyasi.oLimboClient.utils.CooldownManager;
 import me.TadanoMoyasi.oLimboClient.utils.Scheduler;
+import me.TadanoMoyasi.oLimboClient.utils.WorldChange;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -39,6 +42,7 @@ public class oLimboClientMod{
         activeSkillConfig.preload();
         File configDir = new File(event.getModConfigurationDirectory(), "olimboclient");
         SkillJsonManager.init(configDir);
+        Wiki.init(configDir);
         MinecraftForge.EVENT_BUS.register(new NetworkInhibitor());
     }
     
@@ -51,6 +55,8 @@ public class oLimboClientMod{
     	MinecraftForge.EVENT_BUS.register(new APISender());
     	MinecraftForge.EVENT_BUS.register(new ClientClock());
     	MinecraftForge.EVENT_BUS.register(new Scheduler());
+    	MinecraftForge.EVENT_BUS.register(new CooldownManager());
+    	MinecraftForge.EVENT_BUS.register(new WorldChange());
     	//MinecraftForge.EVENT_BUS.register(new DebugSoundPlayEvent());
     	//MinecraftForge.EVENT_BUS.register(new DebugAPImessage());
     	//MinecraftForge.EVENT_BUS.register(new DebugEntityArrow());

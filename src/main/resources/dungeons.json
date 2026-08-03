@@ -1,0 +1,2221 @@
+[
+	{
+		"name": "知識の水路",
+		"level": "TheLow豆知識集",
+		"x": -53.0,
+		"y": 114.0,
+		"z": 6.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/知識の水路"
+	},
+	{
+		"name": "トワの一番長い日",
+		"inDungeon": true,
+		"level": "AprilFool",
+		"x": 5162.5,
+		"y": 100.0,
+		"z": 6861.5,
+		"note": "座郎寺内(巫女トワのクエストを受ける)",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/トワの一番長い日"
+	},
+	{
+		"name": "エルドール・フード・グラウンド",
+		"level": "1",
+		"x": 80.0,
+		"y": 116.0,
+		"z": 50.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドール・フード・グラウンド"
+	},
+	{
+		"name": "なつまつり",
+		"level": "1",
+		"x": -30.0,
+		"y": 124.0,
+		"z": -10.0,
+		"note": "季節ダンジョン（夏に公開)",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/なつまつり"
+	},
+	{
+		"name": "愛の結晶",
+		"level": "0",
+		"x": -3.0,
+		"y": 106.0,
+		"z": -9.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/愛の結晶"
+	},
+	{
+		"name": "パントリー",
+		"level": "2",
+		"x": 269.0,
+		"y": 112.0,
+		"z": 17.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/パントリー"
+	},
+	{
+		"name": "エルドール地下室",
+		"level": "2",
+		"x": 12.0,
+		"y": 116.0,
+		"z": 2.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドール地下室"
+	},
+	{
+		"name": "精錬所の地下",
+		"level": "2",
+		"x": -9.0,
+		"y": 111.0,
+		"z": -50.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/精錬所の地下"
+	},
+	{
+		"name": "サラビサの地下道",
+		"level": "2",
+		"x": -109.0,
+		"y": 116.0,
+		"z": -26.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/サラビサの地下道"
+	},
+	{
+		"name": "技能の水路",
+		"level": "3",
+		"x": -37.0,
+		"y": 114.0,
+		"z": 24.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/技能の水路"
+	},
+	{
+		"name": "Forssa",
+		"level": "3",
+		"x": 799.0,
+		"y": 74.0,
+		"z": -218.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Forssa"
+	},
+	{
+		"name": "Forssa迷いの森",
+		"inDungeon": true,
+		"level": "3",
+		"x": -1981.0,
+		"y": 96,
+		"z": 2880,
+		"note": "Forssa内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Forssa迷いの森"
+	},
+	{
+		"name": "エルドール鉱山",
+		"level": "3",
+		"x": 118.0,
+		"y": 112.0,
+		"z": -27.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドール鉱山"
+	},
+	{
+		"name": "スワロー洞窟",
+		"level": "4",
+		"x": -404.0,
+		"y": 136.0,
+		"z": 121.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/スワロー洞窟"
+	},
+	{
+		"name": "始まりの遺跡",
+		"level": "4",
+		"x": 91.0,
+		"y": 128.0,
+		"z": 191.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/始まりの遺跡"
+	},
+	{
+		"name": "エルドール牢獄跡",
+		"level": "4",
+		"x": -35.0,
+		"y": 118.0,
+		"z": -65.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドール牢獄跡"
+	},
+	{
+		"name": "エルドール洞窟",
+		"level": "5",
+		"x": 93.0,
+		"y": 125.0,
+		"z": 25.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドール洞窟"
+	},
+	{
+		"name": "Lovers2",
+		"level": "5",
+		"x": -91.0,
+		"y": 112.0,
+		"z": -113.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Lovers2"
+	},
+	{
+		"name": "Lovers2",
+		"inDungeon": true,
+		"level": "5",
+		"x": 61.0,
+		"y": 133.0,
+		"z": -96.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Lovers2"
+	},
+	{
+		"name": "グランスメル",
+		"level": "5",
+		"x": 113.0,
+		"y": 87.0,
+		"z": -204.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/グランスメル"
+	},
+	{
+		"name": "僕の夢",
+		"level": "5",
+		"x": -11.0,
+		"y": 119.0,
+		"z": -28.0,
+		"note": "閉鎖中",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/僕の夢"
+	},
+	{
+		"name": "Celia's Big Tree",
+		"level": "6",
+		"x": -514.0,
+		"y": 79.0,
+		"z": -181.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Celia%27s%20Big%20Tree"
+	},
+	{
+		"name": "エルドール墓地",
+		"level": "7",
+		"x": -98.0,
+		"y": 140.0,
+		"z": -6.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドール墓地"
+	},
+	{
+		"name": "Library",
+		"inDungeon": true,
+		"level": "8",
+		"x": 66.0,
+		"y": 129.0,
+		"z": -47.0,
+		"note": "Lovers2内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Library"
+	},
+	{
+		"name": "畑の風車小屋",
+		"level": "8",
+		"x": 54.0,
+		"y": 119.0,
+		"z": 64.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/畑の風車小屋"
+	},
+	{
+		"name": "Ice Age",
+		"level": "9",
+		"x": 197.0,
+		"y": 120.0,
+		"z": -350.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Ice%20Age"
+	},
+	{
+		"name": "エルドールの森",
+		"level": "9",
+		"x": -10.0,
+		"y": 122.0,
+		"z": 47.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドールの森"
+	},
+	{
+		"name": "ソラリス大木",
+		"level": "10",
+		"x": -300.0,
+		"y": 163.0,
+		"z": 82.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ソラリス大木"
+	},
+	{
+		"name": "ルーレイ洞窟",
+		"level": "10",
+		"x": -698.0,
+		"y": 79.0,
+		"z": 204.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ルーレイ洞窟"
+	},
+	{
+		"name": "フレデリック・マウンド(FrederickMound)",
+		"level": "10",
+		"x": 350.0,
+		"y": 75.0,
+		"z": -219.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/フレデリック・マウンド(FrederickMound)"
+	},
+	{
+		"name": "エルドールの レストラン",
+		"level": "10",
+		"x": 40.0,
+		"y": 116.0,
+		"z": -7.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドールの%20レストラン"
+	},
+	{
+		"name": "エルドール教会の地下",
+		"level": "10",
+		"x": -55.0,
+		"y": 118.0,
+		"z": -37.0,
+		"note": "(オリビアのクエストを受ける)",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドール教会の地下"
+	},
+	{
+		"name": "桜ダンジョン",
+		"level": "10",
+		"x": -25.0,
+		"y": 119.0,
+		"z": -3.0,
+		"note": "季節ダンジョン（春に公開)",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/桜ダンジョン"
+	},
+	{
+		"name": "XmasCastle",
+		"level": "10",
+		"x": -124.0,
+		"y": 170.0,
+		"z": 28.0,
+		"note": "季節ダンジョン（冬に公開)",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/XmasCastle"
+	},
+	{
+		"name": "キング広場",
+		"inDungeon": true,
+		"level": "10",
+		"note": "XmasCastle内 季節ダンジョン（冬に公開)",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/キング広場"
+	},
+	{
+		"name": "奈落アスレポルボー",
+		"inDungeon": true,
+		"level": "11",
+		"x": -178.0,
+		"y": 121.0,
+		"z": 71.0,
+		"note": "トロールガ内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/奈落アスレポルボー"
+	},
+	{
+		"name": "Deep woods",
+		"level": "12",
+		"x": 516.0,
+		"y": 101.0,
+		"z": 376.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Deep%20woods"
+	},
+	{
+		"name": "エルドールの不思議な林",
+		"level": "13",
+		"x": 57.0,
+		"y": 118.0,
+		"z": -122.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エルドールの不思議な林"
+	},
+	{
+		"name": "ロンゴノット",
+		"level": "14",
+		"x": 556.0,
+		"y": 86.0,
+		"z": 95.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ロンゴノット"
+	},
+	{
+		"name": "マイセン洞窟",
+		"level": "15",
+		"x": 465.0,
+		"y": 94.0,
+		"z": 325.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/マイセン洞窟"
+	},
+	{
+		"name": "シーク",
+		"level": "15",
+		"x": -965.0,
+		"y": 65.0,
+		"z": -488.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/シーク"
+	},
+	{
+		"name": "Hͪoͦuͬsͬeͦ.ͬ",
+		"level": "15",
+		"x": -43.0,
+		"y": 133.0,
+		"z": 94.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Hͪoͦuͬsͬeͦ.ͬ"
+	},
+	{
+		"name": "パリピビーチ",
+		"level": "15",
+		"x": -402.0,
+		"y": 69.0,
+		"z": 709.0,
+		"note": "季節ダンジョン（夏に公開)",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/パリピビーチ"
+	},
+	{
+		"name": "座郎寺",
+		"level": "15",
+		"x": -636.0,
+		"y": 72.0,
+		"z": 623.0,
+		"note": "季節ダンジョン（年末年始に公開)",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/座郎寺"
+	},
+	{
+		"name": "Remains corrupt",
+		"level": "15++",
+		"x": 54.0,
+		"y": 87.0,
+		"z": -351.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Remains%20corrupt"
+	},
+	{
+		"name": "Water Maze",
+		"level": "15++",
+		"x": -397.0,
+		"y": 77.0,
+		"z": 556.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Water%20Maze"
+	},
+	{
+		"name": "隠匿の海蝕洞",
+		"level": "16",
+		"x": 798.0,
+		"y": 66.0,
+		"z": 740.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/隠匿の海蝕洞"
+	},
+	{
+		"name": "ガルダ",
+		"level": "16",
+		"x": 154.0,
+		"y": 120.0,
+		"z": -1055.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ガルダ"
+	},
+	{
+		"name": "コンカトル",
+		"level": "17",
+		"x": -145.0,
+		"y": 80.0,
+		"z": -636.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/コンカトル"
+	},
+	{
+		"name": "スライム洞窟",
+		"level": "18",
+		"x": 527.0,
+		"y": 96.0,
+		"z": 329.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/スライム洞窟"
+	},
+	{
+		"name": "Oma海底ダンジョン",
+		"level": "18",
+		"x": -1321.0,
+		"y": 72.0,
+		"z": 894.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Oma海底ダンジョン"
+	},
+	{
+		"name": "旧エルドール採掘場",
+		"level": "19",
+		"x": 63.0,
+		"y": 92.0,
+		"z": 3,
+		"note": "旧エルドール採掘場内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/sorrow%20tunnel"
+	},
+	{
+		"name": "Ali's nest",
+		"level": "19",
+		"x": 210.0,
+		"y": 111.0,
+		"z": 431.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Ali%27s%20nest"
+	},
+	{
+		"name": "名もなき池",
+		"level": "20",
+		"x": -150.0,
+		"y": 88.0,
+		"z": -238.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/名もなき池"
+	},
+	{
+		"name": "Flotrave",
+		"level": "20",
+		"x": 1336.0,
+		"y": 68.0,
+		"z": -1092.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Flotrave"
+	},
+	{
+		"name": "Calanches",
+		"level": "20",
+		"x": -638.0,
+		"y": 135.0,
+		"z": -516.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Calanches"
+	},
+	{
+		"name": "底深き洞窟",
+		"level": "20",
+		"x": 276.0,
+		"y": 78.0,
+		"z": -962.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/底深き洞窟"
+	},
+	{
+		"name": "Halloween House",
+		"level": "20",
+		"x": 55.0,
+		"y": 118.0,
+		"z": 37.0,
+		"note": "季節ダンジョン（秋に公開）",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Halloween%20House"
+	},
+	{
+		"name": "メタルスライム洞窟",
+		"level": "20+",
+		"x": -153.0,
+		"y": 119.0,
+		"z": -57.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/メタルスライム洞窟"
+	},
+	{
+		"name": "ポッポの森",
+		"level": "20+++",
+		"x": -104.0,
+		"y": 101.0,
+		"z": 480.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ポッポの森"
+	},
+	{
+		"name": "マシュー",
+		"level": "21",
+		"x": 934.0,
+		"y": 30.0,
+		"z": -1286.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/マシュー"
+	},
+	{
+		"name": "ヌマクド洞窟",
+		"level": "22",
+		"x": -1143.0,
+		"y": 95.0,
+		"z": -1302.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ヌマクド洞窟"
+	},
+	{
+		"name": "Sevica",
+		"level": "22",
+		"x": -1101.0,
+		"y": 87.0,
+		"z": -1382.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Sevica"
+	},
+	{
+		"name": "冥妬の洞窟：魔女の家",
+		"level": "22",
+		"x": 421.0,
+		"y": 77.0,
+		"z": 695.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/%E5%86%A5%E5%A6%AC%E3%81%AE%E6%B4%9E%E7%AA%9F%EF%BC%9A%E9%AD%94%E5%A5%B3%E3%81%AE%E5%AE%B6"
+	},
+	{
+		"name": "香り満ちる洞窟",
+		"level": "23",
+		"x": 454.0,
+		"y": 86.0,
+		"z": 573.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/香り満ちる洞窟"
+	},
+	{
+		"name": "アラマンダー",
+		"level": "23",
+		"x": -1049.0,
+		"y": 110.0,
+		"z": -803.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/アラマンダー"
+	},
+	{
+		"name": "Book world",
+		"level": "23",
+		"x": -475.0,
+		"y": 174.0,
+		"z": -620.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Book%20world"
+	},
+	{
+		"name": "アチィワ遺跡",
+		"level": "24",
+		"x": -1165.0,
+		"y": 95.0,
+		"z": -1238.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/アチィワ遺跡"
+	},
+	{
+		"name": "キャラウェイ",
+		"level": "24",
+		"x": -950.0,
+		"y": 72.0,
+		"z": -1358.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/キャラウェイ"
+	},
+	{
+		"name": "Abandoned Waterway",
+		"level": "24++",
+		"x": -639.0,
+		"y": 65.0,
+		"z": -618.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Abandoned%20Waterway"
+	},
+	{
+		"name": "Icicle Temple",
+		"level": "25",
+		"x": 1386.0,
+		"y": 142.0,
+		"z": -1125.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Icicle%20Temple"
+	},
+	{
+		"name": "神父の地下墓地",
+		"level": "25",
+		"x": 1364.0,
+		"y": 84.0,
+		"z": -448.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/神父の地下墓地"
+	},
+	{
+		"name": "廃坑洞窟",
+		"inDungeon": true,
+		"level": "25",
+		"x": -2981.0,
+		"y": 197.0,
+		"z": -64949.0,
+		"note": "ドワーフの隠れ里内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/廃坑洞窟"
+	},
+	{
+		"name": "精霊の巣窟",
+		"level": "25",
+		"x": 255.0,
+		"y": 98.0,
+		"z": -161.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/精霊の巣窟"
+	},
+	{
+		"name": "深根の殿堂",
+		"level": "25",
+		"x": -313.0,
+		"y": 139.0,
+		"z": -15.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/深根の殿堂"
+	},
+	{
+		"name": "からくりウッドハウス",
+		"level": "25++",
+		"x": 334.0,
+		"y": 120.0,
+		"z": 68.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/からくりウッドハウス"
+	},
+	{
+		"name": "Spider Cave",
+		"level": "26",
+		"x": 154.0,
+		"y": 86.0,
+		"z": 589.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Spider%20Cave"
+	},
+	{
+		"name": "サビャクリ神殿",
+		"level": "26",
+		"x": -1115.0,
+		"y": 73.0,
+		"z": -1163.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/サビャクリ神殿"
+	},
+	{
+		"name": "ソドンの滝",
+		"level": "27",
+		"x": 364.0,
+		"y": 92.0,
+		"z": -662.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ソドンの滝"
+	},
+	{
+		"name": "ラフル農園",
+		"level": "27",
+		"x": -1088.0,
+		"y": 69.0,
+		"z": -452.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ラフル農園"
+	},
+	{
+		"name": "図書館の地下",
+		"inDungeon": true,
+		"level": "28",
+		"note": "Library内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/図書館の地下"
+	},
+	{
+		"name": "砂漠の不思議な牢獄",
+		"level": "28",
+		"x": -1120.0,
+		"y": 93.0,
+		"z": -703.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/砂漠の不思議な牢獄"
+	},
+	{
+		"name": "コロセウム",
+		"level": "29",
+		"x": -1334.0,
+		"y": 73.0,
+		"z": -903.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/コロセウム"
+	},
+	{
+		"name": "修道士の修験洞",
+		"level": "29",
+		"x": -538.0,
+		"y": 108.0,
+		"z": -494.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/修道士の修験洞"
+	},
+	{
+		"name": "ギガビノソアバ",
+		"level": "29",
+		"x": 679.0,
+		"y": 80.0,
+		"z": 640.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ギガビノソアバ"
+	},
+	{
+		"name": "Qanat",
+		"level": "30",
+		"x": -985.0,
+		"y": 86.0,
+		"z": -956.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Qanat"
+	},
+	{
+		"name": "ボトムクレバス",
+		"level": "30",
+		"x": 1439.0,
+		"y": 116.0,
+		"z": -1039.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ボトムクレバス"
+	},
+	{
+		"name": "砂埋もれの塔",
+		"level": "30",
+		"x": -918.0,
+		"y": 88.0,
+		"z": -739.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/砂埋もれの塔"
+	},
+	{
+		"name": "アンジェ城",
+		"inDungeon": true,
+		"level": "30",
+		"note": "XmasCastle内 季節ダンジョン（冬に公開)",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/アンジェ城"
+	},
+	{
+		"name": "グリムスヴォトン",
+		"level": "30++",
+		"x": -1280.0,
+		"y": 98.0,
+		"z": -1186.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/グリムスヴォトン"
+	},
+	{
+		"name": "コキュートス",
+		"level": "31",
+		"x": 1522.0,
+		"y": 76.0,
+		"z": 197.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/コキュートス"
+	},
+	{
+		"name": "コナリアム",
+		"level": "31",
+		"x": -1017.0,
+		"y": 97.0,
+		"z": -872.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/コナリアム"
+	},
+	{
+		"name": "Miner Dungeon",
+		"level": "32",
+		"x": -779.0,
+		"y": 87.0,
+		"z": -1284.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Miner%20Dungeon"
+	},
+	{
+		"name": "ハッピー・ドリーム",
+		"level": "32",
+		"x": 520.0,
+		"y": 130.0,
+		"z": 728.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ハッピー・ドリーム"
+	},
+	{
+		"name": "マンティナ洞窟",
+		"level": "33",
+		"x": 1165.0,
+		"y": 88.0,
+		"z": -1222.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/マンティナ洞窟"
+	},
+	{
+		"name": "静かなる鍾乳洞",
+		"level": "33",
+		"x": 643.0,
+		"y": 77.0,
+		"z": 612.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/静かなる鍾乳洞"
+	},
+	{
+		"name": "訓練所:第1訓練室、第2訓練室",
+		"level": "34",
+		"x": -1014.0,
+		"y": 69.0,
+		"z": 822.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/訓練所"
+	},
+	{
+		"name": "アンラルガの館",
+		"level": "34",
+		"x": 1327.0,
+		"y": 117.0,
+		"z": -1065.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/アンラルガの館"
+	},
+	{
+		"name": "石工の洞窟",
+		"level": "35",
+		"x": 1300.0,
+		"y": 80.0,
+		"z": -48.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/石工の洞窟"
+	},
+	{
+		"name": "センレイソン",
+		"level": "35",
+		"x": -146.0,
+		"y": 72.0,
+		"z": 272.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/センレイソン"
+	},
+	{
+		"name": "ジャデュベ廃坑",
+		"level": "35++",
+		"x": -838.0,
+		"y": 108.0,
+		"z": -1250.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ジャデュベ廃坑"
+	},
+	{
+		"name": "Deja_Boo",
+		"level": "36",
+		"x": 907.0,
+		"y": 90.0,
+		"z": -400.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Deja_Boo"
+	},
+	{
+		"name": "カシュガル(Qesqer)",
+		"level": "37",
+		"x": -1123.0,
+		"y": 62.0,
+		"z": -670.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/カシュガル(Qesqer)"
+	},
+	{
+		"name": "カネホリ鉱山",
+		"level": "37",
+		"x": -1339.0,
+		"y": 38.0,
+		"z": -1301.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/カネホリ鉱山"
+	},
+	{
+		"name": "Volcano Ruins",
+		"level": "38",
+		"x": -911.0,
+		"y": 70.0,
+		"z": -1000.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Volcano%20Ruins"
+	},
+	{
+		"name": "パーゴタリー",
+		"level": "38++",
+		"x": -196.0,
+		"y": 125.0,
+		"z": 389.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/パーゴタリー"
+	},
+	{
+		"name": "FinalFestival",
+		"level": "39",
+		"x": -180.0,
+		"y": 160.0,
+		"z": -7.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/FinalFestival"
+	},
+	{
+		"name": "ドンケル・ヴェネミア",
+		"level": "39+++",
+		"x": -42.0,
+		"y": 68.0,
+		"z": 904.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ドンケル・ヴェネミア"
+	},
+	{
+		"name": "粉骨の砕石場",
+		"level": "40",
+		"x": -1296.0,
+		"y": 95.0,
+		"z": -1094.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/粉骨の砕石場"
+	},
+	{
+		"name": "ホートン鉱山",
+		"level": "40",
+		"x": -201.0,
+		"y": 85.0,
+		"z": -103.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ホートン鉱山"
+	},
+	{
+		"name": "カラ・ルーナ",
+		"level": "40",
+		"x": -1366.0,
+		"y": 70.0,
+		"z": -547.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/カラ・ルーナ"
+	},
+	{
+		"name": "冥妬の洞窟：アラクノヴァリー",
+		"level": "40",
+		"x": 802.0,
+		"y": 82.0,
+		"z": 451.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/%E5%86%A5%E5%A6%AC%E3%81%AE%E6%B4%9E%E7%AA%9F%EF%BC%9A%E3%82%A2%E3%83%A9%E3%82%AF%E3%83%8E%E3%83%B4%E3%82%A1%E3%83%AA%E3%83%BC"
+	},
+	{
+		"name": "深き洞穴",
+		"level": "40~",
+		"x": -1020.0,
+		"y": 104.0,
+		"z": 1225.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/深き洞穴"
+	},
+	{
+		"name": "憑依船",
+		"level": "41",
+		"x": -1297.0,
+		"y": 73.0,
+		"z": 705.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/憑依船"
+	},
+	{
+		"name": "Unreasonable Gravity Island",
+		"level": "41++",
+		"x": 194.0,
+		"y": 49.0,
+		"z": 1176.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Unreasonable%20Gravity%20Island"
+	},
+	{
+		"name": "キクロス寺院",
+		"level": "42",
+		"x": -837.0,
+		"y": 160.0,
+		"z": 518.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/キクロス寺院"
+	},
+	{
+		"name": "Los cyanyones",
+		"level": "42++",
+		"x": -879.0,
+		"y": 71.0,
+		"z": -1167.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Los%20cyanyones"
+	},
+	{
+		"name": "Red Hell Tree",
+		"level": "43",
+		"x": -668.0,
+		"y": 114.0,
+		"z": -1128.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Red%20Hell%20Tree"
+	},
+	{
+		"name": "ザルモザラ",
+		"level": "44",
+		"x": -1220.0,
+		"y": 102.0,
+		"z": -858.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ザルモザラ"
+	},
+	{
+		"name": "Curse mansion",
+		"level": "44",
+		"x": -595.0,
+		"y": 20.0,
+		"z": -1054.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Curse%20mansion"
+	},
+	{
+		"name": "君との約束",
+		"level": "44++",
+		"x": 1475.0,
+		"y": 85.0,
+		"z": -77.0,
+		"note": "閉鎖中",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/君との約束"
+	},
+	{
+		"name": "祈りの洞窟?",
+		"level": "45",
+		"x": 1292.0,
+		"y": 67.0,
+		"z": 684.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/祈りの洞窟?"
+	},
+	{
+		"name": "深層の横穴",
+		"level": "45",
+		"x": -638.0,
+		"y": 110.0,
+		"z": 604.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/深層の横穴"
+	},
+	{
+		"name": "海獣の聖堂",
+		"inDungeon": true,
+		"level": "45",
+		"x": -3919.0,
+		"y": 60.0,
+		"z": 4384.0,
+		"note": "海底村パルジャ内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/海獣の聖堂"
+	},
+	{
+		"name": "Collapse Experiment Site",
+		"level": "45+++",
+		"x": 1110.0,
+		"y": 90.0,
+		"z": -1318.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Collapse%20Experiment%20Site"
+	},
+	{
+		"name": "タオピピ",
+		"inDungeon": true,
+		"level": "46",
+		"x": -3935.0,
+		"y": 58.0,
+		"z": 4364.0,
+		"note": "海底村パルジャ内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/タオピピ"
+	},
+	{
+		"name": "マナナスラ",
+		"level": "47",
+		"x": -1193.0,
+		"y": 73.0,
+		"z": -535.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/マナナスラ"
+	},
+	{
+		"name": "Amber Break Cave",
+		"level": "48",
+		"x": 965.0,
+		"y": 76.0,
+		"z": 79.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Amber%20Break%20Cave"
+	},
+	{
+		"name": "フロストフォージ",
+		"level": "48",
+		"x": 1458.0,
+		"y": 114.0,
+		"z": -979.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/フロストフォージ"
+	},
+	{
+		"name": "落武者ノ社",
+		"inDungeon": true,
+		"level": "48++",
+		"x": -2962.0,
+		"y": 200.0,
+		"z": -65018.0,
+		"note": "ドワーフの隠れ里内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/落武者ノ社"
+	},
+	{
+		"name": "僻間の山林",
+		"level": "49",
+		"x": -1021.0,
+		"y": 66.0,
+		"z": -309.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/僻間の山林"
+	},
+	{
+		"name": "冥妬の洞窟：ジャリエ～陰鬱の底～",
+		"level": "49",
+		"x": 982.0,
+		"y": 75.0,
+		"z": 594.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/冥妬の洞窟：ジャリエ～陰鬱の底～"
+	},
+	{
+		"name": "アイシーメリー",
+		"inDungeon": true,
+		"level": "50",
+		"x": -3967.0,
+		"y": 63.0,
+		"z": 4412.0,
+		"note": "海底村パルジャ内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/アイシーメリー"
+	},
+	{
+		"name": "Trollga",
+		"level": "50",
+		"x": 61.0,
+		"y": 66.0,
+		"z": -512.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Trollga"
+	},
+	{
+		"name": "ひそかな大木",
+		"level": "50",
+		"x": -1266.0,
+		"y": 67.0,
+		"z": -369.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ひそかな大木"
+	},
+	{
+		"name": "試験領域：No.25",
+		"level": "50+",
+		"x": -369.0,
+		"y": 65.0,
+		"z": -967.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/試験領域：No.25"
+	},
+	{
+		"name": "グランドオークの森",
+		"inDungeon": true,
+		"level": "50++",
+		"x": -3063.0,
+		"y": 201.0,
+		"z": -64917.0,
+		"note": "ドワーフの隠れ里内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/グランドオークの森"
+	},
+	{
+		"name": "LavaTree",
+		"level": "51",
+		"x": -1096.0,
+		"y": 75.0,
+		"z": -1112.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/LavaTree"
+	},
+	{
+		"name": "ベルフォート鉱山",
+		"level": "52",
+		"x": -1070.0,
+		"y": 63.0,
+		"z": 708.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ベルフォート鉱山"
+	},
+	{
+		"name": "フィールドボスクラーゲン海溝",
+		"level": "52+",
+		"x": -64.0,
+		"y": 67.0,
+		"z": 880.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/フィールドボスクラーゲン海溝"
+	},
+	{
+		"name": "クリベラ洞窟",
+		"level": "53",
+		"x": -345.0,
+		"y": 92.0,
+		"z": -363.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/クリベラ洞窟"
+	},
+	{
+		"name": "幽暗の館",
+		"level": "54",
+		"x": -589.0,
+		"y": 107.0,
+		"z": -649.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/幽暗の館"
+	},
+	{
+		"name": "クラバスタ(厄災去りて闇に沈む)",
+		"level": "55",
+		"x": 1220.0,
+		"y": 17.0,
+		"z": -1294.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/クラバスタ(厄災去りて闇に沈む)"
+	},
+	{
+		"name": "Mycelium cave",
+		"level": "55",
+		"x": 870.0,
+		"y": 22.0,
+		"z": -1283.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Mycelium%20cave"
+	},
+	{
+		"name": "冥妬の洞窟：鬼哭の遺跡：",
+		"level": "55",
+		"x": 1204.0,
+		"y": 101.0,
+		"z": 172.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/冥妬の洞窟：鬼哭の遺跡："
+	},
+	{
+		"name": "碧の洞窟",
+		"level": "55++",
+		"x": -500.0,
+		"y": 42.0,
+		"z": 1284.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/碧の洞窟"
+	},
+	{
+		"name": "monte sub terra",
+		"level": "55+++",
+		"x": -1380.0,
+		"y": 72.0,
+		"z": -745.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/monte%20sub%20terra"
+	},
+	{
+		"name": "訓練所:第3訓練室、第4訓練室",
+		"level": "56",
+		"x": -1014.0,
+		"y": 69.0,
+		"z": 822.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/訓練所"
+	},
+	{
+		"name": "凍てつく鉱山",
+		"level": "56",
+		"x": 1406.0,
+		"y": 70.0,
+		"z": -1088.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/凍てつく鉱山"
+	},
+	{
+		"name": "森の館",
+		"level": "56",
+		"x": -1248.0,
+		"y": 68.0,
+		"z": 33.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/森の館"
+	},
+	{
+		"name": "虚空の地下",
+		"level": "57",
+		"x": -902.0,
+		"y": 69.0,
+		"z": 1124.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/虚空の地下"
+	},
+	{
+		"name": "メルべリアスの森",
+		"level": "57",
+		"x": -992.0,
+		"y": 67.0,
+		"z": 239.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/メルべリアスの森"
+	},
+	{
+		"name": "不完全な拷問所",
+		"level": "58",
+		"x": -386.0,
+		"y": 130.0,
+		"z": 246.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/不完全な拷問所"
+	},
+	{
+		"name": "深海神殿",
+		"inDungeon": true,
+		"level": "58",
+		"x": -4025.0,
+		"y": 53.0,
+		"z": 4377.0,
+		"note": "海底村パルジャ内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/深海神殿"
+	},
+	{
+		"name": "サンゴヴェイル",
+		"inDungeon": true,
+		"level": "59",
+		"x": -3926.0,
+		"y": 59.0,
+		"z": 4347.0,
+		"note": "海底村パルジャ内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/サンゴヴェイル"
+	},
+	{
+		"name": "紅城",
+		"level": "59+",
+		"x": -783.0,
+		"y": 35.0,
+		"z": -1156.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/紅城"
+	},
+	{
+		"name": "死者の谷",
+		"level": "59++",
+		"x": -1016.0,
+		"y": 65.0,
+		"z": 119.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/死者の谷"
+	},
+	{
+		"name": "マリンディ鉱山",
+		"level": "60",
+		"x": 109.0,
+		"y": 118.0,
+		"z": -801.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/マリンディ鉱山"
+	},
+	{
+		"name": "cature",
+		"level": "60",
+		"x": 550.0,
+		"y": 105.0,
+		"z": -1360.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/cature"
+	},
+	{
+		"name": "bocyanyu",
+		"level": "60+",
+		"x": -990.0,
+		"y": 57.0,
+		"z": -1158.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/bocyanyu"
+	},
+	{
+		"name": "Clay Dungeon",
+		"level": "60++",
+		"x": 1189.0,
+		"y": 88.0,
+		"z": 410.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Clay%20Dungeon"
+	},
+	{
+		"name": "ドンケル・エル・ドール",
+		"level": "61",
+		"x": 0.0,
+		"y": 115.0,
+		"z": -32.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ドンケル・エル・ドール"
+	},
+	{
+		"name": "Votive",
+		"inDungeon": true,
+		"level": "61",
+		"x": 2507.0,
+		"y": 96.0,
+		"z": -1141.0,
+		"note": "ドンケル・エル・ドール内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Votive"
+	},
+	{
+		"name": "トゥワイシクル",
+		"level": "61",
+		"x": 1082.0,
+		"y": 81.0,
+		"z": -961.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/トゥワイシクル"
+	},
+	{
+		"name": "ゴットハルト氷洞",
+		"level": "61",
+		"x": 1016.0,
+		"y": 73.0,
+		"z": -600.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ゴットハルト氷洞"
+	},
+	{
+		"name": "完全な拷問所",
+		"level": "62",
+		"note": "閉鎖中",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/完全な拷問所"
+	},
+	{
+		"name": "ティンダル",
+		"level": "62",
+		"x": 1066.0,
+		"y": 82.0,
+		"z": -981.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ティンダル"
+	},
+	{
+		"name": "Shopi-Shiche",
+		"level": "62",
+		"x": -1238.0,
+		"y": 68.0,
+		"z": 94.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Shopi-Shiche"
+	},
+	{
+		"name": "ドンケルエルドール地下室",
+		"inDungeon": true,
+		"level": "62",
+		"x": 2555.0,
+		"y": 92.0,
+		"z": -1147.0,
+		"note": "ドンケル・エル・ドール内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ドンケルエルドール地下室"
+	},
+	{
+		"name": "Barco de la Liebre",
+		"level": "62++",
+		"x": 574.0,
+		"y": 67.0,
+		"z": 907.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Barco%20de%20la%20Liebre"
+	},
+	{
+		"name": "シュラタリ",
+		"level": "63",
+		"x": 1167.0,
+		"y": 70.0,
+		"z": -1386.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/シュラタリ"
+	},
+	{
+		"name": "ドンケルパントリー",
+		"inDungeon": true,
+		"level": "63",
+		"x": 2619.0,
+		"y": 92.0,
+		"z": -1136.0,
+		"note": "ドンケル・エル・ドール内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ドンケルパントリー"
+	},
+	{
+		"name": "Frozen mountain",
+		"level": "64",
+		"x": 953.0,
+		"y": 74.0,
+		"z": -855.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Frozen%20mountain"
+	},
+	{
+		"name": "躯の廃洞窟",
+		"level": "64",
+		"x": 1442.0,
+		"y": 76.0,
+		"z": -1308.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/躯の廃洞窟"
+	},
+	{
+		"name": "Loftgain",
+		"level": "64/8²",
+		"x": -990.0,
+		"y": 57.0,
+		"z": -1158.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Loftgain"
+	},
+	{
+		"name": "ドンケルエルドールレストラン",
+		"inDungeon": true,
+		"level": "65",
+		"x": 2592.0,
+		"y": 97.0,
+		"z": -1155.0,
+		"note": "ドンケル・エル・ドール内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ドンケルエルドールレストラン"
+	},
+	{
+		"name": "氷嶺の孤城",
+		"level": "65",
+		"x": 1402.0,
+		"y": 202.0,
+		"z": -1260.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/氷嶺の孤城"
+	},
+	{
+		"name": "Vambrila Castle",
+		"inDungeon": true,
+		"level": "65+",
+		"x": 107.0,
+		"y": 5.0,
+		"z": 1922.0,
+		"note": "クラバスタ(厄災去りて闇に沈む)内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Vambrila%20Castle"
+	},
+	{
+		"name": "烈凍洞窟",
+		"level": "66",
+		"x": 1101.0,
+		"y": 83.0,
+		"z": -1176.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/烈凍洞窟"
+	},
+	{
+		"name": "バビロ家の館",
+		"inDungeon": true,
+		"level": "66",
+		"x": 2508.0,
+		"y": 112.0,
+		"z": -1074.0,
+		"note": "ドンケル・エル・ドール内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/バビロ家の館"
+	},
+	{
+		"name": "エイドリアン城",
+		"level": "67",
+		"x": -1102.0,
+		"y": 70.0,
+		"z": 340.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/エイドリアン城"
+	},
+	{
+		"name": "蠢く足の響く巣窟",
+		"level": "69",
+		"x": -1271.0,
+		"y": 68.0,
+		"z": -179.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/蠢く足の響く巣窟"
+	},
+	{
+		"name": "力試し",
+		"level": "70",
+		"x": -80.0,
+		"y": 187.0,
+		"z": 1221.0,
+		"note": "閉鎖中",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/力試し"
+	},
+	{
+		"name": "ムスペルヘイム(バジリスク溶岩洞窟)",
+		"level": "71",
+		"x": -884.0,
+		"y": 92.0,
+		"z": 565.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ムスペルヘイム(バジリスク溶岩洞窟)"
+	},
+	{
+		"name": "Vaaasa",
+		"level": "72",
+		"x": 1424.0,
+		"y": 133.0,
+		"z": -1180.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Vaaasa"
+	},
+	{
+		"name": "輝煌の残滓(通称: EX)",
+		"level": "72",
+		"note": "Lux et Tenebrae内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/輝煌の残滓(通称: EX)"
+	},
+	{
+		"name": "追憶と創世の間",
+		"level": "73(Raid)",
+		"note": "Lux et Tenebrae-光-クリア後もしくは輝煌の残滓クリア後にTP",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/追憶と創世の間"
+	},
+	{
+		"name": "Rune of Arcadia",
+		"level": "???",
+		"note": "追憶と創世の間クリア後もしくはLux et Tenebrae-光-で金リンゴ使用",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Rune%20of%20Arcadia"
+	},
+	{
+		"name": "アズレーシャ前哨基地",
+		"level": "73",
+		"x": -1326.0,
+		"y": 71.0,
+		"z": 475.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/アズレーシャ前哨基地"
+	},
+	{
+		"name": "ヒガシニャル二連式実験場",
+		"level": "73+",
+		"x": -689.0,
+		"y": 68.0,
+		"z": 1204.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ヒガシニャル二連式実験場"
+	},
+	{
+		"name": "Xen's Castle",
+		"level": "74++",
+		"x": 857.0,
+		"y": 66.0,
+		"z": -745.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Xen's%20Castle"
+	},
+	{
+		"name": "浮世の砂海",
+		"level": "75",
+		"x": -992.0,
+		"y": 46.0,
+		"z": -1145.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/浮世の砂海"
+	},
+	{
+		"name": "永久に眠る図書館",
+		"level": "75",
+		"x": -619.0,
+		"y": 29.0,
+		"z": -658.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/永久に眠る図書館"
+	},
+	{
+		"name": "禍の日輪",
+		"level": "75++",
+		"x": 1504.0,
+		"y": 55.0,
+		"z": 380.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/禍の日輪"
+	},
+	{
+		"name": "ドラゴン族の村",
+		"level": "76",
+		"x": -1159.0,
+		"y": 81.0,
+		"z": 604.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ドラゴン族の村"
+	},
+	{
+		"name": "零次元の領域:静",
+		"level": "76",
+		"x": 1106.0,
+		"y": 147.0,
+		"z": -220.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/零次元の領域:静"
+	},
+	{
+		"name": "冥界",
+		"inDungeon": true,
+		"level": "76+",
+		"x": 2482.0,
+		"y": 96.0,
+		"z": -1183.0,
+		"note": "ドンケル・エル・ドール内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/冥界"
+	},
+	{
+		"name": "漆灰に沉殿する異界の門",
+		"level": "76+",
+		"x": 482.0,
+		"y": 23.0,
+		"z": -736.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/漆灰に沉殿する異界の門"
+	},
+	{
+		"name": "厄災降臨",
+		"inDungeon": true,
+		"level": "77",
+		"x": -72.0,
+		"y": 4.0,
+		"z": 2022.0,
+		"note": "クラバスタ(厄災去りて闇に沈む)内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/厄災降臨"
+	},
+	{
+		"name": "零次元の領域:崩",
+		"level": "77",
+		"x": 1464.0,
+		"y": 168.0,
+		"z": -116.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/零次元の領域:崩"
+	},
+	{
+		"name": "旧エルドール採掘場 -特殊採掘区画-",
+		"inDungeon": true,
+		"level": "77+",
+		"x": 9025.0,
+		"y": 53.0,
+		"z": 3956.0,
+		"note": "sorrow tunnel クリア部屋",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/旧エルドール採掘場%20-特殊採掘区画-"
+	},
+	{
+		"name": "旧エルドール採掘場 -特殊採掘区画-",
+		"inDungeon": true,
+		"level": "77+",
+		"x": 9031.0,
+		"y": 53.0,
+		"z": 3889.0,
+		"note": "sorrow tunnel クリア部屋",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/旧エルドール採掘場%20-特殊採掘区画-"
+	},
+	{
+		"name": "零次元の領域:天",
+		"level": "78",
+		"x": 1490.0,
+		"y": 129.0,
+		"z": 210.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/零次元の領域:天"
+	},
+	{
+		"name": "海底谷に沈む研究所",
+		"inDungeon": true,
+		"level": "78+",
+		"x": -14372.0,
+		"y": 33.0,
+		"z": 5397.0,
+		"note": "海底村マーラン内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/海底谷に沈む研究所"
+	},
+	{
+		"name": "封絶の輪廻",
+		"inDungeon": true,
+		"level": "78++",
+		"x": 4066.0,
+		"y": 154.0,
+		"z": 3351.0,
+		"note": "ジオード内にある街:エデン内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/封絶の輪廻"
+	},
+	{
+		"name": "常闇の城将",
+		"level": "79++",
+		"x": 1248.0,
+		"y": 69.0,
+		"z": -764.0,
+		"note": "???,???,???",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/常闇の城将"
+	},
+	{
+		"name": "零次元の領域:獄",
+		"level": "80",
+		"x": 818.0,
+		"y": 167.0,
+		"z": -79.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/零次元の領域:獄"
+	},
+	{
+		"name": "黎明に輝く亜空間の絶対者",
+		"level": "80+",
+		"x": 48.0,
+		"y": 186.0,
+		"z": 1295.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/黎明に輝く亜空間の絶対者"
+	},
+	{
+		"name": "湖畔に佇む儚城",
+		"level": "81++",
+		"x": -1111.0,
+		"y": 56.0,
+		"z": -85.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/湖畔に佇む儚城"
+	},
+	{
+		"name": "Loftgain(裏)",
+		"level": "82+++++++++++",
+		"x": -990.0,
+		"y": 57.0,
+		"z": -1158.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Loftgain(裏)"
+	},
+	{
+		"name": "封印されし神龍殺しの聖域",
+		"level": "83++",
+		"x": -1356.0,
+		"y": 73.0,
+		"z": 3851.0,
+		"note": "ドラゴン族の村内",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/封印されし神龍殺しの聖域"
+	},
+	{
+		"name": "零次元の領域:絶",
+		"level": "85",
+		"note": "Challenge Dungeonほかの零次元ダンジョンからヒントを得よう",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/零次元の領域:絶"
+	},
+	{
+		"name": "VenLin回廊",
+		"level": "アスレS",
+		"x": 1360.0,
+		"y": 114.0,
+		"z": 722.0,
+		"note": "高難易度アスレ有",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/VenLin回廊"
+	},
+	{
+		"name": "芋虫ダンジョン",
+		"level": "アスレS",
+		"note": "Trollga内 高難易度アスレ有",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/芋虫ダンジョン"
+	},
+	{
+		"name": "AGNI ruins",
+		"level": "アスレS",
+		"x": -474.0,
+		"y": 150.0,
+		"z": -622.0,
+		"note": "高難易度アスレ有",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/AGNI%20ruins"
+	},
+	{
+		"name": "UnderGround",
+		"level": "アスレS++",
+		"x": 260.0,
+		"y": 155.0,
+		"z": 1.0,
+		"note": "高難易度アスレ有",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/UnderGround"
+	},
+	{
+		"name": "カルグラス遺跡",
+		"level": "BossRush(49)",
+		"x": -1269.0,
+		"y": 79.0,
+		"z": -927.0,
+		"note": "nyakonyan's secret room1でNPC(nyakonyan)からクエストを受ける",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/カルグラス遺跡"
+	},
+	{
+		"name": "Qubasar(クバザー）",
+		"level": "BossRush(60)",
+		"x": 364.0,
+		"y": 167.0,
+		"z": -855.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Qubasar(クバザー）"
+	},
+	{
+		"name": "魔界:ココリ山",
+		"level": "BossRush+++",
+		"x": 1406.0,
+		"y": 104.0,
+		"z": 700.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/魔界:ココリ山"
+	},
+	{
+		"name": "Estrada Of Cave",
+		"level": "Elite",
+		"x": -1023.0,
+		"y": 71.0,
+		"z": -107.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Estrada%20Of%20Cave"
+	},
+	{
+		"name": "Desert Templum",
+		"level": "Elite",
+		"x": -1197.0,
+		"y": 121.0,
+		"z": -1165.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Desert%20Templum"
+	},
+	{
+		"name": "IceCave",
+		"level": "Elite",
+		"x": 1437.0,
+		"y": 153.0,
+		"z": -1222.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/IceCave"
+	},
+	{
+		"name": "Lux et Tenebrae",
+		"level": "Elite",
+		"x": 89.0,
+		"y": 88.0,
+		"z": -567.0,
+		"note": "奥座標: 90,88,-567",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Lux%20et%20Tenebrae"
+	},
+	{
+		"name": "Tower of Judgement",
+		"level": "Extream",
+		"x": -378.0,
+		"y": 30.0,
+		"z": 1360.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Tower%20of%20Judgement"
+	},
+	{
+		"name": "魔界:封印の洞窟",
+		"level": "Expert",
+		"x": 1470.0,
+		"y": 70.0,
+		"z": -790.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/魔界:封印の洞窟"
+	},
+	{
+		"name": "魔界:ヘルスラ",
+		"level": "Extra",
+		"x": -906.0,
+		"y": 78.0,
+		"z": -704.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/魔界:ヘルスラ"
+	},
+	{
+		"name": "蒼天に舞う輝煌の創者",
+		"inDungeon": true,
+		"level": "Ultimate",
+		"x": 1829.0,
+		"y": 143.0,
+		"z": 1768.0,
+		"note": "Lux et Tenebrae 最初の部屋",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/蒼天に舞う輝煌の創者"
+	},
+	{
+		"name": "蒼天に舞う輝煌の創者",
+		"inDungeon": true,
+		"level": "Ultimate",
+		"x": 1829.0,
+		"y": 143.0,
+		"z": 1774.0,
+		"note": "Lux et Tenebrae 最初の部屋",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/蒼天に舞う輝煌の創者"
+	},
+	{
+		"name": "蒼紅双閃",
+		"inDungeon": true,
+		"level": "Ultimate",
+		"x": 1899.0,
+		"y": 99.0,
+		"z": 2474.0,
+		"note": "???,???,???",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/蒼紅双閃"
+	},
+	{
+		"name": "ドラゴンの谷",
+		"level": "Impossible",
+		"x": -1106.0,
+		"y": 89.0,
+		"z": 623.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/ドラゴンの谷"
+	},
+	{
+		"name": "魔界:ソマの谷",
+		"level": "UNKNOWN",
+		"x": 972.0,
+		"y": 75.0,
+		"z": 214.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/魔界:ソマの谷"
+	},
+	{
+		"name": "Last Judgement",
+		"level": "Insanity",
+		"x": 117.0,
+		"y": 162.0,
+		"z": -458.0,
+		"note": "奥座標: -948, 178, 865",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/Last%20Judgement"
+	},
+	{
+		"name": "純白の宮殿",
+		"level": "Dynamic",
+		"x": 1156.0,
+		"y": 80.0,
+		"z": -932.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/純白の宮殿"
+	},
+	{
+		"name": "純黒の宮殿",
+		"level": "Dynamic",
+		"x": 1156.0,
+		"y": 80.0,
+		"z": -932.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/純黒の宮殿"
+	},
+	{
+		"name": "サンクチュアリー",
+		"level": "SANCTUARY",
+		"x": 747.0,
+		"y": 21.0,
+		"z": -495.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/サンクチュアリー"
+	},
+	{
+		"name": "魔界:醜悪ノ淵叢",
+		"level": "修羅",
+		"x": -614.0,
+		"y": 67.0,
+		"z": 691.0,
+		"note": "???,???,???",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/魔界:醜悪ノ淵叢"
+	},
+	{
+		"name": "マクアの深淵",
+		"level": "BossRushEX",
+		"x": 944.0,
+		"y": 91.0,
+		"z": -500.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/マクアの深淵"
+	},
+	{
+		"name": "呪界",
+		"level": "BossRushEX",
+		"note": "???,???,???",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/呪界"
+	},
+	{
+		"name": "薄暮に輝く亜空間の絶対者",
+		"level": "Despair",
+		"x": 1019.0,
+		"y": 52.0,
+		"z": 1366.0,
+		"note": "???,???,???",
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/薄暮に輝く亜空間の絶対者"
+	},
+	{
+		"name": "セプテメント",
+		"level": "Elemental",
+		"x": -61.0,
+		"y": 185.0,
+		"z": 1203.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/セプテメント"
+	}
+]

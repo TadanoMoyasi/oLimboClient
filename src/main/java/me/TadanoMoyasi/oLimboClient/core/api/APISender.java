@@ -1,7 +1,10 @@
 package me.TadanoMoyasi.oLimboClient.core.api;
 
 import me.TadanoMoyasi.oLimboClient.core.ClientClock;
+import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
+import me.TadanoMoyasi.oLimboClient.utils.CooldownManager;
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -17,7 +20,16 @@ public class APISender {
 			sendPlayerAPIChat();
 		}
 	}
-			
+	
+	@SubscribeEvent
+    public void onJoinWorld(EntityJoinWorldEvent event) {
+		if (!ModCoreData.isInTheLow) return;
+		if (!CooldownManager.checkAndReset("location", 40)) return;
+    	Minecraft mc = Minecraft.getMinecraft();
+    	if (event.entity == null || event.entity != mc.thePlayer) return;
+    	mc.thePlayer.sendChatMessage("/thelow_api location");
+    }
+	
 	public static void sendPlayerAPIChat() {
 		if (mc.thePlayer == null) {
 			nextTick = ClientClock.now() + 3600;
