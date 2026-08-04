@@ -281,6 +281,15 @@ public class oLimboClientConfig extends Vigilant {
 	
 	@Property(
 			type = PropertyType.SWITCH,
+			name = "Wiki",
+			description = "ダンジョン入場時にWikiのリンクをチャットに表示します。",
+			category = "Miscellaneous",
+			subcategory = "Quality of Life"
+			)
+	public boolean Wiki = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
 			name = "Direction",
 			description = "方角を表示します。",
 			category = "Miscellaneous",

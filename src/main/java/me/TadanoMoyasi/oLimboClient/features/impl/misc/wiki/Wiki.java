@@ -27,7 +27,7 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.util.BlockPos;
 
 public class Wiki {
-    private static final List<DungeonData> DUNGEON_LIST = new ArrayList<>();
+	private static final List<DungeonData> DUNGEON_LIST = new ArrayList<>();
 
     private static BlockPos lastPos;
     private static boolean lastInDungeon;
@@ -56,6 +56,7 @@ public class Wiki {
         if (!CooldownManager.checkAndReset("wiki", 40)) return;
         lastPos = new BlockPos(player.posX, player.posY, player.posZ);
         lastInDungeon = ModCoreData.inDungeon;
+        if (!oLimboClientMod.config.Wiki) return;
         Scheduler.setTimeout(() -> {
         	if (mc.thePlayer == null) return;
         	DungeonData data = getNearestWithinRange(lastPos);
