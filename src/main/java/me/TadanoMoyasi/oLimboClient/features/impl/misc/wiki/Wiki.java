@@ -56,14 +56,11 @@ public class Wiki {
         if (!CooldownManager.checkAndReset("wiki", 40)) return;
         lastPos = new BlockPos(player.posX, player.posY, player.posZ);
         lastInDungeon = ModCoreData.inDungeon;
-        System.out.println("aa" + lastInDungeon);
         Scheduler.setTimeout(() -> {
         	if (mc.thePlayer == null) return;
-        	System.out.println("sksks");
         	DungeonData data = getNearestWithinRange(lastPos);
         	if (data == null) return;
         	if (!ModCoreData.inDungeon) return;
-        	System.out.println("sdf");
         	if (data.inDungeon) {
         		if (!lastInDungeon) return;
         	}

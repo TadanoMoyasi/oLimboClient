@@ -19,7 +19,6 @@ public class WorldChange {
 	
 	public void onJoin() {
 		float localDiff = TheLowUtil.getLocalDifficultyValue();
-		System.out.println("loc" + localDiff);
 		if (localDiff == 0.75) {
 			ModCoreData.isInTheLow = true;
 			ModCoreData.inDungeon = true;
