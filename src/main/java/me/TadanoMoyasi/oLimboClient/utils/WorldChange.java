@@ -9,14 +9,12 @@ public class WorldChange {
 	@SubscribeEvent
 	public void onJoinWorld(EntityJoinWorldEvent event) {
 		Minecraft mc = Minecraft.getMinecraft();
-		if (mc.getCurrentServerData() != null) return;
+		if (mc.getCurrentServerData() == null) return;
 		if (!mc.getCurrentServerData().serverIP.toLowerCase().contains("exim")) return;
 		if (event.entity == null || event.entity != mc.thePlayer) return;
-		if (!CooldownManager.checkAndReset("worldChange", 5));
+		
 		onJoin();
-		Scheduler.setTimeout(() -> {
-			onJoin();
-		}, 20);
+		Scheduler.setTimeout(() -> {onJoin();}, 20);
 	}
 
 	public void onJoin() {

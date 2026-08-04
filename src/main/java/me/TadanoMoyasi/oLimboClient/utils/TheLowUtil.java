@@ -71,7 +71,7 @@ public class TheLowUtil {
 	
 	public static boolean isInLobby() {
 		Minecraft mc = Minecraft.getMinecraft();
-		if (mc.getCurrentServerData() !=null) return true;
+		if (mc.getCurrentServerData() == null) return true;
 		if (!mc.getCurrentServerData().serverIP.toLowerCase().contains("exim")) return true;
 		if (mc.theWorld == null) return true;
 		Scoreboard scoreboard = mc.theWorld.getScoreboard();

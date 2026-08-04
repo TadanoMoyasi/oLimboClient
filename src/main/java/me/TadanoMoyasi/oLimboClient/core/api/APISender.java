@@ -24,9 +24,9 @@ public class APISender {
 	@SubscribeEvent
     public void onJoinWorld(EntityJoinWorldEvent event) {
 		if (!ModCoreData.isInTheLow) return;
-		if (!CooldownManager.checkAndReset("location", 40)) return;
     	Minecraft mc = Minecraft.getMinecraft();
     	if (event.entity == null || event.entity != mc.thePlayer) return;
+		if (!CooldownManager.checkAndReset("location", 40)) return;
     	mc.thePlayer.sendChatMessage("/thelow_api location");
     }
 	
