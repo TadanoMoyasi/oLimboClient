@@ -3,6 +3,7 @@ package me.TadanoMoyasi.oLimboClient.core.api;
 import me.TadanoMoyasi.oLimboClient.core.ClientClock;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
 import me.TadanoMoyasi.oLimboClient.utils.CooldownManager;
+import me.TadanoMoyasi.oLimboClient.utils.Scheduler;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -27,7 +28,9 @@ public class APISender {
     	Minecraft mc = Minecraft.getMinecraft();
     	if (event.entity == null || event.entity != mc.thePlayer) return;
 		if (!CooldownManager.checkAndReset("location", 40)) return;
-    	mc.thePlayer.sendChatMessage("/thelow_api location");
+		Scheduler.setTimeout(() -> {
+	    	mc.thePlayer.sendChatMessage("/thelow_api location");
+		  }, 20);
     }
 	
 	public static void sendPlayerAPIChat() {
@@ -41,7 +44,9 @@ public class APISender {
 	  
 	  public static void sendAPISubscribeChat() {
 		  if (mc.thePlayer == null) return;
-		  mc.thePlayer.sendChatMessage("/thelow_api subscribe SKILL_COOLTIME");
+		  Scheduler.setTimeout(() -> {
+			  mc.thePlayer.sendChatMessage("/thelow_api subscribe SKILL_COOLTIME");
+		  }, 20);
 	  }
 	  
 	  public static void start(int tick) {

@@ -182,6 +182,24 @@ public class oLimboClientConfig extends Vigilant {
 	
 	@Property(
 			type = PropertyType.SWITCH,
+			name = "Codexのスキルを表示",
+			description = "使用済みのCodexのスキルを表示します。※ログインして最初はNBTが更新されていないのでこっちも更新されません。",
+			category = "Features",
+			subcategory = "Priest"
+			)
+	public boolean codexSkillDisplay = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
+			name = "Codexのスキルをハイライト",
+			description = "使用していないCodexのスキルをハイライトします。※ログインして最初はNBTが更新されていないのでこっちも更新されません。",
+			category = "Features",
+			subcategory = "Priest"
+			)
+	public boolean codexSkillHighlight = true;
+	
+	@Property(
+			type = PropertyType.SWITCH,
 			name = "Codexの範囲を表示",
 			description = "Codexを持った際にCodexの範囲を表示します。",
 			category = "Features",

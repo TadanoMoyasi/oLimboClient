@@ -11,6 +11,7 @@ import me.TadanoMoyasi.oLimboClient.core.api.APISender;
 import me.TadanoMoyasi.oLimboClient.core.config.oLimboClientConfig;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIHide;
+import me.TadanoMoyasi.oLimboClient.core.debug.DebugGuiName;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugNBTTag;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugPlaySound;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugSoundPlayEvent;
@@ -333,6 +334,13 @@ public class oLimboClientCommand extends CommandBase {
 			case "nbt": {
 				String dev = args[2];
 				DebugNBTTag.sendNBTTag(dev);
+				break;
+			}
+			case "guiname": {
+				try {
+					int dev = Integer.parseInt(args[2]);
+					DebugGuiName.debugName(dev);
+				} catch (NumberFormatException e) {}
 				break;
 			}
 		}

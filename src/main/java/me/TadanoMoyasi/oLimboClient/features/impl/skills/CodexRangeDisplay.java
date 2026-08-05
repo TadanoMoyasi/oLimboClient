@@ -33,7 +33,7 @@ public class CodexRangeDisplay {
 		if (mc.thePlayer == null || mc.thePlayer.getHeldItem() == null) return;
 		
 		if (!mc.thePlayer.getHeldItem().getDisplayName().contains("Codex")) return;
-		
+		CodexSkillManager.onHoldCodex();
 		Entity player = Minecraft.getMinecraft().getRenderViewEntity();
 		if (player == null) return;
         

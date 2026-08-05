@@ -18,16 +18,17 @@ public class ChatListener {
 		if (event.message == null) return;
 		String formatted = event.message.getFormattedText();
 		String unformatted = event.message.getUnformattedText();
-		
+		String cleanText = unformatted.replaceAll("§[0-9a-fk-or]", "").replaceAll("[^\\u4E00-\\u9FFF\\u3040-\\u309F\\u30A0-\\u30FFー。、]", "");
+				
 		if (formatted.startsWith("§r§a倉庫データを取得しました")) {
 			TheLowUtil.setIsInTheLow(true);
 			ModCoreData.kaihouUsed = false;
 		}
-		if (formatted.equals("§r§a正常にプレイヤーデータをロードしました。§r")) {
+		if (cleanText.contains("正常にプレイヤーデータをロードしました。")) {
 			APISender.sendAPISubscribeChat();
 			APISender.start(300);
 		}
-		if (unformatted.contains("Welcome to the EXR-NETWORK")) {
+		if (cleanText.contains("Welcome to the EXR-NETWORK")) {
 			TheLowUtil.setIsInTheLow(false);
 			APISender.end();
 			ModCoreData.kaihouUsed = false;

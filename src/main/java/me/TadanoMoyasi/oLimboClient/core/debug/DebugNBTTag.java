@@ -16,7 +16,10 @@ public class DebugNBTTag {
 		if (stack == null || !stack.hasTagCompound()) return;
 		NBTTagCompound nbt = stack.getTagCompound();
 		if (nbt == null) return;
-		
+		if (str.equals("all")) {
+			TheLowUtil.showInChat(ModCoreData.prefix + nbt);
+			return;
+		}
 		if (!nbt.hasKey(str)) return;
 		TheLowUtil.showInChat(ModCoreData.prefix + nbt.getString(str));
 	}
