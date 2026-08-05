@@ -1,4 +1,4 @@
-package me.TadanoMoyasi.oLimboClient.features.impl.skills;
+package me.TadanoMoyasi.oLimboClient.features.impl.skills.codex;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class CodexSkillManager {
+	private static final Minecraft mc = Minecraft.getMinecraft();
+
 	public static boolean stre = false;
 	public static boolean rege = false;
 	public static boolean regi = false;
-	
-	private static final Minecraft mc = Minecraft.getMinecraft();
 	/*
 	 * wskill188_shintaku_buffs_id
 	 * 0 false false false

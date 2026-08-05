@@ -1,8 +1,6 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills.core;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.presets.PresetManager;
-import me.TadanoMoyasi.oLimboClient.features.impl.skills.CodexCache;
-import me.TadanoMoyasi.oLimboClient.features.impl.skills.CodexRangeDisplay;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.JerezStack;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.PriestManager;
@@ -10,8 +8,13 @@ import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillCoolTimeHandler;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillHandler;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.SkillManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ZangaiArrowCounter;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.codex.CodexCache;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.codex.CodexHighlight;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.codex.CodexRangeDisplay;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.codex.CodexSkillManager;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -39,6 +42,7 @@ public class SkillEvents {
 		PresetManager.onTick();
 		JerezStack.onTick();
 		ZangaiArrowCounter.onTick();
+		CodexSkillManager.onHoldCodex();
 	}
 	
 	@SubscribeEvent
@@ -70,7 +74,11 @@ public class SkillEvents {
 	public void onEntitySpawn(EntityJoinWorldEvent event) {
 		ZangaiArrowCounter.onEntitySpawn(event);
 	}
-
+	
+	@SubscribeEvent
+	public void onRenderGui(GuiScreenEvent.DrawScreenEvent.Post event) {
+		CodexHighlight.onRenderGui();
+	}
 	
 	@SubscribeEvent
 	public void onConnect(FMLNetworkEvent.ClientConnectedToServerEvent event) {

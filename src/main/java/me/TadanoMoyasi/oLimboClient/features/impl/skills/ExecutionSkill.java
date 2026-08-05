@@ -14,6 +14,7 @@ import com.mojang.authlib.GameProfile;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.core.config.ActiveSkillColorConfig;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.codex.CodexCache;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.Codex;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.MagicStoneManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.NBTParsing;

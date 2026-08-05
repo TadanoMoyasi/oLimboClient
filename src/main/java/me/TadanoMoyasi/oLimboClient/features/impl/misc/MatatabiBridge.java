@@ -7,9 +7,9 @@ import java.util.regex.Pattern;
 import com.mojang.authlib.GameProfile;
 
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ActiveSkill;
-import me.TadanoMoyasi.oLimboClient.features.impl.skills.CodexCache;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.ExecutionSkill.Skill;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.codex.CodexCache;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.PriestManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.Codex;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.MagicStoneManager;

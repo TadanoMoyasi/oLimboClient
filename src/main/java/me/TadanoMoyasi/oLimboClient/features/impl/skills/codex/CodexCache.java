@@ -1,4 +1,4 @@
-package me.TadanoMoyasi.oLimboClient.features.impl.skills;
+package me.TadanoMoyasi.oLimboClient.features.impl.skills.codex;
 
 import java.io.File;
 import java.io.FileReader;

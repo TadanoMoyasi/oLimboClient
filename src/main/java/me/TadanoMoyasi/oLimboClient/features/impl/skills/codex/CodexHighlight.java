@@ -1,4 +1,4 @@
-package me.TadanoMoyasi.oLimboClient.features.impl.skills;
+package me.TadanoMoyasi.oLimboClient.features.impl.skills.codex;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.utils.ItemHighlightUtil;
@@ -8,8 +8,6 @@ import net.minecraft.client.gui.inventory.GuiChest;
 import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.event.GuiScreenEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class CodexHighlight {
 	private static final Minecraft mc = Minecraft.getMinecraft();
@@ -41,8 +39,7 @@ public class CodexHighlight {
         return true;
     }
 	
-	@SubscribeEvent
-	public void onRenderGui(GuiScreenEvent.DrawScreenEvent.Post event) {
+	public static void onRenderGui() {
 		if (!oLimboClientMod.config.codexSkillHighlight) return;
 	    if (!isSpecificChestOpen("weapon skill")) return;
 	    if (!isMatchingChest(11, "烈撃の紋章")) return;

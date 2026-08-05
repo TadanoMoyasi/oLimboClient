@@ -2,7 +2,7 @@ package me.TadanoMoyasi.oLimboClient.hud.features;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
-import me.TadanoMoyasi.oLimboClient.features.impl.skills.CodexSkillManager;
+import me.TadanoMoyasi.oLimboClient.features.impl.skills.codex.CodexSkillManager;
 import me.TadanoMoyasi.oLimboClient.hud.core.BaseHUD;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDConfigScreen;
 import net.minecraft.client.renderer.GlStateManager;

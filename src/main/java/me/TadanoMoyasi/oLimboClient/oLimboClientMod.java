@@ -13,7 +13,6 @@ import me.TadanoMoyasi.oLimboClient.core.config.ActiveSkillColorConfig;
 import me.TadanoMoyasi.oLimboClient.core.config.oLimboClientConfig;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIFixer;
 import me.TadanoMoyasi.oLimboClient.features.impl.misc.wiki.Wiki;
-import me.TadanoMoyasi.oLimboClient.features.impl.skills.CodexHighlight;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.Manager.SkillJsonManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.SkillEvents;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDManager;
@@ -58,7 +57,6 @@ public class oLimboClientMod{
     	MinecraftForge.EVENT_BUS.register(new Scheduler());
     	MinecraftForge.EVENT_BUS.register(new CooldownManager());
     	MinecraftForge.EVENT_BUS.register(new WorldChange());
-    	MinecraftForge.EVENT_BUS.register(new CodexHighlight());
     	//MinecraftForge.EVENT_BUS.register(new DebugSoundPlayEvent());
     	//MinecraftForge.EVENT_BUS.register(new DebugAPImessage());
     	//MinecraftForge.EVENT_BUS.register(new DebugEntityArrow());
