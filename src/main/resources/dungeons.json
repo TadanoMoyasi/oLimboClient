@@ -1,5 +1,9 @@
 [
 	{
+		"name": "最終更新",
+		"level": "2026年7月Update"
+	},
+	{
 		"name": "知識の水路",
 		"level": "TheLow豆知識集",
 		"x": -53.0,
@@ -739,6 +743,15 @@
 		"url": "https://wikiwiki.jp/thelow/ラフル農園"
 	},
 	{
+		"name": "RosiAer",
+		"level": "27",
+		"x": 76.0,
+		"y": 114.0,
+		"z": 357.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/RosiAer"
+	},
+	{
 		"name": "図書館の地下",
 		"inDungeon": true,
 		"level": "28",
@@ -1107,13 +1120,13 @@
 		"url": "https://wikiwiki.jp/thelow/君との約束"
 	},
 	{
-		"name": "祈りの洞窟?",
+		"name": "祈りの洞窟",
 		"level": "45",
 		"x": 1292.0,
 		"y": 67.0,
 		"z": 684.0,
 		"radius": 7.0,
-		"url": "https://wikiwiki.jp/thelow/祈りの洞窟?"
+		"url": "https://wikiwiki.jp/thelow/祈りの洞窟"
 	},
 	{
 		"name": "深層の横穴",
@@ -1134,6 +1147,24 @@
 		"note": "海底村パルジャ内",
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/海獣の聖堂"
+	},
+	{
+		"name": "隔域の牢獄",
+		"level": "45",
+		"x": 991.0,
+		"y": 3.0,
+		"z": -1172.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/隔域の牢獄"
+	},
+	{
+		"name": "鏡蒼の洞窟",
+		"level": "45",
+		"x": -804.0,
+		"y": 59.0,
+		"z": -1067.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/鏡蒼の洞窟"
 	},
 	{
 		"name": "Collapse Experiment Site",
@@ -1671,6 +1702,15 @@
 		"url": "https://wikiwiki.jp/thelow/エイドリアン城"
 	},
 	{
+		"name": "蒼の城",
+		"level": "68",
+		"x": -49.0,
+		"y": 184.0,
+		"z": 1340.0,
+		"radius": 7.0,
+		"url": "https://wikiwiki.jp/thelow/蒼の城"
+	},
+	{
 		"name": "蠢く足の響く巣窟",
 		"level": "69",
 		"x": -1271.0,
@@ -1709,7 +1749,11 @@
 	},
 	{
 		"name": "輝煌の残滓(通称: EX)",
+		"inDungeon": true,
 		"level": "72",
+		"x": 2026.0,
+		"y": 42.0,
+		"z": 1743.0,
 		"note": "Lux et Tenebrae内",
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/輝煌の残滓(通称: EX)"
@@ -2081,7 +2125,7 @@
 		"level": "Extra",
 		"x": -906.0,
 		"y": 78.0,
-		"z": -704.0,
+		"z": -690.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/魔界:ヘルスラ"
 	},
@@ -2186,9 +2230,9 @@
 	{
 		"name": "マクアの深淵",
 		"level": "BossRushEX",
-		"x": 944.0,
+		"x": 940.0,
 		"y": 91.0,
-		"z": -500.0,
+		"z": -502.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/マクアの深淵"
 	},
