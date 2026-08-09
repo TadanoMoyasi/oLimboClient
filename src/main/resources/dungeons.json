@@ -48,7 +48,7 @@
 		"x": -3.0,
 		"y": 106.0,
 		"z": -9.0,
-		"radius": 7.0,
+		"radius": 5.0,
 		"url": "https://wikiwiki.jp/thelow/愛の結晶"
 	},
 	{
@@ -66,7 +66,7 @@
 		"x": 12.0,
 		"y": 116.0,
 		"z": 2.0,
-		"radius": 7.0,
+		"radius": 5.0,
 		"url": "https://wikiwiki.jp/thelow/エルドール地下室"
 	},
 	{
@@ -75,7 +75,7 @@
 		"x": -9.0,
 		"y": 111.0,
 		"z": -50.0,
-		"radius": 7.0,
+		"radius": 5.0,
 		"url": "https://wikiwiki.jp/thelow/精錬所の地下"
 	},
 	{
@@ -84,7 +84,7 @@
 		"x": -109.0,
 		"y": 116.0,
 		"z": -26.0,
-		"radius": 7.0,
+		"radius": 5.0,
 		"url": "https://wikiwiki.jp/thelow/サラビサの地下道"
 	},
 	{
@@ -93,7 +93,7 @@
 		"x": -37.0,
 		"y": 114.0,
 		"z": 24.0,
-		"radius": 7.0,
+		"radius": 5.0,
 		"url": "https://wikiwiki.jp/thelow/技能の水路"
 	},
 	{
@@ -196,7 +196,7 @@
 		"y": 119.0,
 		"z": -28.0,
 		"note": "閉鎖中",
-		"radius": 7.0,
+		"radius": 5.0,
 		"url": "https://wikiwiki.jp/thelow/僕の夢"
 	},
 	{
@@ -298,7 +298,7 @@
 		"y": 118.0,
 		"z": -37.0,
 		"note": "(オリビアのクエストを受ける)",
-		"radius": 7.0,
+		"radius": 4.0,
 		"url": "https://wikiwiki.jp/thelow/エルドール教会の地下"
 	},
 	{
@@ -308,7 +308,7 @@
 		"y": 119.0,
 		"z": -3.0,
 		"note": "季節ダンジョン（春に公開)",
-		"radius": 7.0,
+		"radius": 3.0,
 		"url": "https://wikiwiki.jp/thelow/桜ダンジョン"
 	},
 	{
@@ -318,7 +318,7 @@
 		"y": 170.0,
 		"z": 28.0,
 		"note": "季節ダンジョン（冬に公開)",
-		"radius": 7.0,
+		"radius": 3.0,
 		"url": "https://wikiwiki.jp/thelow/XmasCastle"
 	},
 	{
@@ -1741,9 +1741,9 @@
 	{
 		"name": "Vaaasa",
 		"level": "72",
-		"x": 1424.0,
-		"y": 133.0,
-		"z": -1180.0,
+		"x": 1491.0,
+		"y": 126.0,
+		"z": -1237.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/Vaaasa"
 	},
@@ -1777,15 +1777,15 @@
 		"level": "73",
 		"x": -1326.0,
 		"y": 71.0,
-		"z": 475.0,
+		"z": 478.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/アズレーシャ前哨基地"
 	},
 	{
 		"name": "ヒガシニャル二連式実験場",
 		"level": "73+",
-		"x": -689.0,
-		"y": 68.0,
+		"x": -688.0,
+		"y": 53.0,
 		"z": 1204.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/ヒガシニャル二連式実験場"
@@ -1794,24 +1794,24 @@
 		"name": "Xen's Castle",
 		"level": "74++",
 		"x": 857.0,
-		"y": 66.0,
-		"z": -745.0,
+		"y": 63.0,
+		"z": -753.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/Xen's%20Castle"
 	},
 	{
 		"name": "浮世の砂海",
 		"level": "75",
-		"x": -992.0,
+		"x": -994.0,
 		"y": 46.0,
-		"z": -1145.0,
+		"z": -1144.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/浮世の砂海"
 	},
 	{
 		"name": "永久に眠る図書館",
 		"level": "75",
-		"x": -619.0,
+		"x": -616.0,
 		"y": 29.0,
 		"z": -658.0,
 		"radius": 7.0,
@@ -1858,9 +1858,9 @@
 	{
 		"name": "漆灰に沉殿する異界の門",
 		"level": "76+",
-		"x": 482.0,
-		"y": 23.0,
-		"z": -736.0,
+		"x": 477.0,
+		"y": 19.0,
+		"z": -728.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/漆灰に沉殿する異界の門"
 	},
@@ -2077,9 +2077,9 @@
 	{
 		"name": "Desert Templum",
 		"level": "Elite",
-		"x": -1197.0,
-		"y": 121.0,
-		"z": -1165.0,
+		"x": -1190.0,
+		"y": 111.0,
+		"z": -1177.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/Desert%20Templum"
 	},
@@ -2087,7 +2087,7 @@
 		"name": "IceCave",
 		"level": "Elite",
 		"x": 1437.0,
-		"y": 153.0,
+		"y": 151.0,
 		"z": -1222.0,
 		"radius": 7.0,
 		"url": "https://wikiwiki.jp/thelow/IceCave"

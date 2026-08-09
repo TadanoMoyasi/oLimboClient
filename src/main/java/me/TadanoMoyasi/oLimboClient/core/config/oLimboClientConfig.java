@@ -308,6 +308,15 @@ public class oLimboClientConfig extends Vigilant {
 	
 	@Property(
 			type = PropertyType.SWITCH,
+			name = "Wiki高難易度のみ",
+			description = "Wiki表示を高難易度ダンジョンのみにします。",
+			category = "Miscellaneous",
+			subcategory = "Quality of Life"
+			)
+	public boolean WikiHighLevel = false;
+	
+	@Property(
+			type = PropertyType.SWITCH,
 			name = "Direction",
 			description = "方角を表示します。",
 			category = "Miscellaneous",
@@ -335,7 +344,7 @@ public class oLimboClientConfig extends Vigilant {
 	
 	@Property(
 			type = PropertyType.SWITCH,
-			name = "チャットコマンド",
+			name = "チャットコマンド(WIP)",
 			description = "チャットで名前を呼ばれた際に音を鳴らします",
 			category = "Miscellaneous",
 			subcategory = "Chat Command"

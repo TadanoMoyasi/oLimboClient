@@ -6,6 +6,7 @@ buildscript {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
@@ -16,6 +17,11 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 version = "1.1"
 group= "me.TadanoMoyasi.oLimboClient"
 archivesBaseName = "oLimboClient"
+
+configurations {
+    include
+    implementation.extendsFrom(include)
+}
 
 compileJava {
     sourceCompatibility = '1.8'
@@ -42,19 +48,34 @@ dependencies {
     compile 'net.java.dev.jna:jna:5.13.0'
     compile 'net.java.dev.jna:jna-platform:5.13.0'
     provided files("libs/Essential (forge_1.8.9).jar")
+    include 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10'
+    include 'gg.essential:vigilance-1.8.9-forge:299'
+    include 'gg.essential:elementa-1.8.9-forge:657'
+    include('com.electronwill.night-config:core:3.4.0') { force = true }
+    include('com.electronwill.night-config:toml:3.4.0') { force = true }
 }
 
-processResources
-{
+jar {
+	from {
+		configurations.include.collect { it.isDirectory() ? it : zipTree(it) }
+	} {
+		exclude "module-info.class"
+		exclude "META-INF/versions/**"
+		exclude "META-INF/*.SF"
+		exclude "META-INF/*.DSA"
+		exclude "META-INF/*.RSA"
+	}
+}
+
+processResources {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+    
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }

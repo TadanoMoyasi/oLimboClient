@@ -28,6 +28,7 @@ import net.minecraft.util.BlockPos;
 
 public class Wiki {
 	private static final List<DungeonData> DUNGEON_LIST = new ArrayList<>();
+	private static final List<DungeonData> LOWLEVEL_DUNGEON_LIST = new ArrayList<>();
 
     private static BlockPos lastPos;
     private static boolean lastInDungeon;
@@ -65,6 +66,7 @@ public class Wiki {
         	if (data.inDungeon) {
         		if (!lastInDungeon) return;
         	}
+        	if (oLimboClientMod.config.WikiHighLevel && LOWLEVEL_DUNGEON_LIST.contains(data)) return;
         	TheLowUtil.sendClickableUrl(ModCoreData.prefix + data.name +"のWiki: " + data.url, data.url);
          }, 60);
     }
@@ -104,9 +106,19 @@ public class Wiki {
             // JSONの構文エラー
             System.err.println("[oLimboClient] dungeons.json の書き方が間違っています。 JSONの構文を確認してください。");
             e.printStackTrace();
-            
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        for (DungeonData data : DUNGEON_LIST) {
+        	String clearLevel = data.level.replace("+", "");
+        	if (clearLevel == null || clearLevel.isEmpty()) continue;
+        	try {
+        		int level = Integer.parseInt(clearLevel.trim());
+        		if (level >= 66) continue;
+        	} catch (NumberFormatException e) {
+        		continue;
+        	}
+        	LOWLEVEL_DUNGEON_LIST.add(data);
         }
     }
     
