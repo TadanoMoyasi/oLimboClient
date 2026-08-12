@@ -4,6 +4,7 @@ import java.io.File;
 
 import com.google.gson.Gson;
 
+import me.TadanoMoyasi.oLimboClient.command.UpdateCommand;
 import me.TadanoMoyasi.oLimboClient.command.oLimboClientCommand;
 import me.TadanoMoyasi.oLimboClient.core.ClientClock;
 import me.TadanoMoyasi.oLimboClient.core.api.APISender;
@@ -11,7 +12,9 @@ import me.TadanoMoyasi.oLimboClient.core.api.ChatListener;
 import me.TadanoMoyasi.oLimboClient.core.api.NetworkInhibitor;
 import me.TadanoMoyasi.oLimboClient.core.config.ActiveSkillColorConfig;
 import me.TadanoMoyasi.oLimboClient.core.config.oLimboClientConfig;
+import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIFixer;
+import me.TadanoMoyasi.oLimboClient.core.update.UpdateChecker;
 import me.TadanoMoyasi.oLimboClient.features.impl.misc.wiki.Wiki;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.Manager.SkillJsonManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.SkillEvents;
@@ -38,6 +41,7 @@ public class oLimboClientMod{
     
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+    	ModCoreData.jarFile = event.getSourceFile();
         config.preload();
         activeSkillConfig.preload();
         File configDir = new File(event.getModConfigurationDirectory(), "olimboclient");
@@ -49,6 +53,7 @@ public class oLimboClientMod{
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         ClientCommandHandler.instance.registerCommand(new oLimboClientCommand());
+        ClientCommandHandler.instance.registerCommand(new UpdateCommand());
     	MinecraftForge.EVENT_BUS.register(new ChatListener());
     	MinecraftForge.EVENT_BUS.register(new SkillEvents());
     	MinecraftForge.EVENT_BUS.register(new DebugAPIFixer());
@@ -57,6 +62,7 @@ public class oLimboClientMod{
     	MinecraftForge.EVENT_BUS.register(new Scheduler());
     	MinecraftForge.EVENT_BUS.register(new CooldownManager());
     	MinecraftForge.EVENT_BUS.register(new WorldChange());
+    	MinecraftForge.EVENT_BUS.register(new UpdateChecker());
     	//MinecraftForge.EVENT_BUS.register(new DebugSoundPlayEvent());
     	//MinecraftForge.EVENT_BUS.register(new DebugAPImessage());
     	//MinecraftForge.EVENT_BUS.register(new DebugEntityArrow());
