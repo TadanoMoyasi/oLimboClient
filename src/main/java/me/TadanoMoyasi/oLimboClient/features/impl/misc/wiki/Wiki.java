@@ -1,25 +1,16 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.misc.wiki;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.Reader;
 import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.io.IOUtils;
 
 import com.google.gson.reflect.TypeToken;
 
 import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
 import me.TadanoMoyasi.oLimboClient.utils.CooldownManager;
+import me.TadanoMoyasi.oLimboClient.utils.JsonUtil;
 import me.TadanoMoyasi.oLimboClient.utils.Scheduler;
 import me.TadanoMoyasi.oLimboClient.utils.TheLowUtil;
 import net.minecraft.client.Minecraft;
@@ -32,6 +23,27 @@ public class Wiki {
 
     private static BlockPos lastPos;
     private static boolean lastInDungeon;
+    
+	public static void init(File configDir) {
+		File configFile = new File(configDir, "dungeons.json");
+		Type type = new TypeToken<ArrayList<DungeonData>>() {}.getType();
+		ArrayList<DungeonData> loadedData = JsonUtil.loadOrCopyDefault(configFile, "/dungeons.json", type);
+		if (loadedData != null) {
+			DUNGEON_LIST.addAll(loadedData);
+		}
+        for (DungeonData data : DUNGEON_LIST) {
+            if (data.level == null) continue;
+            String clearLevel = data.level.replace("+", "");
+            if (clearLevel.isEmpty()) continue;
+            try {
+                int level = Integer.parseInt(clearLevel.trim());
+                if (level >= 66) continue;
+            } catch (NumberFormatException e) {
+                continue;
+            }
+            LOWLEVEL_DUNGEON_LIST.add(data);
+        }
+    }
 
     /*@SubscribeEvent
     public void onWorldUnload(WorldEvent.Unload event) {
@@ -71,7 +83,7 @@ public class Wiki {
          }, 60);
     }
     
-    public static void init(File configDir) {
+    /*public static void init(File configDir) {
         if (!configDir.exists()) {
             configDir.mkdirs();
         }
@@ -91,9 +103,9 @@ public class Wiki {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    private static void loadDungeonsFromFile(File file) {
+    /*private static void loadDungeonsFromFile(File file) {
     	DUNGEON_LIST.clear();
         try (
         	Reader reader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8)) {
@@ -120,7 +132,7 @@ public class Wiki {
         	}
         	LOWLEVEL_DUNGEON_LIST.add(data);
         }
-    }
+    }*/
     
     public static DungeonData getNearestWithinRange(BlockPos playerPos) {
     	if (DUNGEON_LIST.isEmpty() || playerPos == null) return null;

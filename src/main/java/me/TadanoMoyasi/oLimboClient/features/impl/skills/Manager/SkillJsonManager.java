@@ -1,30 +1,31 @@
 package me.TadanoMoyasi.oLimboClient.features.impl.skills.Manager;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.Reader;
 import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
-import java.util.Map;
-
-import org.apache.commons.io.IOUtils;
+import java.util.HashMap;
 
 import com.google.gson.reflect.TypeToken;
 
-import me.TadanoMoyasi.oLimboClient.oLimboClientMod;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.Data.SkillData;
+import me.TadanoMoyasi.oLimboClient.utils.JsonUtil;
 
 public class SkillJsonManager {
-    public static void init(File configDir) {
+	public static void init(File configDir) {
+		SkillData.clearMap();
+		File configFile = new File(configDir, "skills.json");
+		Type type = new TypeToken<HashMap<String, String>>() {}.getType();
+		HashMap<String, String> loadedData = JsonUtil.loadOrCopyDefault(configFile, "/skills.json", type);
+		if (loadedData != null) {
+			SkillData.putAll(loadedData);
+		}
+    }
+	
+    /*public static void init(File configDir) {
         if (!configDir.exists()) {
             configDir.mkdirs();
         }
         File configFile = new File(configDir, "skills.json");
+        SkillData.clearMap();
         if (!configFile.exists()) {
             copyDefaultJson(configFile);
         }
@@ -57,5 +58,5 @@ public class SkillJsonManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

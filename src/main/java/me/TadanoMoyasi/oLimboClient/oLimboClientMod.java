@@ -20,6 +20,7 @@ import me.TadanoMoyasi.oLimboClient.features.impl.skills.Manager.SkillJsonManage
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.core.SkillEvents;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDManager;
 import me.TadanoMoyasi.oLimboClient.utils.CooldownManager;
+import me.TadanoMoyasi.oLimboClient.utils.CustomItemName;
 import me.TadanoMoyasi.oLimboClient.utils.Scheduler;
 import me.TadanoMoyasi.oLimboClient.utils.WorldChange;
 import net.minecraftforge.client.ClientCommandHandler;
@@ -47,7 +48,12 @@ public class oLimboClientMod{
         File configDir = new File(event.getModConfigurationDirectory(), "olimboclient");
         SkillJsonManager.init(configDir);
         Wiki.init(configDir);
+        CustomItemName.init(configDir);
         MinecraftForge.EVENT_BUS.register(new NetworkInhibitor());
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+	        System.out.println(ModCoreData.ufprefix + "ゲームが終了したためデータを保存します...");
+	        CustomItemName.end(configDir);
+	    }));
     }
     
     @Mod.EventHandler
@@ -63,6 +69,7 @@ public class oLimboClientMod{
     	MinecraftForge.EVENT_BUS.register(new CooldownManager());
     	MinecraftForge.EVENT_BUS.register(new WorldChange());
     	MinecraftForge.EVENT_BUS.register(new UpdateChecker());
+    	MinecraftForge.EVENT_BUS.register(new CustomItemName());
     	//MinecraftForge.EVENT_BUS.register(new DebugSoundPlayEvent());
     	//MinecraftForge.EVENT_BUS.register(new DebugAPImessage());
     	//MinecraftForge.EVENT_BUS.register(new DebugEntityArrow());

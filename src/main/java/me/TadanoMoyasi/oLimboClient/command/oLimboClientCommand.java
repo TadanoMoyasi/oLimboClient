@@ -20,6 +20,7 @@ import me.TadanoMoyasi.oLimboClient.features.impl.skills.PriestManager;
 import me.TadanoMoyasi.oLimboClient.features.impl.skills.codex.CodexCache;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDConfigScreen;
 import me.TadanoMoyasi.oLimboClient.hud.core.HUDManager;
+import me.TadanoMoyasi.oLimboClient.utils.CustomItemName;
 import me.TadanoMoyasi.oLimboClient.utils.JobChanger;
 import me.TadanoMoyasi.oLimboClient.utils.OthersJobManager;
 import me.TadanoMoyasi.oLimboClient.utils.UUIDFetcher;
@@ -43,7 +44,7 @@ public class oLimboClientCommand extends CommandBase {
 	
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "/olimboclient <config/hud/help/codex/preset>";
+		return "/olimboclient <config/hud/help/codex/preset/cin>";
 	}
 	
 	@Override
@@ -162,6 +163,13 @@ public class oLimboClientCommand extends CommandBase {
 			presetCommands(sender, args);
 		}
 			break;
+		case "cin":
+		case "changeitemname": {
+			String name = args[1];
+			Minecraft mc = Minecraft.getMinecraft();
+			CustomItemName.addChangeItems(mc.thePlayer.getHeldItem(), name);
+			break;
+		}
 		case "resendapi":
 			APISender.sendPlayerAPIChat();
 			APISender.sendPlayerAPIChat();
@@ -178,6 +186,7 @@ public class oLimboClientCommand extends CommandBase {
 			        "§3/lc codex <MCID> §7- Codexのキャッシュされている秒数を表示します。",
 			        "§3/lc codex <MCID> <Codexの個体値> §7- Codexのキャッシュされている値を変更します。",
 			        "§3/lc preset help§7- プリセットの説明を表示します。",
+			        "§3/lc cin <名前>§7- 手に持っている武器のツールチップに表示される名前を変更します。",
 			        "§3/lc resendapi§7- APIをもう一度送信します。"
 			);
 			break;

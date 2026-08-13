@@ -127,9 +127,8 @@ public class HUDManager {
 				if (obj.has("scale")) hud.scale = obj.get("scale").getAsFloat();
 				if (obj.has("enabled")) hud.enabled = obj.get("enabled").getAsBoolean();
 			}
-			System.out.println("HUD JSON at loaded");
 		}
-		
+		System.out.println("HUD JSON at loaded");
 		/*
 		 何列も何列もコメント邪魔くせえなオイ誰やねん残してるやつ。俺か。 
 		 String[] entries = data.split(";");
