@@ -74,5 +74,6 @@ public class oLimboClientMod{
     	//MinecraftForge.EVENT_BUS.register(new DebugAPImessage());
     	//MinecraftForge.EVENT_BUS.register(new DebugEntityArrow());
         HUDManager.init();
+        //PlayerOutlineRender.init();
     }
 }

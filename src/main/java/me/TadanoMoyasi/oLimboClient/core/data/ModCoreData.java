@@ -14,4 +14,8 @@ public class ModCoreData {
 	public static boolean kaihouUsed = false;
 	
 	public static boolean inDungeon = false;
+	
+	public static boolean APIChatSendedLocation = false;
+	
+	public static boolean APIChatSendedSkill = false;
 }

@@ -11,6 +11,7 @@ import me.TadanoMoyasi.oLimboClient.core.api.APISender;
 import me.TadanoMoyasi.oLimboClient.core.config.oLimboClientConfig;
 import me.TadanoMoyasi.oLimboClient.core.data.ModCoreData;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugAPIHide;
+import me.TadanoMoyasi.oLimboClient.core.debug.DebugChat;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugGuiName;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugNBTTag;
 import me.TadanoMoyasi.oLimboClient.core.debug.DebugPlaySound;
@@ -172,7 +173,7 @@ public class oLimboClientCommand extends CommandBase {
 		}
 		case "resendapi":
 			APISender.sendPlayerAPIChat();
-			APISender.sendPlayerAPIChat();
+			APISender.sendAPISubscribeChat();
 			send(sender,ModCoreData.prefix + "APIを再送信しました。");
 			break;
 		case "help":
@@ -308,14 +309,20 @@ public class oLimboClientCommand extends CommandBase {
 	private void DebugCommands(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
 			send(sender, "sound boolean"
+					+ "chat"
 					+ "api boolean"
 					+ "playsound string float"
 					+ "job string"
-					+ "nbt string");
+					+ "nbt string"
+					+ "guiname int");
 			return;
 		}
 		String sub = args[1];
 		switch(sub.toLowerCase()) {
+			case "chat": {
+				DebugChat.ToggleDebugChat();
+				break;
+			}
 			case "sound":
 			case"soundevent": {
 				boolean deb = Boolean.parseBoolean(args[2]);

@@ -17,8 +17,10 @@ public class CustomItemName {
 	
 	@SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent event) {
+		if (event == null || event.itemStack == null || event.toolTip == null) return;
         ItemStack stack = event.itemStack;
         if (stack == null || stack.getItem() == null) return;
+        if (!event.itemStack.hasTagCompound()) return;
         NBTTagCompound tag = stack.getTagCompound();
 		if (!tag.hasKey("thelow_item_damage") || !tag.hasKey("display")) return;
 		double attack = tag.getDouble("thelow_item_damage");

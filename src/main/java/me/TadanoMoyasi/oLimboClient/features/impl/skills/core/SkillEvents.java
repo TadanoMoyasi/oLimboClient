@@ -68,6 +68,7 @@ public class SkillEvents {
 	@SubscribeEvent
     public void onRenderWorld(RenderWorldLastEvent event) {
 		CodexRangeDisplay.onRenderWorld(event);
+		//PlayerOutlineRender.onRenderWorld(event);
     }
 	
 	@SubscribeEvent
@@ -90,4 +91,19 @@ public class SkillEvents {
 	public void onDisconnect(FMLNetworkEvent.ClientDisconnectionFromServerEvent event) {
 		CodexCache.saveToFile();
 	}
+	
+	/*@SubscribeEvent
+	public void onRenderPlayerPre(RenderPlayerEvent.Pre event) {
+		PlayerOutlineRender.onRenderPlayerPre(event);
+	}
+	
+	@SubscribeEvent
+	public void onRenderPlayerPost(RenderPlayerEvent.Post event) {
+		PlayerOutlineRender.onRenderPlayerPost(event);
+	}*/
+	
+	/*@SubscribeEvent
+	public void onRenderWorldLast(RenderWorldLastEvent event) {
+		PlayerOutlineRender.onRenderWorldLast(event);
+	}*/
 }

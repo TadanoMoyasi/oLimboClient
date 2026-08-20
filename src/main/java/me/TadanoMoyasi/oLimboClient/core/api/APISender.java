@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 public class APISender {
 	private static final Minecraft mc = Minecraft.getMinecraft();
 	private static int nextTick = -1;
-	
+
 	@SubscribeEvent
 	public void onTick(TickEvent.ClientTickEvent e) {
 		if (e.phase != TickEvent.Phase.END) return;
@@ -25,10 +25,12 @@ public class APISender {
 	@SubscribeEvent
     public void onJoinWorld(EntityJoinWorldEvent event) {
 		if (!ModCoreData.isInTheLow) return;
+		if (ModCoreData.APIChatSendedLocation) return;
     	Minecraft mc = Minecraft.getMinecraft();
     	if (event.entity == null || event.entity != mc.thePlayer) return;
 		if (!CooldownManager.checkAndReset("location", 40)) return;
 		Scheduler.setTimeout(() -> {
+			if (ModCoreData.APIChatSendedLocation) return;
 	    	mc.thePlayer.sendChatMessage("/thelow_api location");
 		  }, 20);
     }
@@ -41,19 +43,32 @@ public class APISender {
 		 mc.thePlayer.sendChatMessage("/thelow_api player");
 		 nextTick = ClientClock.now() + 3600;
 	}
+	
+	public static void sendAPISubscribeChat() {
+	    sendAPISubscribeChat(0);
+	}
+	 
+	public static void sendAPISubscribeChat(int retryCount) {
+		if (mc.thePlayer == null) {
+			if (retryCount > 10) return;
+			Scheduler.setTimeout(() -> {
+				sendAPISubscribeChat(retryCount + 1);
+			}, 5);
+			return;
+		}
+		if (ModCoreData.APIChatSendedSkill) return;
+		Scheduler.setTimeout(() -> {
+			if (ModCoreData.APIChatSendedSkill) return;
+			if (mc.thePlayer == null) return;
+			mc.thePlayer.sendChatMessage("/thelow_api subscribe SKILL_COOLTIME");
+		}, 20);
+	}
 	  
-	  public static void sendAPISubscribeChat() {
-		  if (mc.thePlayer == null) return;
-		  Scheduler.setTimeout(() -> {
-			  mc.thePlayer.sendChatMessage("/thelow_api subscribe SKILL_COOLTIME");
-		  }, 20);
-	  }
-	  
-	  public static void start(int tick) {
-		  nextTick = ClientClock.now() + tick;
-	  }
-	  
-	  public static void end() {
-		  nextTick = -1;
-	  }
+	public static void start(int tick) {
+		nextTick = ClientClock.now() + tick;
+	}
+
+	public static void end() {
+		nextTick = -1;
+	}
 }

@@ -58,12 +58,7 @@ public class ChatListener {
 		if (unformatted.contains("へ古代の刻印を付けた")) {
 			ZangaiArrowCounter.onZangai();
 		}
-		/*if (unformatted.startsWith("$api")) {
-			String[] split = unformatted.split(" ", 2);
-			if (split.length == 2) {
-				APIListener.distribute(split[1]);
-			}
-		}*/
+		
 	}
 	
 	@SubscribeEvent(priority = EventPriority.LOWEST)
